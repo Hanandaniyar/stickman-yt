@@ -1,0 +1,107 @@
+import pytest
+
+from sty.episode import (
+    approve, create_episode, episode_dir, load_status, record_review,
+    request, revision_rounds, set_stage, validate_narration,
+)
+from tests.conftest import write_scenes
+
+
+def test_numbering(tmp_path):
+    a = create_episode("a", tmp_path)
+    b = create_episode("b", tmp_path)
+    assert a.name.startswith("001-") and b.name.startswith("002-")
+
+
+def test_slug_normalized(tmp_path):
+    assert create_episode("Why Inflation?!", tmp_path).name == "001-why-inflation"
+
+
+def test_new_episode_status(ep):
+    st = load_status(ep)
+    assert st["stage"] == "topics" and st["request"] is None
+    assert (ep / "reviews").is_dir() and (ep / "scenes").is_dir()
+
+
+def test_review_rounds(ep):
+    assert record_review(ep, "script", "REVISI", "hook lambat") == 1
+    assert record_review(ep, "script", "REVISI", "fakta salah") == 2
+    assert (ep / "reviews" / "script-2.md").read_text().startswith("# script")
+    assert revision_rounds(ep, "script") == 2
+    assert revision_rounds(ep, "topics") == 0
+
+
+def test_invalid_verdict(ep):
+    with pytest.raises(ValueError):
+        record_review(ep, "script", "OK", "x")
+
+
+def test_invalid_stage(ep):
+    with pytest.raises(ValueError):
+        set_stage(ep, "publish")
+
+
+def test_resume_reads_last_stage(ep):
+    set_stage(ep, "scenes")
+    assert load_status(ep)["stage"] == "scenes"
+
+
+def test_episode_ref_lookup(ep, tmp_path):
+    assert episode_dir("1", tmp_path) == ep
+    assert episode_dir("001", tmp_path) == ep
+    assert episode_dir(ep.name, tmp_path) == ep
+    with pytest.raises(FileNotFoundError):
+        episode_dir("7", tmp_path)
+
+
+def test_validate_narration_ok(ep):
+    write_scenes(ep, ["s01", "s02"])
+    assert validate_narration(ep) == []
+
+
+def test_request_render_requires_valid_narration(ep):
+    write_scenes(ep, ["s01", "s02", "s03"])
+    (ep / "scenes" / "s03.html").unlink()
+    with pytest.raises(ValueError, match="s03"):
+        request(ep, "render")
+    assert load_status(ep)["request"] is None
+
+
+def test_validate_catches_bad_ids_and_text(ep):
+    write_scenes(ep, ["s01", "s01", "s03"])
+    errs = "\n".join(validate_narration(ep))
+    assert "duplikat" in errs and "urutan" in errs
+
+
+def test_validate_scene_id_mismatch(ep):
+    write_scenes(ep, ["s01"])
+    (ep / "scenes" / "s01.html").write_text('<section data-scene="s09"></section>')
+    assert any("s01" in e and "data-scene" in e for e in validate_narration(ep))
+
+
+def test_validate_missing_music(ep):
+    write_scenes(ep, ["s01"], music="assets/music/nope.mp3")
+    assert any("musik" in e for e in validate_narration(ep))
+
+
+def test_request_render_ok(ep):
+    write_scenes(ep, ["s01"])
+    request(ep, "render")
+    assert load_status(ep)["request"] == "render"
+
+
+def test_request_upload_requires_final_approval(ep):
+    with pytest.raises(PermissionError, match="butuh persetujuan akhir"):
+        request(ep, "upload")
+
+
+def test_approve_final_sets_stage(ep):
+    approve(ep, "final")
+    st = load_status(ep)
+    assert st["approvals"]["final"] is True and st["stage"] == "approved"
+
+
+def test_request_upload_requires_release(ep):
+    approve(ep, "final")
+    with pytest.raises(PermissionError, match="render"):
+        request(ep, "upload")
