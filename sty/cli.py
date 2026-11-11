@@ -2,7 +2,7 @@
 import argparse
 import sys
 
-MODULES: list[str] = ["notify", "episode", "ci", "voice"]
+MODULES: list[str] = ["notify", "episode", "ci", "voice", "build", "render"]
 
 
 def build_parser() -> argparse.ArgumentParser:
