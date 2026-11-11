@@ -1,0 +1,13 @@
+name: Telegram setup
+on:
+  workflow_dispatch:
+jobs:
+  find-chat-id:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Cari chat ID
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: uv run sty find-chat-id
