@@ -6,7 +6,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 AGENTS = {
     "udin": {"WebSearch", "WebFetch", "Read", "Write", "Bash"},
-    "udan": {"Read", "Write", "WebSearch", "WebFetch"},
+    "udan": {"Read", "Write", "WebSearch", "WebFetch", "Bash"},
     "udun": {"Read", "Write", "Edit", "Bash"},
     "udon": {"Read", "Write", "Bash"},
 }

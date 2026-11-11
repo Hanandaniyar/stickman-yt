@@ -42,9 +42,12 @@ def test_scenes_placed_at_timing_start(ep):
     assert 'id="narration"' in html
 
 
-def test_music_optional(ep, tmp_path):
+def test_music_optional(ep, tmp_path, monkeypatch):
+    from sty import build as b
+
+    monkeypatch.setattr(b, "_media_duration", lambda p: 120.0)
     html = build_composition(ep).read_text()
-    assert 'id="music"' not in html
+    assert 'id="music' not in html
     music = tmp_path / "assets" / "music"
     music.mkdir(parents=True)
     (music / "calm.mp3").write_bytes(b"ID3")
@@ -52,7 +55,7 @@ def test_music_optional(ep, tmp_path):
     data["music"] = "assets/music/calm.mp3"
     (ep / "narration.json").write_text(json.dumps(data))
     html = build_composition(ep).read_text()
-    assert re.search(r'<audio[^>]*id="music"[^>]*data-volume="0.08"', html)
+    assert re.search(r'<audio[^>]*id="music-0"[^>]*data-volume="0.08"', html)
     assert (ep / "build" / "assets" / "music.mp3").exists()
 
 
@@ -89,3 +92,30 @@ def test_timing_scene_list_must_match_narration(ep):
     _timing(ep, [("s01", 0.0, 1.0)])
     with pytest.raises(ValueError, match="sty voice --force"):
         build_composition(ep)
+
+
+def test_caption_groups_never_overlap(ep):
+    words = [{"w": f"w{i}", "start": 0.3 * i, "end": 0.3 * i + 0.25} for i in range(12)]
+    t = json.loads((ep / "timing.json").read_text())
+    t["words"] = words
+    (ep / "timing.json").write_text(json.dumps(t))
+    build_composition(ep)
+    cap = (ep / "build" / "compositions" / "captions.html").read_text()
+    spans = [(float(s), float(d)) for s, d in re.findall(r'class="clip cap" data-start="([\d.]+)" data-duration="([\d.]+)"', cap)]
+    for (s1, d1), (s2, _) in zip(spans, spans[1:]):
+        assert s1 + d1 <= s2 + 1e-9
+
+
+def test_music_loops_to_cover_video(ep, tmp_path, monkeypatch):
+    from sty import build as b
+
+    music = tmp_path / "assets" / "music"
+    music.mkdir(parents=True)
+    (music / "calm.mp3").write_bytes(b"ID3")
+    data = json.loads((ep / "narration.json").read_text())
+    data["music"] = "assets/music/calm.mp3"
+    (ep / "narration.json").write_text(json.dumps(data))
+    monkeypatch.setattr(b, "_media_duration", lambda p: 1.5)  # video total is 4.0 s
+    html = build_composition(ep).read_text()
+    clips = re.findall(r'<audio[^>]*id="music-(\d+)"[^>]*data-start="([\d.]+)"[^>]*data-duration="([\d.]+)"', html)
+    assert [(int(i), float(s), float(d)) for i, s, d in clips] == [(0, 0.0, 1.5), (1, 1.5, 1.5), (2, 3.0, 1.0)]

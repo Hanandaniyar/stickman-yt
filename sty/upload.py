@@ -57,7 +57,10 @@ def upload_episode(ep: Path, video: Path, service=None, now: datetime | None = N
     from googleapiclient.http import MediaFileUpload
 
     ep = Path(ep)
-    if not load_status(ep)["approvals"]["final"]:
+    st = load_status(ep)
+    if st.get("youtube_id"):
+        raise PermissionError(f"episode ini sudah diunggah (youtube_id {st['youtube_id']}); upload ganda ditolak")
+    if not st["approvals"]["final"]:
         raise PermissionError("upload butuh persetujuan akhir pemilik")
     meta = json.loads((ep / "04-metadata.json").read_text())
     if len(meta["title"]) > 100:
@@ -85,13 +88,15 @@ def upload_episode(ep: Path, video: Path, service=None, now: datetime | None = N
         raise RuntimeError(f"refresh token kedaluwarsa atau dicabut: buat ulang mengikuti {GUIDE}") from None
 
     vid = response["id"]
+    _update(ep, youtube_id=vid)  # simpan segera: penjaga upload ganda
     thumb = ep / "thumbnail.png"
     if thumb.exists():
         try:
             service.thumbnails().set(videoId=vid, media_body=MediaFileUpload(str(thumb), mimetype="image/png")).execute()
         except HttpError as e:
             print(f"peringatan: thumbnail gagal dipasang (HTTP {e.resp.status}); verifikasi telepon channel dulu ({GUIDE})")
-    _update(ep, youtube_id=vid)
+        except Exception as e:
+            print(f"peringatan: thumbnail gagal dipasang ({type(e).__name__}); video tetap terunggah")
     set_stage(ep, "done")
     privacy = body["status"]["privacyStatus"] + (f", tayang {body['status']['publishAt']}" if "publishAt" in body["status"] else "")
     notify(f'📤 Udon: "{meta["title"]}" terunggah ({privacy}) https://youtu.be/{vid}')

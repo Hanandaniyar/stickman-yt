@@ -117,3 +117,19 @@ def test_request_upload_requires_release(ep):
     approve(ep, "final")
     with pytest.raises(PermissionError, match="render"):
         request(ep, "upload")
+
+
+def test_request_render_clears_final_approval(ep):
+    write_scenes(ep, ["s01"])
+    approve(ep, "final")
+    request(ep, "render")
+    assert load_status(ep)["approvals"]["final"] is False
+
+
+def test_request_upload_refuses_when_already_uploaded(ep):
+    from sty.episode import _update
+
+    approve(ep, "final")
+    _update(ep, release_url="https://gh/rel", youtube_id="abc123")
+    with pytest.raises(PermissionError, match="sudah diunggah"):
+        request(ep, "upload")

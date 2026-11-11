@@ -23,5 +23,5 @@ Siapkan keduanya **sebelum** render, supaya GitHub Actions ikut membuat `thumbna
 Jalankan `uv run sty request <ep> upload` **hanya setelah persetujuan akhir pemilik** dan hanya jika Handur memerintahkannya. Perintah ini sendiri menolak jika persetujuan belum tercatat.
 
 ## Selesai
-Commit dan push ke `main` dengan pesan yang memuat baris:
+Commit dan push (ke `main`, atau ke branch `claude/…` milik sesi cloud) dengan pesan yang memuat baris:
 `notify: 📤 Udon: <ringkasan satu kalimat>`

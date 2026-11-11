@@ -16,6 +16,12 @@ def _num(x: float) -> str:
     return f"{round(x, 3):g}" if x != int(x) else f"{x:.1f}"
 
 
+def _media_duration(path: Path) -> float:
+    import soundfile as sf
+
+    return float(sf.info(str(path)).duration)
+
+
 def caption_groups(words: list[dict], max_words: int = 5, pause: float = 0.15) -> list[list[dict]]:
     groups, cur = [], []
     for i, w in enumerate(words):
@@ -31,9 +37,13 @@ def caption_groups(words: list[dict], max_words: int = 5, pause: float = 0.15) -
 
 def _captions_html(words: list[dict], total: float) -> str:
     rows, tweens = [], []
-    for g, group in enumerate(caption_groups(words)):
-        start = max(0.1, group[0]["start"] - 0.05)
+    groups = caption_groups(words)
+    starts = [max(0.1, grp[0]["start"] - 0.05) for grp in groups]
+    for g, group in enumerate(groups):
+        start = starts[g]
         end = min(total, group[-1]["end"] + 0.15)
+        if g + 1 < len(groups):
+            end = min(end, starts[g + 1])  # satu baris subtitle saja di layar
         spans = " ".join(f'<span id="cap-{g}-{i}">{html.escape(w["w"])}</span>' for i, w in enumerate(group))
         rows.append(
             f'    <div id="cap-{g}" class="clip cap" data-start="{_num(start)}" data-duration="{_num(end - start)}">{spans}</div>'
@@ -108,10 +118,19 @@ def build_composition(ep: Path) -> Path:
         src = PROJECT_ROOT / music if not (ep.parent.parent / music).exists() else ep.parent.parent / music
         dest = build / "assets" / f"music{src.suffix}"
         shutil.copy(src, dest)
-        audio.append(
-            f'      <audio id="music" class="clip" src="assets/{dest.name}" data-start="0" data-duration="{_num(total)}"'
-            f' data-track-index="4" data-volume="{cfg["music_volume"]}" data-fade-in="1" data-fade-out="2"></audio>'
-        )
+        length = _media_duration(dest)
+        if length <= 0.5:
+            raise ValueError(f"musik '{music}' terlalu pendek atau tidak bisa dibaca")
+        t, i = 0.0, 0
+        while t < total - 1e-6:  # ulangi lagu sampai menutupi seluruh video
+            dur = min(length, total - t)
+            fades = ' data-fade-in="1"' if i == 0 else ""
+            fades += ' data-fade-out="2"' if t + dur >= total - 1e-6 else ""
+            audio.append(
+                f'      <audio id="music-{i}" class="clip" src="assets/{dest.name}" data-start="{_num(t)}"'
+                f' data-duration="{_num(dur)}" data-track-index="4" data-volume="{cfg["music_volume"]}"{fades}></audio>'
+            )
+            t, i = round(t + dur, 3), i + 1
 
     index = f"""<!doctype html>
 <html lang="en">

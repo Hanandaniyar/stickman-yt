@@ -89,6 +89,7 @@ def record_review(ep: Path, stage: str, verdict: str, notes_md: str) -> int:
     st = load_status(ep)
     rnd = sum(1 for r in st["reviews"] if r["stage"] == stage) + 1
     rel = f"reviews/{stage}-{rnd}.md"
+    (Path(ep) / "reviews").mkdir(exist_ok=True)  # folder kosong tidak tersimpan di git
     (Path(ep) / rel).write_text(f"# {stage} — ronde {rnd}: {verdict}\n\n{notes_md.strip()}\n")
     st["reviews"].append({"stage": stage, "round": rnd, "verdict": verdict, "file": rel})
     save_status(ep, st)
@@ -163,7 +164,11 @@ def request(ep: Path, what: str) -> None:
         errs = validate_narration(ep)
         if errs:
             raise ValueError("storyboard belum valid:\n" + "\n".join(errs))
+        st["approvals"]["final"] = False  # video baru harus ditonton dan disetujui ulang
+        save_status(ep, st)
     else:
+        if st.get("youtube_id"):
+            raise PermissionError(f"episode ini sudah diunggah (youtube_id {st['youtube_id']}); upload ganda ditolak")
         if not st["approvals"]["final"]:
             raise PermissionError("upload butuh persetujuan akhir pemilik (sty approve <ep> final)")
         if not st.get("release_url"):

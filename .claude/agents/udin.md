@@ -27,5 +27,5 @@ Hindari: topik politik partisan, saran investasi personal ("beli saham X"), cryp
 Isi topik dalam bahasa Inggris, ringkasan untuk pemilik dalam bahasa Indonesia di bagian atas file.
 
 ## Selesai
-Commit dan push ke `main` dengan pesan yang memuat baris:
+Commit dan push (ke `main`, atau ke branch `claude/…` milik sesi cloud) dengan pesan yang memuat baris:
 `notify: 🔎 Udin: <ringkasan satu kalimat>`

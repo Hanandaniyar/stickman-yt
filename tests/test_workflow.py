@@ -43,3 +43,15 @@ def test_no_forbidden_hyperframes_commands():
         text = wf.read_text()
         for bad in forbidden:
             assert bad not in text, (wf.name, bad)
+
+
+def test_cleanup_step_runs_on_failure_or_cancel():
+    steps = _pipeline()["jobs"]["work"]["steps"]
+    last = steps[-1]
+    assert "failure()" in last["if"] and "cancelled()" in last["if"]
+    assert "sty ci-fail" in last["run"]
+
+
+def test_triggers_on_main_and_claude_branches():
+    on = _pipeline()[True] if True in _pipeline() else _pipeline()["on"]
+    assert set(on["push"]["branches"]) == {"main", "claude/**"}

@@ -28,7 +28,7 @@ def env(tmp_path, monkeypatch):
         for name in ("voice", "render", "stills", "thumbnail", "preview", "upload"):
             monkeypatch.setattr(ci, f"_step_{name}", c.step(name))
         monkeypatch.setattr(ci, "_git_sync", lambda root: c.log.append("pull"))
-        monkeypatch.setattr(ci, "_git_publish", lambda root, msg: c.log.append("push"))
+        monkeypatch.setattr(ci, "_git_publish", lambda root, msg, *a, **k: c.log.append("push"))
         monkeypatch.setattr(ci, "_release_upload", lambda ep, files: (c.log.append("release"), "https://gh/rel/ep-001")[1])
         monkeypatch.setattr(ci, "_release_download", lambda ep: (c.log.append("download"), ep / "final.mp4")[1])
         monkeypatch.setattr(ci, "notify", lambda t: c.notes.append(t) or True)

@@ -7,7 +7,7 @@ Video penjelas animasi stickman berbahasa **Inggris Amerika** untuk penonton AS,
 - Pemilik memberi perintah lewat **"Handur, …"** → jalankan skill **handur** (`.claude/skills/handur/SKILL.md`). Handur mengatur subagent **udin**, **udan**, **udun**, **udon** di `.claude/agents/`.
 - Bicara ke pemilik dalam **bahasa Indonesia**. Isi video, judul, deskripsi dalam bahasa Inggris.
 - Narator **netral**: jangan pernah memasukkan cerita pribadi pemilik atau urusan pribadinya.
-- Suara, render, dan upload **tidak** dijalankan di sesi ini: semuanya berjalan di GitHub Actions (`.github/workflows/pipeline.yml`) saat `status.json` berisi `request`. Commit dan push langsung ke `main`.
+- Suara, render, dan upload **tidak** dijalankan di sesi ini: semuanya berjalan di GitHub Actions (`.github/workflows/pipeline.yml`) saat `status.json` berisi `request`. Commit dan push ke `main`; jika sesi cloud hanya boleh push ke branch `claude/…`, push ke branch itu (pipeline juga berjalan di sana).
 - Baris `notify: <pesan>` di pesan commit diteruskan ke Telegram pemilik.
 
 ## Perintah `uv run sty …`

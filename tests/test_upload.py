@@ -138,3 +138,20 @@ def test_missing_env_credentials(monkeypatch):
         monkeypatch.delenv(k, raising=False)
     with pytest.raises(RuntimeError, match="YT_REFRESH_TOKEN"):
         up.credentials_from_env()
+
+
+def test_refuses_second_upload(ep):
+    from sty.episode import _update
+
+    approve(ep, "final")
+    _update(ep, youtube_id="old999")
+    svc = FakeService()
+    with pytest.raises(PermissionError, match="sudah diunggah"):
+        up.upload_episode(ep, ep / "final.mp4", service=svc)
+    assert svc.body is None
+
+
+def test_youtube_id_saved_even_if_thumbnail_crashes(ep):
+    approve(ep, "final")
+    vid = up.upload_episode(ep, ep / "final.mp4", service=FakeService(thumb_error=TimeoutError("socket")))
+    assert vid == "abc123" and load_status(ep)["youtube_id"] == "abc123"

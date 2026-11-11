@@ -30,5 +30,5 @@ Menambah pose/properti baru ke `lib/stickman` (perbarui `poses.json` dan blok `/
 Perintah HyperFrames berbayar/HeyGen: `auth login`, `cloud render`, `lambda`, `cloudrun`, `media-use generate`, `/style-sampling`, `/reverse-any-video`, `feedback`, `publish`. Render dilakukan GitHub Actions, bukan di sesi ini.
 
 ## Selesai
-Commit dan push ke `main` dengan pesan yang memuat baris:
+Commit dan push (ke `main`, atau ke branch `claude/…` milik sesi cloud) dengan pesan yang memuat baris:
 `notify: 🎬 Udun: <N> adegan siap`
