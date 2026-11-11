@@ -3,7 +3,11 @@ name = "sty"
 version = "0.1.0"
 description = "Pipeline produksi video stickman untuk channel Economic for adults"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "num2words>=0.5.14",
+    "numpy>=2.5.4",
+    "soundfile>=0.14.0",
+]
 
 [project.scripts]
 sty = "sty.cli:main"
