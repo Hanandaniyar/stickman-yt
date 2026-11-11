@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1280, height=720" />
+    <link rel="stylesheet" href="assets/stickman/stickman.css" />
+    <script src="assets/stickman/stickman.js"></script>
+    <style>
+      html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: #FAF7F0; }
+      #root { position: relative; width: 100%; height: 100%; }
+      #thumb-bar { position: absolute; left: 0; top: 0; width: 24px; height: 720px; background: #1F9D55; }
+      #thumb-text { position: absolute; left: 70px; top: 120px; width: 700px; font-family: "Montserrat"; font-weight: 900;
+        font-size: 104px; line-height: 1.02; color: #111; text-transform: uppercase; letter-spacing: -0.03em; }
+      #thumb-figure { position: absolute; right: 120px; top: 40px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="thumbnail" data-start="0" data-duration="1"
+         data-width="1280" data-height="720" data-no-timeline>
+      <div id="thumb-bar"></div>
+      <div id="thumb-text">{{TEXT}}</div>
+      <div id="thumb-figure"></div>
+    </div>
+    <script>
+      Stickman.mount(document.getElementById("thumb-figure"), { pose: "{{POSE}}", scale: 1.6 });
+    </script>
+  </body>
+</html>

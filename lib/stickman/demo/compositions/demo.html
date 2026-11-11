@@ -1,0 +1,29 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; }
+    #demo-guy { left: 760px; top: 330px; }
+    #demo-coin { left: 1180px; top: 380px; }
+    #demo-chart { left: 1180px; top: 560px; }
+    #demo-title { position: absolute; left: 0; width: 1920px; top: 140px; text-align: center; font-size: 84px; }
+  </style>
+  <div id="root" data-composition-id="demo" data-width="1920" data-height="1080">
+    <div id="demo-title" class="clip sm-title" data-start="0" data-duration="5">Where does your money <span class="sm-accent">go?</span></div>
+    <div id="demo-guy" class="clip sm-figure" data-start="0" data-duration="5"></div>
+    <div id="demo-coin" class="clip sm-prop" data-start="1" data-duration="4"></div>
+    <div id="demo-chart" class="clip sm-prop" data-start="2.5" data-duration="2.5"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const guy = Stickman.mount(document.getElementById("demo-guy"), { pose: "stand", scale: 1.2 });
+    Stickman.breathe(tl, guy, 0, 5);
+    Stickman.pose(tl, guy, "explain", 0.5);
+    Stickman.pose(tl, guy, "point", 1.2);
+    const coin = Stickman.prop(document.getElementById("demo-coin"), "coin", { size: 140 });
+    tl.fromTo(coin, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 1);
+    Stickman.pose(tl, guy, "shocked", 2.5);
+    const chart = Stickman.prop(document.getElementById("demo-chart"), "chart-down", { size: 160 });
+    tl.fromTo(chart, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 2.5);
+    Stickman.pose(tl, guy, "celebrate", 3.8);
+    window.__timelines["demo"] = tl;
+  </script>
+</template>

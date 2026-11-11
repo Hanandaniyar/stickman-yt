@@ -4,7 +4,7 @@ from sty.episode import (
     approve, create_episode, episode_dir, load_status, record_review,
     request, revision_rounds, set_stage, validate_narration,
 )
-from tests.conftest import write_scenes
+from tests.conftest import scene_html, write_scenes
 
 
 def test_numbering(tmp_path):
@@ -75,8 +75,20 @@ def test_validate_catches_bad_ids_and_text(ep):
 
 def test_validate_scene_id_mismatch(ep):
     write_scenes(ep, ["s01"])
-    (ep / "scenes" / "s01.html").write_text('<section data-scene="s09"></section>')
-    assert any("s01" in e and "data-scene" in e for e in validate_narration(ep))
+    (ep / "scenes" / "s01.html").write_text(scene_html("s01", comp_id="s09"))
+    assert any("s01" in e and "data-composition-id" in e for e in validate_narration(ep))
+
+
+def test_validate_timeline_key_mismatch(ep):
+    write_scenes(ep, ["s01"])
+    (ep / "scenes" / "s01.html").write_text(scene_html("s01", key="main"))
+    assert any("s01" in e and "__timelines" in e for e in validate_narration(ep))
+
+
+def test_validate_requires_template(ep):
+    write_scenes(ep, ["s01"])
+    (ep / "scenes" / "s01.html").write_text('<div id="root" data-composition-id="s01"></div>')
+    assert any("s01" in e and "<template>" in e for e in validate_narration(ep))
 
 
 def test_validate_missing_music(ep):

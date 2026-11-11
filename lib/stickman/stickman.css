@@ -1,0 +1,13 @@
+/* Gaya dasar channel Economic for adults. */
+:root {
+  --paper: #FAF7F0;
+  --ink: #111111;
+  --accent: #1F9D55;
+  --negative: #D64545;
+  --font-display: "Montserrat", sans-serif;
+}
+.sm-figure { position: absolute; }
+.sm-prop { position: absolute; }
+.sm-title { font-family: var(--font-display); font-weight: 900; color: var(--ink); letter-spacing: -0.02em; }
+.sm-accent { color: var(--accent); }
+.sm-negative { color: var(--negative); }

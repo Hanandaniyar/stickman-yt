@@ -105,6 +105,20 @@ def approve(ep: Path, which: str) -> None:
     save_status(ep, st)
 
 
+def _check_scene_file(html: str, sid: str) -> list[str]:
+    """Kontrak sub-komposisi HyperFrames: isi di dalam <template>, id komposisi dan kunci timeline = sid."""
+    errs = []
+    if not re.search(r"<template\b", html):
+        errs.append("isi adegan harus berada di dalam <template>")
+    m = re.search(r'data-composition-id="([^"]+)"', html)
+    if not m or m.group(1) != sid:
+        errs.append(f'root harus punya data-composition-id="{sid}"')
+    keys = re.findall(r"""__timelines\[\s*["']([^"']+)["']\s*\]""", html)
+    if keys != [sid]:
+        errs.append(f'harus mendaftarkan tepat satu window.__timelines["{sid}"]')
+    return errs
+
+
 def validate_narration(ep: Path) -> list[str]:
     ep = Path(ep)
     path = ep / "narration.json"
@@ -134,9 +148,7 @@ def validate_narration(ep: Path) -> list[str]:
         if not frag.exists():
             errs.append(f"{sid}: scenes/{sid}.html tidak ada")
         else:
-            m = re.search(r'<section[^>]*data-scene="([^"]+)"', frag.read_text())
-            if not m or m.group(1) != sid:
-                errs.append(f"{sid}: root <section data-scene> harus bernilai \"{sid}\"")
+            errs.extend(f"{sid}: {e}" for e in _check_scene_file(frag.read_text(), sid))
     music = data.get("music")
     if music and not (ep.parent.parent / music).exists():
         errs.append(f"musik '{music}' tidak ditemukan")

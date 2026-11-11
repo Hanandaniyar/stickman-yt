@@ -1,0 +1,8 @@
+{
+  "name": "stickman-yt",
+  "private": true,
+  "description": "Pipeline video stickman (HyperFrames)",
+  "devDependencies": {
+    "hyperframes": "0.8.214"
+  }
+}
