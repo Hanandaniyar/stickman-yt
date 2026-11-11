@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Pipeline produksi video stickman untuk channel Economic for adults"
 requires-python = ">=3.12"
 dependencies = [
+    "cryptography<47",
+    "google-api-python-client>=2.202.0",
+    "google-auth>=2.62.2",
     "num2words>=0.5.14",
     "numpy>=2.5.4",
     "soundfile>=0.14.0",
