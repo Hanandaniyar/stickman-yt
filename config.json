@@ -1,0 +1,12 @@
+{
+  "approve_topic": true,
+  "approve_script": true,
+  "approve_final": true,
+  "max_revision_rounds": 2,
+  "upload_privacy": "private",
+  "publish_at_hour_et": null,
+  "voice": "am_michael",
+  "voice_speed": 1.0,
+  "scene_gap_s": 0.25,
+  "music_volume": 0.08
+}

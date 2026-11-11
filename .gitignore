@@ -1,3 +1,10 @@
 .env
 .DS_Store
 .superpowers/
+.venv/
+node_modules/
+episodes/*/audio/
+episodes/*/build/
+*.mp4
+.hyperframes/
+__pycache__/

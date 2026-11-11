@@ -1,0 +1,24 @@
+[project]
+name = "sty"
+version = "0.1.0"
+description = "Pipeline produksi video stickman untuk channel Economic for adults"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+sty = "sty.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.9,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
