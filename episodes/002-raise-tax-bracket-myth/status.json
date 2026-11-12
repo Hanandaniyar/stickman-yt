@@ -1,7 +1,7 @@
 {
   "episode": "002-raise-tax-bracket-myth",
-  "stage": "scenes",
-  "request": "render",
+  "stage": "rendered",
+  "request": null,
   "approvals": {
     "topic": true,
     "script": true,
@@ -27,8 +27,8 @@
       "file": "reviews/scenes-1.md"
     }
   ],
-  "release_url": null,
+  "release_url": "https://github.com/Hanandaniyar/stickman-yt/releases/tag/ep-002",
   "youtube_id": null,
   "last_error": null,
-  "updated_at": "2026-11-12T13:29:01+00:00"
+  "updated_at": "2026-11-12T14:07:12+00:00"
 }
