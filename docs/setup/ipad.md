@@ -12,9 +12,9 @@ Semua kerja berjalan di cloud. iPad hanya untuk memberi perintah dan menyetujui.
 4. Buat **environment** cloud:
    - Setup script:
      ```bash
-     curl -LsSf https://astral.sh/uv/install.sh | sh && ~/.local/bin/uv sync
+     pip install -q uv && uv sync
      ```
-   - Akses jaringan: izinkan pencarian web dan registry paket (npm, PyPI), plus github.com.
+   - Akses jaringan: biarkan pengaturan bawaan (*Trusted*), yang sudah mengizinkan PyPI, npm, dan GitHub.
 
 ## Sehari-hari
 Mulai sesi baru di repo itu, lalu ketik misalnya:
