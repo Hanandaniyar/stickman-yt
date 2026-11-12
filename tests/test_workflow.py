@@ -55,3 +55,10 @@ def test_cleanup_step_runs_on_failure_or_cancel():
 def test_triggers_on_main_and_claude_branches():
     on = _pipeline()[True] if True in _pipeline() else _pipeline()["on"]
     assert set(on["push"]["branches"]) == {"main", "claude/**"}
+
+
+def test_kokoro_python_available_for_tts():
+    work = _pipeline()["jobs"]["work"]
+    assert "HYPERFRAMES_PYTHON" in work["env"]
+    steps = yaml.safe_dump(work["steps"])
+    assert "kokoro-onnx" in steps
