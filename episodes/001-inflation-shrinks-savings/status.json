@@ -1,7 +1,7 @@
 {
   "episode": "001-inflation-shrinks-savings",
   "stage": "scenes",
-  "request": "render",
+  "request": null,
   "approvals": {
     "topic": true,
     "script": true,
@@ -29,6 +29,6 @@
   ],
   "release_url": null,
   "youtube_id": null,
-  "last_error": null,
-  "updated_at": "2026-11-12T06:29:30+00:00"
+  "last_error": "RuntimeError: s01: TTS adegan s01 gagal:\nGenerating speech with am_michael (en-us)...\nSpeech synthesis failed: The kokoro-onnx package is not installed. Run: pip install kokoro-onnx soundfile (or point HYPERFRAMES_PYTHON at a venv python that has them)",
+  "updated_at": "2026-11-12T06:30:54+00:00"
 }
