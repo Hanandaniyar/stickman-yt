@@ -185,3 +185,12 @@ def test_channel_check_returns_title():
 def test_channel_check_no_channel():
     with pytest.raises(RuntimeError, match="tidak punya channel"):
         up.channel_check(service=FakeChannels([]))
+
+
+def test_channel_check_reports_refresh_reason():
+    class Boom:
+        def channels(self):
+            raise RefreshError("('invalid_client: Unauthorized', {'error': 'invalid_client'})")
+
+    with pytest.raises(RuntimeError, match="invalid_client"):
+        up.channel_check(service=Boom())

@@ -36,6 +36,14 @@ def _service():
     return build("youtube", "v3", credentials=credentials_from_env(), cache_discovery=False)
 
 
+def _refresh_reason(err: Exception) -> str:
+    """Kode alasan Google (invalid_grant / invalid_client / unauthorized_client), tanpa isi rahasia."""
+    import re
+
+    m = re.search(r"(invalid_grant|invalid_client|unauthorized_client|deleted_client)", str(err))
+    return m.group(1) if m else type(err).__name__
+
+
 def _reasons(err: HttpError) -> list[str]:
     try:
         return [e.get("reason", "") for e in json.loads(err.content)["error"]["errors"]]
@@ -108,8 +116,8 @@ def channel_check(service=None) -> tuple[str, str]:
     try:
         service = service or _service()
         items = service.channels().list(part="snippet", mine=True).execute().get("items", [])
-    except RefreshError:
-        raise RuntimeError(f"refresh token kedaluwarsa atau dicabut: buat ulang mengikuti {GUIDE}") from None
+    except RefreshError as e:
+        raise RuntimeError(f"refresh token kedaluwarsa atau dicabut ({_refresh_reason(e)}): buat ulang mengikuti {GUIDE}") from None
     except HttpError as e:
         raise RuntimeError(f"YouTube menolak (HTTP {e.resp.status}): {', '.join(_reasons(e)) or e}") from None
     if not items:
