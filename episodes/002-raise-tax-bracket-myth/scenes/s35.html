@@ -1,0 +1,45 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s35-num { position: absolute; left: 640px; top: 140px; width: 700px; text-align: center; font-size: 110px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s35-bar { position: absolute; left: 660px; top: 280px; width: 660px; height: 0; border-top: 10px solid #111111; }
+    #s35-den { position: absolute; left: 640px; top: 300px; width: 700px; text-align: center; font-size: 110px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s35-eq { position: absolute; left: 1360px; top: 210px; width: 540px; text-align: left; font-size: 130px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s35-l { position: absolute; left: 640px; top: 500px; width: 1240px; text-align: center; font-size: 56px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s35-guy { position: absolute; left: 250px; top: 284px; }
+  </style>
+  <div id="root" data-composition-id="s35" data-width="1920" data-height="1080">
+    <div id="s35-num" class="clip sm-title" data-start="0" data-duration="30">$6,092</div>
+    <div id="s35-bar" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s35-den" class="clip sm-title" data-start="0" data-duration="30">$52,500</div>
+    <div id="s35-eq" class="clip sm-title" data-start="0" data-duration="30">≈ <span class="sm-accent">11.6%</span></div>
+    <div id="s35-l" class="clip sm-title" data-start="0" data-duration="30">Effective rate</div>
+    <div id="s35-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s35-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const guy = Stickman.mount($("guy"), { pose: "stand", scale: 1.5 });
+    Stickman.breathe(tl, guy, 0, 30);
+    pop($("num"), 4.8);
+    Stickman.pose(tl, guy, "think", 0.3);
+    growX($("bar"), 5.2, 0.5);
+    pop($("den"), 6.0);
+    pop($("eq"), 8.4);
+    fade($("l"), 8.7);
+    Stickman.pose(tl, guy, "celebrate", 8.4, 0.35);
+    window.__timelines["s35"] = tl;
+  })();
+  </script>
+</template>

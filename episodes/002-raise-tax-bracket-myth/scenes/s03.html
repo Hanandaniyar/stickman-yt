@@ -1,0 +1,44 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s03-stairs { position: absolute; left: 0px; top: 0px; width: 1920px; height: 1080px; }
+    #s03-title { position: absolute; left: 1180px; top: 80px; width: 640px; text-align: center; font-size: 90px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s03-guy { position: absolute; left: 195px; top: 231px; }
+    #s03-cash { position: absolute; left: 1170px; top: 240px; width: 580px; height: 60px; }
+    #s03-every { position: absolute; left: 1100px; top: 330px; width: 780px; text-align: center; font-size: 56px; line-height: 1.1; font-weight: 900; color: #111111;  }
+  </style>
+  <div id="root" data-composition-id="s03" data-width="1920" data-height="1080">
+    <div id="s03-stairs" class="clip" data-start="0" data-duration="30"><svg width="1920" height="1080" viewBox="0 0 1920 1080" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="140" y="740" width="380" height="170" fill="#EEE8DA"/><text x="330.0" y="810" font-size="54" text-anchor="middle" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">12%</text><rect x="520" y="610" width="380" height="300" fill="#EEE8DA"/><text x="710.0" y="680" font-size="54" text-anchor="middle" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">22%</text><rect x="900" y="480" width="380" height="430" fill="#EEE8DA"/><text x="1090.0" y="550" font-size="54" text-anchor="middle" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">24%</text></svg></div>
+    <div id="s03-title" class="clip sm-title" data-start="0" data-duration="30">The <span class="sm-negative">fear</span></div>
+    <div id="s03-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s03-cash" class="clip" data-start="0" data-duration="30"><svg width="580" height="60" viewBox="0 0 580 60" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><g id="s03-bills"><g transform="translate(0 0)"><rect x="0" y="0" width="84" height="56" rx="8" fill="#CDE8D5"/><text x="42" y="44" font-size="38" text-anchor="middle" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">$</text></g><g transform="translate(96 0)"><rect x="0" y="0" width="84" height="56" rx="8" fill="#CDE8D5"/><text x="42" y="44" font-size="38" text-anchor="middle" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">$</text></g><g transform="translate(192 0)"><rect x="0" y="0" width="84" height="56" rx="8" fill="#CDE8D5"/><text x="42" y="44" font-size="38" text-anchor="middle" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">$</text></g><g transform="translate(288 0)"><rect x="0" y="0" width="84" height="56" rx="8" fill="#CDE8D5"/><text x="42" y="44" font-size="38" text-anchor="middle" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">$</text></g><g transform="translate(384 0)"><rect x="0" y="0" width="84" height="56" rx="8" fill="#CDE8D5"/><text x="42" y="44" font-size="38" text-anchor="middle" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">$</text></g><g transform="translate(480 0)"><rect x="0" y="0" width="84" height="56" rx="8" fill="#CDE8D5"/><text x="42" y="44" font-size="38" text-anchor="middle" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">$</text></g></g></svg></div>
+    <div id="s03-every" class="clip sm-title" data-start="0" data-duration="30">Every dollar taxed <span class="sm-negative">higher</span>?</div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s03-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const guy = Stickman.mount($("guy"), { pose: "stand", scale: 1.35 });
+    Stickman.breathe(tl, guy, 0, 30);
+    rise($("title"), 0.2);
+    fade($("stairs"), 0);
+    gait(guy, 3.2, 1.2, false, "stand");
+    tl.fromTo($("guy"), { x: 0, y: 0 }, { x: 380, y: -130, duration: 1.2, ease: "power1.inOut" }, 3.2);
+    pop($("cash"), 6.0);
+    tl.fromTo(document.querySelectorAll("#s03-bills rect"), { attr: { fill: "#CDE8D5" } }, { attr: { fill: "#D64545" }, duration: 0.25, stagger: 0.12, immediateRender: false }, 8.0);
+    rise($("every"), 8.0);
+    Stickman.pose(tl, guy, "shocked", 9.2);
+    window.__timelines["s03"] = tl;
+  })();
+  </script>
+</template>

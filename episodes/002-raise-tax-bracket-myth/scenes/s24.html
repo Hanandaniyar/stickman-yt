@@ -1,0 +1,45 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s24-uh { position: absolute; left: 96px; top: 60px; width: 1728px; text-align: center; font-size: 110px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s24-line { position: absolute; left: 0px; top: 0px; width: 1920px; height: 1080px; }
+    #s24-v { position: absolute; left: 1066px; top: 260px; width: 400px; text-align: center; font-size: 72px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s24-dot { position: absolute; left: 1359px; top: 534px; width: 52px; height: 52px; border-radius: 50%; background: #1F9D55; border: 6px solid #111111; box-sizing: border-box; }
+    #s24-dv { position: absolute; left: 1245px; top: 620px; width: 280px; text-align: center; font-size: 46px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s24-guy { position: absolute; left: 185px; top: 303px; }
+  </style>
+  <div id="root" data-composition-id="s24" data-width="1920" data-height="1080">
+    <div id="s24-uh" class="clip sm-title" data-start="0" data-duration="30"><span class="sm-negative">Uh oh.</span></div>
+    <div id="s24-line" class="clip" data-start="0" data-duration="30"><svg width="1920" height="1080" viewBox="0 0 1920 1080" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><line x1="760" y1="560" x2="1760" y2="560" stroke-width="10"/><rect x="1266" y="400" width="494" height="160" fill="#F6D7D7" stroke="none"/><line x1="1266" y1="360" x2="1266" y2="600" stroke="#D64545" stroke-width="10" stroke-dasharray="22 14"/><text x="1513.0" y="500" font-size="60" text-anchor="middle" fill="#D64545" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">22%</text><text x="1013.0" y="500" font-size="60" text-anchor="middle" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">12%</text></svg></div>
+    <div id="s24-v" class="clip sm-title" data-start="0" data-duration="30"><span class="sm-negative">$52,025</span></div>
+    <div id="s24-dot" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s24-dv" class="clip sm-title" data-start="0" data-duration="30">$52,500</div>
+    <div id="s24-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s24-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const guy = Stickman.mount($("guy"), { pose: "shocked", scale: 1.45 });
+    Stickman.breathe(tl, guy, 0, 30);
+    pop($("uh"), 0.1);
+    Stickman.pose(tl, guy, "shocked", 0.1);
+    fade($("line"), 0.8);
+    pop($("v"), 2.8);
+    tl.fromTo($("dot"), { x: -250 }, { x: 0, duration: 0.9, ease: "power2.inOut" }, 1.6);
+    fade($("dv"), 2.8);
+    Stickman.pose(tl, guy, "point", 1.6);
+    window.__timelines["s24"] = tl;
+  })();
+  </script>
+</template>

@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s50-title { position: absolute; left: 96px; top: 50px; width: 1728px; text-align: center; font-size: 80px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s50-axis { position: absolute; left: 760px; top: 700px; width: 1000px; height: 0; border-top: 8px solid #111111; }
+    #s50-r { position: absolute; left: 840px; top: 300px; width: 300px; height: 400px; background: #1F9D55; border: 6px solid #111111; box-sizing: border-box; }
+    #s50-k { position: absolute; left: 1300px; top: 410px; width: 300px; height: 290px; background: #9BC27A; border: 6px solid #111111; box-sizing: border-box; }
+    #s50-rl { position: absolute; left: 840px; top: 720px; width: 300px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s50-kl { position: absolute; left: 1260px; top: 720px; width: 380px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s50-x { position: absolute; left: 1360px; top: 220px; width: 180px; height: 130px; }
+    #s50-nl { position: absolute; left: 1360px; top: 120px; width: 180px; text-align: center; font-size: 50px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s50-guy { position: absolute; left: 275px; top: 303px; }
+  </style>
+  <div id="root" data-composition-id="s50" data-width="1920" data-height="1080">
+    <div id="s50-title" class="clip sm-title" data-start="0" data-duration="30">Smaller, but <span class="sm-accent">not a loss</span></div>
+    <div id="s50-axis" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s50-r" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s50-k" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s50-rl" class="clip sm-title" data-start="0" data-duration="30">Raise</div>
+    <div id="s50-kl" class="clip sm-title" data-start="0" data-duration="30">Take-home</div>
+    <div id="s50-x" class="clip" data-start="0" data-duration="30"><svg width="180" height="130" viewBox="0 0 180 130" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8 L172 122 M172 8 L8 122" stroke="#D64545" stroke-width="14" fill="none"/></svg></div>
+    <div id="s50-nl" class="clip sm-title" data-start="0" data-duration="30"><span class="sm-negative">Loss?</span></div>
+    <div id="s50-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s50-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const guy = Stickman.mount($("guy"), { pose: "stand", scale: 1.45 });
+    Stickman.breathe(tl, guy, 0, 30);
+    fade($("axis"), 0.1);
+    growY($("r"), 0.3);
+    fade($("rl"), 0.3);
+    growY($("k"), 2.4);
+    fade($("kl"), 2.4);
+    Stickman.pose(tl, guy, "explain", 2.4);
+    fade($("nl"), 6.4);
+    pop($("x"), 8.4);
+    rise($("title"), 4.0);
+    Stickman.pose(tl, guy, "celebrate", 8.4, 0.35);
+    window.__timelines["s50"] = tl;
+  })();
+  </script>
+</template>

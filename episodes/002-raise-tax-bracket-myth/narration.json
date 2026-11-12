@@ -1,0 +1,221 @@
+{
+  "scenes": [
+    {
+      "id": "s01",
+      "text": "You just got a raise. Then a coworker leans over and says, \"Careful. That raise could bump you into a higher bracket, and you'll take home less.\""
+    },
+    {
+      "id": "s02",
+      "text": "It sounds scary. It's also mostly wrong. Let's see why."
+    },
+    {
+      "id": "s03",
+      "text": "Here's the fear in one picture. A stickman climbs one step up a staircase. Suddenly, every dollar he has gets taxed at the higher rate."
+    },
+    {
+      "id": "s04",
+      "text": "If that were true, a $1 raise could cost you thousands. Nobody would ever want a promotion."
+    },
+    {
+      "id": "s05",
+      "text": "But that's not how federal income tax brackets work. Not even close."
+    },
+    {
+      "id": "s06",
+      "text": "Before any bracket kicks in, there's something called the standard deduction. Think of it as a tax-free bucket that fills up first."
+    },
+    {
+      "id": "s07",
+      "text": "For 2027, it's $16,600 if you're single. It's $33,200 for married couples filing jointly."
+    },
+    {
+      "id": "s08",
+      "text": "So if you earn $68,100 in salary as a single filer, the first $16,600 isn't taxed by the federal income tax at all. What's left, $51,500, is your taxable income. That's the number the brackets care about."
+    },
+    {
+      "id": "s09",
+      "text": "Quick note. This is the simple version."
+    },
+    {
+      "id": "s10",
+      "text": "Real returns can have other deductions and credits. We're keeping it clean on purpose."
+    },
+    {
+      "id": "s11",
+      "text": "Now picture a row of buckets on a shelf. Each bucket has a tax rate painted on the side."
+    },
+    {
+      "id": "s12",
+      "text": "Your taxable income is water. You pour it in from the left."
+    },
+    {
+      "id": "s13",
+      "text": "The first bucket fills up. Only then does water spill into the next one."
+    },
+    {
+      "id": "s14",
+      "text": "For a single filer in 2027, here's the row. The first bucket is 10%. It holds the first $12,800."
+    },
+    {
+      "id": "s15",
+      "text": "The second bucket is 12%. It holds everything from $12,800 up to $52,025."
+    },
+    {
+      "id": "s16",
+      "text": "The third bucket is 22%. It starts above $52,025, and runs up to $109,125."
+    },
+    {
+      "id": "s17",
+      "text": "After that come buckets for 24%, 32%, 35%, and finally 37% above $661,375."
+    },
+    {
+      "id": "s18",
+      "text": "Here's the key. Each bucket only taxes the water inside it."
+    },
+    {
+      "id": "s19",
+      "text": "The water in the 10% bucket stays at 10%. Forever. Even if the 22% bucket is overflowing."
+    },
+    {
+      "id": "s20",
+      "text": "Pouring more water into the next bucket doesn't change the rate on the earlier ones. Gravity doesn't work backwards. Neither does the tax code."
+    },
+    {
+      "id": "s21",
+      "text": "Let's run the numbers. Our single stickman has $51,500 of taxable income."
+    },
+    {
+      "id": "s22",
+      "text": "All of it fits in the first two buckets. His top bucket is 12%. His federal income tax is about $5,924."
+    },
+    {
+      "id": "s23",
+      "text": "Now he gets a $1,000 raise. His taxable income becomes $52,500."
+    },
+    {
+      "id": "s24",
+      "text": "Uh oh. The 22% line is at $52,025."
+    },
+    {
+      "id": "s25",
+      "text": "He crossed it. Cue the dramatic music."
+    },
+    {
+      "id": "s26",
+      "text": "So what happens? The first $525 of the raise still lands in the 12% bucket. That's $63 in tax."
+    },
+    {
+      "id": "s27",
+      "text": "The other $475 spills into the 22% bucket. That's about $104.50 in tax."
+    },
+    {
+      "id": "s28",
+      "text": "Add them up. The raise costs about $167.50 in federal income tax."
+    },
+    {
+      "id": "s29",
+      "text": "So he keeps about $832 of his $1,000 raise, before payroll and state taxes."
+    },
+    {
+      "id": "s30",
+      "text": "Not zero. Not negative. Just a bit less than the full thousand."
+    },
+    {
+      "id": "s31",
+      "text": "His old income? Taxed exactly the same as before. Nothing got re-taxed."
+    },
+    {
+      "id": "s32",
+      "text": "This is where two terms help a lot."
+    },
+    {
+      "id": "s33",
+      "text": "Your marginal rate is the rate on your last dollar. It's the bucket the water is currently pouring into. For our stickman, that's now 22%."
+    },
+    {
+      "id": "s34",
+      "text": "Your effective rate is your total tax divided by your income. It's the average across all the buckets."
+    },
+    {
+      "id": "s35",
+      "text": "His total federal income tax on $52,500 of taxable income is about $6,092. Divide that by $52,500, and you get about 11.6%."
+    },
+    {
+      "id": "s36",
+      "text": "So he's \"in the 22% bracket.\" But he's paying about 11.6% on his taxable income. Measured against his full $69,100 salary, it's even lower, about 8.8%."
+    },
+    {
+      "id": "s37",
+      "text": "Think of it like a restaurant bill. The last dish you ordered was the priciest. That doesn't make every dish on the table cost that much."
+    },
+    {
+      "id": "s38",
+      "text": "Here's another quiet detail. The buckets aren't fixed. They grow a little each year."
+    },
+    {
+      "id": "s39",
+      "text": "The IRS adjusts the brackets for inflation every year. In 2026, the 22% bracket for single filers started above $50,400."
+    },
+    {
+      "id": "s40",
+      "text": "For 2027, it starts above $52,025. That's $1,625 higher."
+    },
+    {
+      "id": "s41",
+      "text": "The standard deduction grew too. From $16,100 in 2026 to $16,600 in 2027 for single filers."
+    },
+    {
+      "id": "s42",
+      "text": "Why bother? Because without these adjustments, a raise that only kept up with prices could slowly push people into higher buckets. They'd pay a bigger share without actually being richer."
+    },
+    {
+      "id": "s43",
+      "text": "Indexing makes the buckets grow along with prices. So keeping pace with inflation doesn't automatically mean a bigger tax share."
+    },
+    {
+      "id": "s44",
+      "text": "Now, to be fair, there are real cases where a raise can sting more than the brackets suggest. Some benefits shrink or disappear as income rises. Things like help with food, housing, or health coverage."
+    },
+    {
+      "id": "s45",
+      "text": "Researchers call it a benefits cliff. In some cases, a small raise can cost a family more in lost benefits than the raise itself."
+    },
+    {
+      "id": "s46",
+      "text": "That's a real issue. But it's about benefit rules, not tax brackets."
+    },
+    {
+      "id": "s47",
+      "text": "So what does this mean for you? First, crossing a bracket line only affects the dollars above that line. The money below it is taxed the same as before."
+    },
+    {
+      "id": "s48",
+      "text": "Second, when someone says, \"I'm in the 22% bracket,\" that's their marginal rate. Their effective rate is usually much lower."
+    },
+    {
+      "id": "s49",
+      "text": "Third, a paycheck also has other deductions. Social Security, Medicare, and maybe state taxes."
+    },
+    {
+      "id": "s50",
+      "text": "So your take-home change will be smaller than the raise. But the federal brackets alone won't flip a raise into a loss."
+    },
+    {
+      "id": "s51",
+      "text": "This isn't tax advice. Everyone's situation is different, and real returns have more moving parts."
+    },
+    {
+      "id": "s52",
+      "text": "So, will a raise push you into a higher tax bracket? Maybe. And that's fine."
+    },
+    {
+      "id": "s53",
+      "text": "Only the new water goes into the new bucket. Everything you poured in before stays right where it was."
+    },
+    {
+      "id": "s54",
+      "text": "Next time your coworker panics about brackets, just picture the buckets. Then go enjoy your raise."
+    }
+  ],
+  "music": null
+}

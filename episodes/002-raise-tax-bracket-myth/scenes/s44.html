@@ -1,0 +1,61 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s44-title { position: absolute; left: 96px; top: 50px; width: 1728px; text-align: center; font-size: 72px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s44-food { position: absolute; left: 760px; top: 250px; width: 200px; height: 200px; }
+    #s44-food-l { position: absolute; left: 710px; top: 470px; width: 300px; text-align: center; font-size: 46px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s44-home { position: absolute; left: 1120px; top: 250px; width: 200px; height: 200px; }
+    #s44-home-l { position: absolute; left: 1070px; top: 470px; width: 300px; text-align: center; font-size: 46px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s44-health { position: absolute; left: 1480px; top: 250px; width: 200px; height: 200px; }
+    #s44-health-l { position: absolute; left: 1430px; top: 470px; width: 300px; text-align: center; font-size: 46px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s44-shr { position: absolute; left: 760px; top: 600px; width: 1000px; text-align: center; font-size: 66px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s44-up { position: absolute; left: 560px; top: 600px; }
+    #s44-guy { position: absolute; left: 195px; top: 341px; }
+  </style>
+  <div id="root" data-composition-id="s44" data-width="1920" data-height="1080">
+    <div id="s44-title" class="clip sm-title" data-start="0" data-duration="30">To be fair: <span class="sm-negative">real exceptions</span></div>
+    <div id="s44-food" class="clip" data-start="0" data-duration="30"><svg width="200" height="200" viewBox="0 0 100 100" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="60" r="36" fill="#D64545"/><path d="M50 26 L54 8" fill="none"/><path d="M56 18 Q74 6 80 20 Q66 28 56 18 Z" fill="#1F9D55"/></svg></div>
+    <div id="s44-food-l" class="clip sm-title" data-start="0" data-duration="30">Food</div>
+    <div id="s44-home" class="clip" data-start="0" data-duration="30"><svg width="200" height="200" viewBox="0 0 100 100" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 50 L50 14 L88 50" fill="none"/><rect x="22" y="48" width="56" height="40" fill="#FFF"/><rect x="43" y="62" width="14" height="26" fill="#111"/></svg></div>
+    <div id="s44-home-l" class="clip sm-title" data-start="0" data-duration="30">Housing</div>
+    <div id="s44-health" class="clip" data-start="0" data-duration="30"><svg width="200" height="200" viewBox="0 0 100 100" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="10" width="80" height="80" rx="14" fill="#FFFFFF"/><path d="M50 26 L50 74 M26 50 L74 50" stroke="#D64545" stroke-width="14" fill="none"/></svg></div>
+    <div id="s44-health-l" class="clip sm-title" data-start="0" data-duration="30">Health</div>
+    <div id="s44-shr" class="clip sm-title" data-start="0" data-duration="30">Benefits <span class="sm-negative">shrink</span></div>
+    <div id="s44-up" class="clip sm-prop" data-start="0" data-duration="30"></div>
+    <div id="s44-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s44-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const up = Stickman.prop($("up"), "chart-up", { size: 130 });
+    const guy = Stickman.mount($("guy"), { pose: "stand", scale: 1.35 });
+    Stickman.breathe(tl, guy, 0, 30);
+    rise($("title"), 0.2);
+    Stickman.pose(tl, guy, "think", 4.8);
+    pop(up, 9.6);
+    rise($("shr"), 8.0);
+    pop($("food"), 7.2);
+    tl.fromTo($("food"), { scale: 1 }, { scale: 0.55, opacity: 0.45, duration: 1.2, ease: "power2.inOut", immediateRender: false }, 8.8);
+    fade($("food-l"), 12.0);
+    pop($("home"), 7.45);
+    tl.fromTo($("home"), { scale: 1 }, { scale: 0.55, opacity: 0.45, duration: 1.2, ease: "power2.inOut", immediateRender: false }, 9.0);
+    fade($("home-l"), 12.4);
+    pop($("health"), 7.7);
+    tl.fromTo($("health"), { scale: 1 }, { scale: 0.55, opacity: 0.45, duration: 1.2, ease: "power2.inOut", immediateRender: false }, 9.2);
+    fade($("health-l"), 13.2);
+    Stickman.pose(tl, guy, "explain", 10.4);
+    window.__timelines["s44"] = tl;
+  })();
+  </script>
+</template>

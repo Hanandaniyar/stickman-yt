@@ -1,0 +1,49 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s10-f0 { position: absolute; left: 1060px; top: 160px; width: 380px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 900; color: #111111; transform: rotate(-6deg); }
+    #s10-f1 { position: absolute; left: 1360px; top: 300px; width: 380px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 900; color: #111111; transform: rotate(5deg); }
+    #s10-f2 { position: absolute; left: 1100px; top: 420px; width: 380px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 900; color: #111111; transform: rotate(-3deg); }
+    #s10-f3 { position: absolute; left: 1420px; top: 520px; width: 380px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 900; color: #111111; transform: rotate(7deg); }
+    #s10-clean { position: absolute; left: 960px; top: 300px; width: 760px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 68px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s10-guy { position: absolute; left: 375px; top: 303px; }
+  </style>
+  <div id="root" data-composition-id="s10" data-width="1920" data-height="1080">
+    <div id="s10-f0" class="clip sm-title" data-start="0" data-duration="30">Deductions</div>
+    <div id="s10-f1" class="clip sm-title" data-start="0" data-duration="30">Credits</div>
+    <div id="s10-f2" class="clip sm-title" data-start="0" data-duration="30">Other rules</div>
+    <div id="s10-f3" class="clip sm-title" data-start="0" data-duration="30">Forms…</div>
+    <div id="s10-clean" class="clip sm-title" data-start="0" data-duration="30">Keeping it <span class="sm-accent">simple</span></div>
+    <div id="s10-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s10-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const guy = Stickman.mount($("guy"), { pose: "think", scale: 1.45 });
+    Stickman.breathe(tl, guy, 0, 30);
+    pop($("f0"), 1.6);
+    tl.fromTo($("f0"), { x: 0, opacity: 1 }, { x: 900, opacity: 0, duration: 0.5, ease: "power2.in", immediateRender: false }, 3.6);
+    pop($("f1"), 1.85);
+    tl.fromTo($("f1"), { x: 0, opacity: 1 }, { x: 900, opacity: 0, duration: 0.5, ease: "power2.in", immediateRender: false }, 3.68);
+    pop($("f2"), 2.1);
+    tl.fromTo($("f2"), { x: 0, opacity: 1 }, { x: 900, opacity: 0, duration: 0.5, ease: "power2.in", immediateRender: false }, 3.76);
+    pop($("f3"), 2.35);
+    tl.fromTo($("f3"), { x: 0, opacity: 1 }, { x: 900, opacity: 0, duration: 0.5, ease: "power2.in", immediateRender: false }, 3.84);
+    Stickman.pose(tl, guy, "explain", 3.2);
+    Stickman.pose(tl, guy, "point", 3.6);
+    pop($("clean"), 4.4);
+    window.__timelines["s10"] = tl;
+  })();
+  </script>
+</template>
