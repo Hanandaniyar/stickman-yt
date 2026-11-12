@@ -1,0 +1,52 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s53-f { position: absolute; left: 96px; top: 90px; width: 1728px; text-align: center; font-size: 96px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s53-big { position: absolute; left: 96px; top: 230px; width: 1728px; text-align: center; font-size: 170px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s53-sub { position: absolute; left: 96px; top: 420px; width: 1728px; text-align: center; font-size: 50px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s53-p1 { position: absolute; left: 500px; top: 560px; width: 220px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 80px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s53-arr { position: absolute; left: 760px; top: 560px; width: 200px; text-align: center; font-size: 110px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s53-p2 { position: absolute; left: 1000px; top: 560px; width: 220px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 80px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s53-clock { position: absolute; left: 1350px; top: 560px; }
+    #s53-guy { position: absolute; left: 220px; top: 594px; }
+  </style>
+  <div id="root" data-composition-id="s53" data-width="1920" data-height="1080">
+    <div id="s53-f" class="clip sm-title" data-start="0" data-duration="30">72 ÷ <span class="sm-negative">3.7</span> ≈ 19.5</div>
+    <div id="s53-big" class="clip sm-title" data-start="0" data-duration="30"><span class="sm-negative">19.5 years</span></div>
+    <div id="s53-sub" class="clip sm-title" data-start="0" data-duration="30">prices double (at this pace)</div>
+    <div id="s53-p1" class="clip sm-title" data-start="0" data-duration="30">$1</div>
+    <div id="s53-arr" class="clip sm-title" data-start="0" data-duration="30">→</div>
+    <div id="s53-p2" class="clip sm-title" data-start="0" data-duration="30"><span class="sm-negative">$2</span></div>
+    <div id="s53-clock" class="clip sm-prop" data-start="0" data-duration="30"></div>
+    <div id="s53-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s53-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const clock = Stickman.prop($("clock"), "clock", { size: 160 });
+    const guy = Stickman.mount($("guy"), { pose: "think", scale: 0.6 });
+    Stickman.breathe(tl, guy, 0, 30);
+    rise($("f"), 0.3);
+    pop($("big"), 4.0, 0.6);
+    pop($("p1"), 5.6);
+    fade($("arr"), 8.0);
+    pop($("p2"), 9.6);
+    fade($("sub"), 9.6);
+    pop(clock, 6.4);
+    tl.fromTo(clock.querySelector("path"), { rotation: 0, svgOrigin: "50 50" }, { rotation: 720, svgOrigin: "50 50", duration: 4 }, 6.8);
+    Stickman.pose(tl, guy, "shocked", 10.4);
+    window.__timelines["s53"] = tl;
+  })();
+  </script>
+</template>

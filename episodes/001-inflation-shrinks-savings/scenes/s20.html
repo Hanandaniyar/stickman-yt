@@ -1,0 +1,41 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s20-esc { position: absolute; left: 0px; top: 0px; width: 1920px; height: 1080px; }
+    #s20-cash { position: absolute; left: 500px; top: 276px; }
+    #s20-stmt { position: absolute; left: 1250px; top: 90px; width: 460px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 48px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s20-still { position: absolute; left: 1060px; top: 320px; width: 760px; text-align: center; font-size: 50px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s20-back { position: absolute; left: 1060px; top: 400px; width: 760px; text-align: center; font-size: 50px; line-height: 1.1; font-weight: 900; color: #111111;  }
+  </style>
+  <div id="root" data-composition-id="s20" data-width="1920" data-height="1080">
+    <div id="s20-esc" class="clip" data-start="0" data-duration="30"><svg width="1920" height="1080" viewBox="0 0 1920 1080" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><polygon points="200,95.71428571428572 1456,544.2857142857142 1456,730 200,275.7142857142857" fill="#DDE6F5" opacity="0.6" stroke="none"/><line x1="200" y1="95.71428571428572" x2="1456" y2="544.2857142857142" stroke-width="16"/><clipPath id="s20-esc-clip"><polygon points="240,264 1416,684 1416,790 240,370"/></clipPath><g clip-path="url(#s20-esc-clip)"><g id="s20-esc-steps"><path d="M-1104 -180 L-1020 -180 L-1020 -150 L-936 -150 L-936 -120 L-852 -120 L-852 -90 L-768 -90 L-768 -60 L-684 -60 L-684 -30 L-600 -30 L-600 0 L-516 0 L-516 30 L-432 30 L-432 60 L-348 60 L-348 90 L-264 90 L-264 120 L-180 120 L-180 150 L-96 150 L-96 180 L-12 180 L-12 210 L72 210 L72 240 L156 240 L156 270 L240 270 L240 300 L324 300 L324 330 L408 330 L408 360 L492 360 L492 390 L576 390 L576 420 L660 420 L660 450 L744 450 L744 480 L828 480 L828 510 L912 510 L912 540 L996 540 L996 570 L1080 570 L1080 600 L1164 600 L1164 630 L1248 630 L1248 660 L1332 660 L1332 690 L1416 690 L1416 720 L1500 720 L1500 750 L1584 750 L1584 780 L1668 780 L1668 810 L1668 1110 L-1104 120 Z" fill="#EEE8DA" stroke-width="5"/></g></g><polygon points="240,370 1416,790 1416,840 240,420" fill="#CFC8B8"/><line x1="20" y1="270" x2="240" y2="270" stroke-width="8"/><line x1="1416" y1="720" x2="1636" y2="720" stroke-width="8"/></svg></div>
+    <div id="s20-cash" class="clip sm-prop" data-start="0" data-duration="30"></div>
+    <div id="s20-stmt" class="clip sm-title" data-start="0" data-duration="30"><div style="font-size:30px">STATEMENT</div><div style="font-size:64px">$10,000</div></div>
+    <div id="s20-still" class="clip sm-title" data-start="0" data-duration="30">vs statement: <span class="sm-accent">still</span></div>
+    <div id="s20-back" class="clip sm-title" data-start="0" data-duration="30">vs prices: <span class="sm-negative">drifting back</span></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s20-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    tl.fromTo(document.getElementById("s20-esc-steps"), { x: 0, y: 0 }, { x: 1176.0, y: 420.0, duration: 28.0, ease: "none" }, 0);
+    const cash = Stickman.prop($("cash"), "money-stack", { size: 130 });
+    tl.fromTo($("cash"), { x: 0, y: 0 }, { x: 588.0, y: 210.0, duration: 14, ease: "none" }, 5.6);
+    pop(cash, 0.2);
+    pop($("stmt"), 2.8);
+    fade($("still"), 3.6);
+    fade($("back"), 6.4);
+    window.__timelines["s20"] = tl;
+  })();
+  </script>
+</template>

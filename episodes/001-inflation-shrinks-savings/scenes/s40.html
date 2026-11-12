@@ -1,0 +1,46 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s40-fed { position: absolute; left: 160px; top: 260px; }
+    #s40-steps { position: absolute; left: 600px; top: 300px; width: 900px; height: 420px; }
+    #s40-sep { position: absolute; left: 760px; top: 740px; width: 360px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s40-oct { position: absolute; left: 1180px; top: 740px; width: 360px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s40-rate { position: absolute; left: 96px; top: 80px; width: 1728px; text-align: center; font-size: 140px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s40-guy { position: absolute; left: 1620px; top: 594px; }
+  </style>
+  <div id="root" data-composition-id="s40" data-width="1920" data-height="1080">
+    <div id="s40-fed" class="clip sm-prop" data-start="0" data-duration="30"></div>
+    <div id="s40-steps" class="clip" data-start="0" data-duration="30"><svg width="900" height="420" viewBox="0 0 900 420" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 410 L10 10 M10 410 L890 410" fill="none"/><path id="s40-l" pathLength="1" stroke-dasharray="1" d="M20 300 L320 300 L320 140 L860 140" fill="none" stroke="#1F9D55" stroke-width="14"/></svg></div>
+    <div id="s40-sep" class="clip sm-title" data-start="0" data-duration="30">Sep: raised ↑</div>
+    <div id="s40-oct" class="clip sm-title" data-start="0" data-duration="30">Oct: held</div>
+    <div id="s40-rate" class="clip sm-title" data-start="0" data-duration="30"><span class="sm-accent">3.75% – 4%</span></div>
+    <div id="s40-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s40-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const fed = Stickman.prop($("fed"), "bank", { size: 260 });
+    const guy = Stickman.mount($("guy"), { pose: "explain", scale: 0.6 });
+    Stickman.breathe(tl, guy, 0, 30);
+    pop(fed, 0.2);
+    Stickman.pose(tl, guy, "explain", 0.5);
+    fade($("steps"), 3.2);
+    draw(document.getElementById("s40-l"), 3.6, 3);
+    fade($("sep"), 4.8);
+    fade($("oct"), 7.6);
+    pop($("rate"), 9.6, 0.6);
+    window.__timelines["s40"] = tl;
+  })();
+  </script>
+</template>

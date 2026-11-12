@@ -1,0 +1,60 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s08-title { position: absolute; left: 96px; top: 70px; width: 1728px; text-align: center; font-size: 90px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s08-axis { position: absolute; left: 200px; top: 360px; width: 1400px; height: 0; border-top: 8px solid #111111; }
+    #s08-dot0 { position: absolute; left: 182px; top: 346px; width: 36px; height: 36px; border-radius: 50%; background: #111111; }
+    #s08-yr0 { position: absolute; left: 80px; top: 270px; width: 240px; text-align: center; font-size: 48px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s08-dot1 { position: absolute; left: 742px; top: 346px; width: 36px; height: 36px; border-radius: 50%; background: #111111; }
+    #s08-yr1 { position: absolute; left: 640px; top: 270px; width: 240px; text-align: center; font-size: 48px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s08-dot2 { position: absolute; left: 1582px; top: 346px; width: 36px; height: 36px; border-radius: 50%; background: #111111; }
+    #s08-yr2 { position: absolute; left: 1480px; top: 270px; width: 240px; text-align: center; font-size: 48px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s08-a { position: absolute; left: 760px; top: 430px; width: 840px; text-align: left; font-size: 52px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s08-b { position: absolute; left: 200px; top: 560px; width: 1400px; text-align: left; font-size: 64px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s08-guy { position: absolute; left: 1580px; top: 556px; }
+  </style>
+  <div id="root" data-composition-id="s08" data-width="1920" data-height="1080">
+    <div id="s08-title" class="clip sm-title" data-start="0" data-duration="30">2016: $100 → <span class="sm-negative">$72</span></div>
+    <div id="s08-axis" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s08-dot0" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s08-yr0" class="clip sm-title" data-start="0" data-duration="30">2016</div>
+    <div id="s08-dot1" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s08-yr1" class="clip sm-title" data-start="0" data-duration="30">2020</div>
+    <div id="s08-dot2" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s08-yr2" class="clip sm-title" data-start="0" data-duration="30">2026</div>
+    <div id="s08-a" class="clip sm-title" data-start="0" data-duration="30">2020 → today: $77</div>
+    <div id="s08-b" class="clip sm-title" data-start="0" data-duration="30">2016 → today: <span class="sm-negative">$72</span></div>
+    <div id="s08-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s08-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const guy = Stickman.mount($("guy"), { pose: "stand", scale: 0.7 });
+    Stickman.breathe(tl, guy, 0, 30);
+    fade($("axis"), 0.1);
+    pop($("dot1"), 0.2);
+    fade($("yr1"), 0.2);
+    pop($("dot2"), 0.3);
+    fade($("yr2"), 0.3);
+    fade($("a"), 0.5);
+    pop($("dot0"), 0.8);
+    fade($("yr0"), 0.8);
+    Stickman.pose(tl, guy, "point", 0.8, 0.3, { mirror: true });
+    rise($("b"), 3.2);
+    rise($("title"), 5.2);
+    Stickman.pose(tl, guy, "shocked", 5.2);
+    window.__timelines["s08"] = tl;
+  })();
+  </script>
+</template>

@@ -1,0 +1,50 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s50-na { position: absolute; left: 460px; top: 80px; width: 1000px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #D64545; border-radius: 22px; text-align: center; font-size: 64px; line-height: 1.1; font-weight: 900; color: #D64545;  }
+    #s50-p0 { position: absolute; left: 390px; top: 534px; }
+    #s50-p1 { position: absolute; left: 685px; top: 477px; }
+    #s50-p2 { position: absolute; left: 1030px; top: 572px; }
+    #s50-p3 { position: absolute; left: 1312px; top: 504px; }
+    #s50-goal { position: absolute; left: 96px; top: 280px; width: 1728px; text-align: center; font-size: 72px; line-height: 1.1; font-weight: 900; color: #111111;  }
+  </style>
+  <div id="root" data-composition-id="s50" data-width="1920" data-height="1080">
+    <div id="s50-na" class="clip sm-title" data-start="0" data-duration="30">NOT PERSONAL ADVICE</div>
+    <div id="s50-p0" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s50-p1" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s50-p2" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s50-p3" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s50-goal" class="clip sm-title" data-start="0" data-duration="30">See it <span class="sm-accent">clearly</span></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s50-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const p0 = Stickman.mount($("p0"), { pose: "stand", scale: 0.6, color: "#111111" });
+    Stickman.breathe(tl, p0, 0, 30);
+    pop(p0.svg, 2.0);
+    const p1 = Stickman.mount($("p1"), { pose: "think", scale: 0.75, color: "#2D6CDF" });
+    Stickman.breathe(tl, p1, 0, 30);
+    pop(p1.svg, 2.2);
+    const p2 = Stickman.mount($("p2"), { pose: "shrug", scale: 0.5, color: "#1F9D55" });
+    Stickman.breathe(tl, p2, 0, 30);
+    pop(p2.svg, 2.4);
+    const p3 = Stickman.mount($("p3"), { pose: "point", scale: 0.68, color: "#D64545" });
+    Stickman.breathe(tl, p3, 0, 30);
+    pop(p3.svg, 2.6);
+    pop($("na"), 0.2);
+    rise($("goal"), 4.4);
+    window.__timelines["s50"] = tl;
+  })();
+  </script>
+</template>

@@ -1,0 +1,50 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s30-a { position: absolute; left: 100px; top: 120px; width: 700px; text-align: center; font-size: 120px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s30-arr { position: absolute; left: 760px; top: 120px; width: 200px; text-align: center; font-size: 120px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s30-b { position: absolute; left: 940px; top: 120px; width: 800px; text-align: center; font-size: 120px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s30-bl { position: absolute; left: 940px; top: 260px; width: 800px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s30-loss { position: absolute; left: 96px; top: 380px; width: 1728px; text-align: center; font-size: 150px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s30-acct { position: absolute; left: 1220px; top: 560px; width: 520px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 48px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s30-lock { position: absolute; left: 1660px; top: 520px; width: 100px; height: 100px; }
+    #s30-guy { position: absolute; left: 340px; top: 594px; }
+  </style>
+  <div id="root" data-composition-id="s30" data-width="1920" data-height="1080">
+    <div id="s30-a" class="clip sm-title" data-start="0" data-duration="30">$10,038</div>
+    <div id="s30-arr" class="clip sm-title" data-start="0" data-duration="30">→</div>
+    <div id="s30-b" class="clip sm-title" data-start="0" data-duration="30"><span class="sm-negative">$9,676</span></div>
+    <div id="s30-bl" class="clip sm-title" data-start="0" data-duration="30">real buying power</div>
+    <div id="s30-loss" class="clip sm-title" data-start="0" data-duration="30"><span class="sm-negative">−$324</span></div>
+    <div id="s30-acct" class="clip sm-title" data-start="0" data-duration="30"><div style="font-size:32px">ACCOUNT</div><div style="font-size:72px"><span class="sm-accent">$10,038</span></div></div>
+    <div id="s30-lock" class="clip" data-start="0" data-duration="30"><svg width="100" height="100" viewBox="0 0 100 100" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M28 48 L28 32 Q28 10 50 10 Q72 10 72 32 L72 48" fill="none"/><rect x="16" y="46" width="68" height="50" rx="8" fill="#F2C94C"/></svg></div>
+    <div id="s30-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s30-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const guy = Stickman.mount($("guy"), { pose: "sad", scale: 0.6 });
+    Stickman.breathe(tl, guy, 0, 30);
+    fade($("a"), 0.2);
+    fade($("arr"), 1.6);
+    pop($("b"), 2.4);
+    fade($("bl"), 2.8);
+    pop($("loss"), 4.8, 0.6);
+    Stickman.pose(tl, guy, "sad", 4.8);
+    pop($("acct"), 7.6);
+    pop($("lock"), 8.8);
+    window.__timelines["s30"] = tl;
+  })();
+  </script>
+</template>

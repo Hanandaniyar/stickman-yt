@@ -1,0 +1,48 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s17-title { position: absolute; left: 96px; top: 70px; width: 1728px; text-align: center; font-size: 66px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s17-sep { position: absolute; left: 260px; top: 260px; width: 520px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 48px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s17-oct { position: absolute; left: 980px; top: 260px; width: 520px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 48px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s17-stamp { position: absolute; left: 1000px; top: 620px; width: 480px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #D64545; border-radius: 22px; text-align: center; font-size: 36px; line-height: 1.1; font-weight: 900; color: #D64545;  }
+    #s17-q { position: absolute; left: 1530px; top: 240px; }
+    #s17-guy { position: absolute; left: 1640px; top: 594px; }
+  </style>
+  <div id="root" data-composition-id="s17" data-width="1920" data-height="1080">
+    <div id="s17-title" class="clip sm-title" data-start="0" data-duration="30">Latest full reading: <span class="sm-accent">September</span></div>
+    <div id="s17-sep" class="clip sm-title" data-start="0" data-duration="30"><div style="font-size:40px">SEP 2026</div><div style="font-size:110px"><span class="sm-negative">3.7%</span></div><div style="font-size:34px">12-month</div></div>
+    <div id="s17-oct" class="clip sm-title" data-start="0" data-duration="30"><div style="font-size:40px">OCT 2026</div><div style="font-size:110px;color:#999">—</div><div style="font-size:34px">no 12-month</div></div>
+    <div id="s17-stamp" class="clip sm-title" data-start="0" data-duration="30">OCT 2025: NOT COLLECTED</div>
+    <div id="s17-q" class="clip sm-prop" data-start="0" data-duration="30"></div>
+    <div id="s17-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s17-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const q = Stickman.prop($("q"), "question-mark", { size: 140 });
+    const guy = Stickman.mount($("guy"), { pose: "shrug", scale: 0.6 });
+    Stickman.breathe(tl, guy, 0, 30);
+    Stickman.pose(tl, guy, "explain", 0.3);
+    pop($("oct"), 1.6);
+    pop(q, 3.6);
+    tl.fromTo($("stamp"), { scale: 2, opacity: 0, rotation: -8, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, rotation: -8, duration: 0.35, ease: "power3.in" }, 5.2);
+    Stickman.pose(tl, guy, "shrug", 6.8);
+    pop($("sep"), 8.8);
+    rise($("title"), 8.8);
+    tl.fromTo($("oct"), { opacity: 1 }, { opacity: 0.4, duration: 0.4, immediateRender: false }, 8.8);
+    Stickman.pose(tl, guy, "point", 9.2, 0.3, { mirror: true });
+    window.__timelines["s17"] = tl;
+  })();
+  </script>
+</template>

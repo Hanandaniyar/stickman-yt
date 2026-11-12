@@ -1,0 +1,237 @@
+{
+  "scenes": [
+    {
+      "id": "s01",
+      "text": "Your savings balance hasn't dropped a single cent. So why does it buy less every year?"
+    },
+    {
+      "id": "s02",
+      "text": "Picture a stickman standing perfectly still on an escalator that's going down. He isn't moving. And yet, he's going down."
+    },
+    {
+      "id": "s03",
+      "text": "That's your money. Today, let's figure out how fast that escalator is moving, and what it means for you."
+    },
+    {
+      "id": "s04",
+      "text": "Here's a simple test. Take $100 from September 2020. Now walk it into a store in September 2026."
+    },
+    {
+      "id": "s05",
+      "text": "Prices rose about 29.5% over those six years. So that same $100 now buys roughly what $77 bought back then."
+    },
+    {
+      "id": "s06",
+      "text": "The bill didn't change. It still says 100."
+    },
+    {
+      "id": "s07",
+      "text": "But it quietly lost about $23 of shopping power. Nobody sent you a notice."
+    },
+    {
+      "id": "s08",
+      "text": "Go back 10 years, and it gets worse. $100 from September 2016 buys about $72 worth of stuff today."
+    },
+    {
+      "id": "s09",
+      "text": "This slow leak has a name. Inflation. It just means the general level of prices is rising."
+    },
+    {
+      "id": "s10",
+      "text": "The government tracks it with the Consumer Price Index, or CPI. Think of it as a giant shopping cart."
+    },
+    {
+      "id": "s11",
+      "text": "It holds the things households typically buy. Food, rent, gas, doctor visits, haircuts."
+    },
+    {
+      "id": "s12",
+      "text": "Every month, the Bureau of Labor Statistics checks what that cart costs. If the cart gets pricier, that's inflation."
+    },
+    {
+      "id": "s13",
+      "text": "So how fast is the cart getting pricier? As of September 2026, prices were up 3.7% over the past 12 months."
+    },
+    {
+      "id": "s14",
+      "text": "Some items jumped way more than others. Gasoline was up 34.2% in a year."
+    },
+    {
+      "id": "s15",
+      "text": "Energy overall rose 20.4%. Food was up a calmer 2.5%."
+    },
+    {
+      "id": "s16",
+      "text": "Strip out food and energy, and you get \"core\" inflation. That was 2.6%. Economists watch it because gas prices swing around like a toddler on a sugar high."
+    },
+    {
+      "id": "s17",
+      "text": "Quick side note. The October report had no 12-month number, because October 2025 data wasn't collected during the government shutdown. So September is the latest full-year reading."
+    },
+    {
+      "id": "s18",
+      "text": "Okay, here's where a little physics helps. In physics, motion is relative."
+    },
+    {
+      "id": "s19",
+      "text": "A passenger on a train is sitting still compared to their seat. Compared to the ground, they're doing 80 miles an hour."
+    },
+    {
+      "id": "s20",
+      "text": "Your bank balance works the same way. Compared to your bank statement, it's standing still. Compared to prices, it's drifting backward."
+    },
+    {
+      "id": "s21",
+      "text": "Now, your savings account does pay some interest. So our stickman isn't just standing there. He's walking up the escalator."
+    },
+    {
+      "id": "s22",
+      "text": "The question is, how fast? The national average savings rate is 0.38% a year, as of October 2026."
+    },
+    {
+      "id": "s23",
+      "text": "That's our stickman taking tiny, polite steps. Meanwhile, the escalator is heading down at 3.7% a year."
+    },
+    {
+      "id": "s24",
+      "text": "Here's the key idea. Economists call it the real interest rate. Roughly, it's the interest you earn, minus inflation."
+    },
+    {
+      "id": "s25",
+      "text": "The rate the bank advertises is the nominal rate. That's the number on the sign. The real rate is what actually happens to your buying power."
+    },
+    {
+      "id": "s26",
+      "text": "So, 0.38% minus 3.7%. That's about minus 3.2% a year."
+    },
+    {
+      "id": "s27",
+      "text": "Let's make that concrete. Put $10,000 in an account paying 0.38%."
+    },
+    {
+      "id": "s28",
+      "text": "After a year, you have $10,038. Nice. Your balance went up."
+    },
+    {
+      "id": "s29",
+      "text": "But to buy the same cart of stuff, you'd now need about $10,374."
+    },
+    {
+      "id": "s30",
+      "text": "So your $10,038 buys what about $9,676 used to buy. That's roughly $324 of purchasing power gone. And not one dollar ever left the account."
+    },
+    {
+      "id": "s31",
+      "text": "Now picture a second stickman. This one walks faster."
+    },
+    {
+      "id": "s32",
+      "text": "In early November 2026, some high-yield savings accounts advertised around 4% to 4.35% APY."
+    },
+    {
+      "id": "s33",
+      "text": "APY means annual percentage yield. It's the yearly return, including compounding. Some of those top rates require a minimum balance."
+    },
+    {
+      "id": "s34",
+      "text": "That's roughly 10 times the national average. But at 4.25% against 3.7% inflation, the real return is only about plus 0.5%."
+    },
+    {
+      "id": "s35",
+      "text": "So stickman number two is moving up. Barely. He's jogging hard just to stay in place, with a tiny bit of progress."
+    },
+    {
+      "id": "s36",
+      "text": "That's the surprising part. Even a much better rate mostly just keeps pace."
+    },
+    {
+      "id": "s37",
+      "text": "It doesn't make anyone rich. It mostly stops the slide."
+    },
+    {
+      "id": "s38",
+      "text": "So who sets the escalator's speed? Partly, the Federal Reserve."
+    },
+    {
+      "id": "s39",
+      "text": "The Fed aims for inflation of 2% over the long run. Right now, we're well above that."
+    },
+    {
+      "id": "s40",
+      "text": "One of its main tools is interest rates. In September 2026, the Fed raised its key rate. In October, it held that rate at 3.75% to 4%."
+    },
+    {
+      "id": "s41",
+      "text": "Higher rates make borrowing more expensive. That tends to cool spending, and over time, cool prices."
+    },
+    {
+      "id": "s42",
+      "text": "Higher rates can also nudge savings yields up. But here's the catch."
+    },
+    {
+      "id": "s43",
+      "text": "The national average savings rate is still just 0.38%. That's far below the Fed's range."
+    },
+    {
+      "id": "s44",
+      "text": "So what does this mean for you? A few ideas. No sales pitch."
+    },
+    {
+      "id": "s45",
+      "text": "First, a raise isn't always a raise. If your pay goes up 3% while prices go up 3.7%, your paycheck buys a little less than before."
+    },
+    {
+      "id": "s46",
+      "text": "Your boss calls it a raise. Your shopping cart calls it a pay cut."
+    },
+    {
+      "id": "s47",
+      "text": "Second, when you see a rate, ask the real question. Not \"what does it pay?\" But \"what does it pay compared to inflation?\""
+    },
+    {
+      "id": "s48",
+      "text": "Third, cash still has a job. An emergency fund needs to be safe and easy to reach."
+    },
+    {
+      "id": "s49",
+      "text": "It's not supposed to be a rocket. Just remember the escalator is running."
+    },
+    {
+      "id": "s50",
+      "text": "This isn't personal advice. Everyone's situation is different. The goal is simply to see the escalator clearly."
+    },
+    {
+      "id": "s51",
+      "text": "Let's finish with a neat little trick. It's called the Rule of 72."
+    },
+    {
+      "id": "s52",
+      "text": "Divide 72 by a yearly growth rate. You get roughly how many years it takes for something to double."
+    },
+    {
+      "id": "s53",
+      "text": "At 3.7% inflation, 72 divided by 3.7 is about 19.5. So if prices kept rising at September 2026's pace, they'd double in about 19 and a half years."
+    },
+    {
+      "id": "s54",
+      "text": "Imagine a $5 sandwich turning into a $10 sandwich. Same sandwich. Same pickles."
+    },
+    {
+      "id": "s55",
+      "text": "At the Fed's 2% target, doubling takes about 36 years. It still happens. Just slower."
+    },
+    {
+      "id": "s56",
+      "text": "So here's the whole idea in one picture. Your balance isn't the full story. The escalator is always moving."
+    },
+    {
+      "id": "s57",
+      "text": "The number in your account tells you how many dollars you have. The real rate tells you whether those dollars are winning or losing."
+    },
+    {
+      "id": "s58",
+      "text": "Stand still, and you drift down. Walk, and you might hold your ground. Either way, now you know which way the stairs are moving."
+    }
+  ],
+  "music": null
+}

@@ -1,0 +1,60 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s09-jar { position: absolute; left: 260px; top: 300px; width: 260px; height: 340px; }
+    #s09-drop0 { position: absolute; left: 381px; top: 650px; width: 18px; height: 26px; border-radius: 50% 50% 50% 50%; background: #1F9D55; }
+    #s09-drop1 { position: absolute; left: 381px; top: 650px; width: 18px; height: 26px; border-radius: 50% 50% 50% 50%; background: #1F9D55; }
+    #s09-drop2 { position: absolute; left: 381px; top: 650px; width: 18px; height: 26px; border-radius: 50% 50% 50% 50%; background: #1F9D55; }
+    #s09-name { position: absolute; left: 700px; top: 140px; width: 1100px; text-align: center; font-size: 140px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s09-def { position: absolute; left: 700px; top: 320px; width: 1100px; text-align: center; font-size: 60px; line-height: 1.1; font-weight: 700; color: #111111;  }
+    #s09-tag0 { position: absolute; left: 820px; top: 560px; width: 210px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 56px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s09-tag1 { position: absolute; left: 1110px; top: 560px; width: 210px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 56px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s09-tag2 { position: absolute; left: 1400px; top: 560px; width: 210px; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 56px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s09-guy { position: absolute; left: 1660px; top: 594px; }
+  </style>
+  <div id="root" data-composition-id="s09" data-width="1920" data-height="1080">
+    <div id="s09-jar" class="clip" data-start="0" data-duration="30"><svg width="260" height="340" viewBox="0 0 260 340" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M30 30 L230 30 L210 320 L50 320 Z" fill="#DDE6F5"/><rect id="s09-water" x="56" y="120" width="148" height="196" fill="#1F9D55" stroke="none"/><path d="M130 320 L130 336" stroke="#1F9D55" stroke-width="10"/></svg></div>
+    <div id="s09-drop0" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s09-drop1" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s09-drop2" class="clip" data-start="0" data-duration="30"></div>
+    <div id="s09-name" class="clip sm-title" data-start="0" data-duration="30"><span class="sm-negative">INFLATION</span></div>
+    <div id="s09-def" class="clip sm-title" data-start="0" data-duration="30">Prices rising, overall</div>
+    <div id="s09-tag0" class="clip sm-title" data-start="0" data-duration="30">$3</div>
+    <div id="s09-tag1" class="clip sm-title" data-start="0" data-duration="30">$12</div>
+    <div id="s09-tag2" class="clip sm-title" data-start="0" data-duration="30">$40</div>
+    <div id="s09-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s09-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const guy = Stickman.mount($("guy"), { pose: "explain", scale: 0.6 });
+    Stickman.breathe(tl, guy, 0, 30);
+    fade($("jar"), 0.1);
+    tl.fromTo($("drop0"), { y: 0, opacity: 1 }, { y: 120, opacity: 0, duration: 1.2, ease: "power1.in", repeat: 4 }, 0.3);
+    tl.fromTo($("drop1"), { y: 0, opacity: 1 }, { y: 120, opacity: 0, duration: 1.2, ease: "power1.in", repeat: 4 }, 0.7);
+    tl.fromTo($("drop2"), { y: 0, opacity: 1 }, { y: 120, opacity: 0, duration: 1.2, ease: "power1.in", repeat: 4 }, 1.1);
+    tl.fromTo(document.getElementById("s09-water"), { attr: { y: 120, height: 196 } }, { attr: { y: 230, height: 86 }, duration: 6, ease: "none" }, 0.3);
+    pop($("name"), 2.4, 0.6);
+    fade($("def"), 3.2);
+    Stickman.pose(tl, guy, "explain", 2.8);
+    pop($("tag0"), 4.8);
+    tl.fromTo($("tag0"), { y: 0 }, { y: -80 - 0, duration: 2.5, ease: "power1.inOut", immediateRender: false }, 5.6);
+    pop($("tag1"), 5.1);
+    tl.fromTo($("tag1"), { y: 0 }, { y: -80 - 30, duration: 2.5, ease: "power1.inOut", immediateRender: false }, 5.6);
+    pop($("tag2"), 5.3999999999999995);
+    tl.fromTo($("tag2"), { y: 0 }, { y: -80 - 60, duration: 2.5, ease: "power1.inOut", immediateRender: false }, 5.6);
+    window.__timelines["s09"] = tl;
+  })();
+  </script>
+</template>
