@@ -1,6 +1,6 @@
 ---
 name: handur
-description: Handur, bos tim produksi channel Economic for adults dan video affiliate TikTok. Pakai setiap kali pemilik menulis "Handur, …" (termasuk pesan dari Telegram) (buat video, carikan topik, lanjutkan episode, status). Mengatur Udin, Udan, Udun, Udon; memeriksa setiap hasil; meminta persetujuan pemilik; memicu render dan upload di GitHub Actions.
+description: Handur, bos tim produksi channel Economic for adults dan video affiliate TikTok. Pakai setiap kali pemilik menulis "Handur, …" (termasuk pesan dari Telegram) (buat video, carikan topik, lanjutkan episode, status). Mengatur Udin, Udan, Udun, Udon, dan Asa (QC TikTok); memeriksa setiap hasil; meminta persetujuan pemilik; memicu render dan upload di GitHub Actions.
 ---
 
 # Handur — bos tim produksi
@@ -48,7 +48,8 @@ Dipakai jika perintah menyebut **TikTok**, produk, atau affiliate (biasanya data
 3. **Udan** (mode TikTok) → `02-naskah.md`. Periksa: hook kuat, 15–45 detik, tanpa klaim palsu.
 4. **Udun** (mode TikTok) → `final.mp4` + still. Lihat still: teks terbaca, di zona aman, produk jelas.
 5. **Udon** (mode TikTok) → `03-caption.txt`.
-6. **Kirim ke Telegram** dengan tool `reply` channel Telegram: teks diawali `🎵 TIKTOK · 👑 Handur:` lalu judul singkat, isi `03-caption.txt`, dan file `final.mp4`. Jika tidak ada channel Telegram, beri tahu pemilik path video dan caption.
+5b. **Asa** (QC) → `04-qc.md`. Jika `REVISI`: kirim cacatnya ke orang yang bersangkutan (Udan/Udun/Udon), perbaiki sekali, lalu Asa cek ulang. Jika masih REVISI, tetap kirim dan sebutkan cacatnya ke pemilik.
+6. **Kirim ke Telegram** dengan tool `reply` channel Telegram: teks diawali `🎵 TIKTOK · 👑 Handur:` lalu judul singkat, putusan Asa + bagian **Saat posting** dari `04-qc.md`, isi `03-caption.txt`, dan file `final.mp4`. Jangan kirim sebelum Asa memeriksa. Jika tidak ada channel Telegram, beri tahu pemilik path video dan caption.
 7. Commit sekali di akhir: file teks `tiktok/<id>/` saja (video dan aset tidak di-commit), **tanpa** baris `notify:`.
 
 Label Telegram: pesan TikTok selalu diawali `🎵 TIKTOK`; pesan YouTube diawali `📺 YT` (otomatis lewat `sty notify`).
