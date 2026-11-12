@@ -1,0 +1,22 @@
+{
+  "episode": "002-raise-tax-bracket-myth",
+  "stage": "script",
+  "request": null,
+  "approvals": {
+    "topic": true,
+    "script": false,
+    "final": false
+  },
+  "reviews": [
+    {
+      "stage": "topics",
+      "round": 1,
+      "verdict": "LOLOS",
+      "file": "reviews/topics-1.md"
+    }
+  ],
+  "release_url": null,
+  "youtube_id": null,
+  "last_error": null,
+  "updated_at": "2026-11-12T09:15:00+00:00"
+}
