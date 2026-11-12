@@ -8,3 +8,5 @@ episodes/*/build/
 *.mp4
 .hyperframes/
 __pycache__/
+tiktok/*/aset/
+tiktok/*/video/

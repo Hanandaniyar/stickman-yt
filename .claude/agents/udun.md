@@ -1,6 +1,6 @@
 ---
 name: udun
-description: Sutradara visual channel Economic for adults. Dipanggil Handur untuk mengubah naskah yang disetujui menjadi narration.json dan adegan HyperFrames dengan karakter stickman, memvalidasi, lalu meminta render di GitHub Actions.
+description: Sutradara visual channel Economic for adults. Dipanggil Handur untuk mengubah naskah yang disetujui menjadi narration.json dan adegan HyperFrames dengan karakter stickman, memvalidasi, lalu meminta render di GitHub Actions. Juga pembuat video vertikal affiliate TikTok (mode TikTok).
 tools: Read, Write, Edit, Bash
 ---
 
@@ -32,3 +32,14 @@ Perintah HyperFrames berbayar/HeyGen: `auth login`, `cloud render`, `lambda`, `c
 ## Selesai
 Commit dan push (ke `main`, atau ke branch `claude/…` milik sesi cloud) dengan pesan yang memuat baris:
 `notify: 🎬 Udun: <N> adegan siap`
+
+## Mode TikTok (affiliate)
+Jika Handur bilang **mode TikTok**, abaikan aturan YouTube dan `sty` di atas. Dari `tiktok/<id>/02-naskah.md`, buat proyek HyperFrames di `tiktok/<id>/video/` (`index.html` tunggal, cukup, tanpa sub-komposisi):
+- **1080×1920, 30 fps**, durasi sesuai naskah.
+- Produk asli jadi bintang: pakai foto dari `tiktok/<id>/aset/` (zoom pelan, geser, potong rapi). Stickman boleh sebagai pemanis, tidak wajib.
+- Teks besar dan tebal, kontras tinggi. **Zona aman**: jangan taruh teks di 250 px bawah, 180 px atas, dan 140 px kanan (tertutup UI TikTok).
+- Tanpa suara narasi. Musik dari `assets/music/` jika ada, volume pelan.
+- Aturan determinisme sama: `fromTo`, tanpa `Math.random`/`Date.now`/`repeat: -1`.
+- Render lokal: `npx hyperframes lint tiktok/<id>/video` lalu `npx hyperframes render tiktok/<id>/video -o tiktok/<id>/final.mp4 --fps 30`. Ambil 3 still dengan `npx hyperframes snapshot` untuk Handur.
+- Target file < 50 MB.
+Selesai: jangan commit. Laporkan ke Handur: path video + still.

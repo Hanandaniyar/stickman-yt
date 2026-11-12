@@ -11,6 +11,7 @@ from pathlib import Path
 API = "https://api.telegram.org/bot{token}/{method}"
 MAX_VIDEO_BYTES = 49 * 1024 * 1024
 TIMEOUT = 10
+LABEL = "📺 YT · "  # semua pesan dari pipeline ini milik YouTube; TikTok diberi label 🎵 TIKTOK oleh Handur
 
 _last_error = ""
 
@@ -38,7 +39,7 @@ def notify(text: str) -> bool:
     if not token or not chat:
         _last_error = "TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID belum diisi"
         return False
-    data = urllib.parse.urlencode({"chat_id": chat, "text": text}).encode()
+    data = urllib.parse.urlencode({"chat_id": chat, "text": LABEL + text}).encode()
     return _call(token, "sendMessage", data, "application/x-www-form-urlencoded") is not None
 
 
@@ -54,7 +55,7 @@ def notify_video(path: Path, caption: str) -> bool:
         return False
     boundary = uuid.uuid4().hex
     parts = []
-    for name, value in (("chat_id", chat), ("caption", caption), ("supports_streaming", "true")):
+    for name, value in (("chat_id", chat), ("caption", LABEL + caption), ("supports_streaming", "true")):
         parts.append(f'--{boundary}\r\nContent-Disposition: form-data; name="{name}"\r\n\r\n{value}\r\n'.encode())
     parts.append(
         f'--{boundary}\r\nContent-Disposition: form-data; name="video"; filename="{path.name}"\r\n'
