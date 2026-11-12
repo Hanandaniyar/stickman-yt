@@ -1,0 +1,22 @@
+{
+  "episode": "001-inflation-shrinks-savings",
+  "stage": "topics",
+  "request": null,
+  "approvals": {
+    "topic": false,
+    "script": false,
+    "final": false
+  },
+  "reviews": [
+    {
+      "stage": "topics",
+      "round": 1,
+      "verdict": "LOLOS",
+      "file": "reviews/topics-1.md"
+    }
+  ],
+  "release_url": null,
+  "youtube_id": null,
+  "last_error": null,
+  "updated_at": "2026-11-12T05:59:33+00:00"
+}
