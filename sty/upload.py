@@ -103,6 +103,20 @@ def upload_episode(ep: Path, video: Path, service=None, now: datetime | None = N
     return vid
 
 
+def channel_check(service=None) -> tuple[str, str]:
+    """Pastikan kredensial valid dan kembalikan (id, nama) channel yang akan menerima upload."""
+    try:
+        service = service or _service()
+        items = service.channels().list(part="snippet", mine=True).execute().get("items", [])
+    except RefreshError:
+        raise RuntimeError(f"refresh token kedaluwarsa atau dicabut: buat ulang mengikuti {GUIDE}") from None
+    except HttpError as e:
+        raise RuntimeError(f"YouTube menolak (HTTP {e.resp.status}): {', '.join(_reasons(e)) or e}") from None
+    if not items:
+        raise RuntimeError("akun Google ini tidak punya channel YouTube")
+    return items[0]["id"], items[0]["snippet"]["title"]
+
+
 def register(sub) -> None:
     from sty.config import PROJECT_ROOT
     from sty.episode import episode_dir
@@ -112,3 +126,16 @@ def register(sub) -> None:
     p.add_argument("--video", required=True)
     p.add_argument("--root", default=str(PROJECT_ROOT))
     p.set_defaults(func=lambda a: print(upload_episode(episode_dir(a.ep, a.root), Path(a.video))))
+
+    def yt_check(a):
+        try:
+            cid, title = channel_check()
+        except RuntimeError as e:
+            print(f"::error::{e}")
+            notify(f"❌ Cek YouTube gagal: {e}")
+            return 1
+        print(f"channel: {title} ({cid})")
+        notify(f"✅ YouTube tersambung ke channel: {title}")
+        return 0
+
+    sub.add_parser("yt-check", help="cek kredensial YouTube dan nama channel").set_defaults(func=yt_check)

@@ -155,3 +155,33 @@ def test_youtube_id_saved_even_if_thumbnail_crashes(ep):
     approve(ep, "final")
     vid = up.upload_episode(ep, ep / "final.mp4", service=FakeService(thumb_error=TimeoutError("socket")))
     assert vid == "abc123" and load_status(ep)["youtube_id"] == "abc123"
+
+
+class FakeChannels:
+    def __init__(self, items):
+        self.items = items
+
+    def channels(self):
+        items = self.items
+
+        class C:
+            def list(self, part, mine):
+                assert mine is True
+
+                class R:
+                    def execute(self):
+                        return {"items": items}
+
+                return R()
+
+        return C()
+
+
+def test_channel_check_returns_title():
+    svc = FakeChannels([{"id": "UC1", "snippet": {"title": "Economic for adults"}}])
+    assert up.channel_check(service=svc) == ("UC1", "Economic for adults")
+
+
+def test_channel_check_no_channel():
+    with pytest.raises(RuntimeError, match="tidak punya channel"):
+        up.channel_check(service=FakeChannels([]))
