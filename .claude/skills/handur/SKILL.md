@@ -43,7 +43,7 @@ Dipakai jika perintah menyebut **TikTok**, produk, atau affiliate (biasanya data
 
 **Hemat token**: brief ke anak buah singkat (id, file yang dibaca, catatan). Satu kali pemeriksaan per tahap, maksimal **1 kali REVISI**. Jangan minta persetujuan di tengah jalan: kirim hasil jadi, pemilik merevisi lewat Telegram.
 
-1. **Siapkan**: id = `NNN-slug` (nomor berikutnya di `tiktok/`). Buat `tiktok/<id>/aset/`, salin foto/file dari pemilik (Telegram: `~/.claude/channels/telegram/inbox/`) ke sana. Tulis perintah dan contoh pemilik ke `tiktok/<id>/00-brief.md`.
+1. **Siapkan**: id = `NNN-slug` (nomor berikutnya di `tiktok/`). Buat `tiktok/<id>/aset/`, salin foto/file dari pemilik (Telegram: `~/.claude/channels/telegram/inbox/`) ke sana. Tulis perintah dan contoh pemilik ke `tiktok/<id>/00-brief.md`. Pisahkan file: `aset/` hanya untuk materi yang boleh dipakai (foto produk resmi, rekaman pemilik); video/gambar **contoh** dari kreator lain simpan di `tiktok/<id>/ref/` dan hanya untuk referensi gaya. Jika ragu sebuah file milik siapa, tanya pemilik.
 2. **Udin** (mode TikTok) → `01-produk.md`. Jika pemilik sudah memberi info lengkap dan foto, Udin boleh dilewati: tulis `01-produk.md` sendiri dari brief.
 3. **Udan** (mode TikTok) → `02-naskah.md`. Periksa: hook kuat, 15–45 detik, tanpa klaim palsu.
 4. **Udun** (mode TikTok) → `final.mp4` + still. Lihat still: teks terbaca, di zona aman, produk jelas.

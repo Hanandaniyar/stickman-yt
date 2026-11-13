@@ -36,6 +36,7 @@ Commit dan push (ke `main`, atau ke branch `claude/…` milik sesi cloud) dengan
 ## Mode TikTok (affiliate)
 Jika Handur bilang **mode TikTok**, abaikan aturan YouTube dan `sty` di atas. Dari `tiktok/<id>/02-naskah.md`, buat proyek HyperFrames di `tiktok/<id>/video/` (`index.html` tunggal, cukup, tanpa sub-komposisi):
 - **1080×1920, 30 fps**, durasi sesuai naskah.
+- **Video/gambar contoh dari kreator lain hanya referensi gaya, jangan pernah dipakai sebagai footage** (risiko konten daur ulang dan hak cipta). Pakai hanya foto/video produk resmi atau rekaman pemilik sendiri.
 - Produk asli jadi bintang: pakai foto dari `tiktok/<id>/aset/` (zoom pelan, geser, potong rapi). Stickman boleh sebagai pemanis, tidak wajib.
 - Teks besar dan tebal, kontras tinggi. **Zona aman**: jangan taruh teks di 250 px bawah, 180 px atas, dan 140 px kanan (tertutup UI TikTok).
 - Tanpa suara narasi. Musik dari `assets/music/` jika ada, volume pelan.

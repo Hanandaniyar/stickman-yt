@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_telegram_telegram__reply",
+      "mcp__plugin_telegram_telegram__react",
+      "mcp__plugin_telegram_telegram__download_attachment",
+      "mcp__plugin_telegram_telegram__edit_message",
+      "Read(~/.claude/channels/telegram/inbox/**)",
+      "Write(tiktok/**)",
+      "Edit(tiktok/**)",
+      "WebSearch",
+      "WebFetch",
+      "Bash(npx hyperframes lint:*)",
+      "Bash(npx hyperframes render:*)",
+      "Bash(npx hyperframes snapshot:*)",
+      "Bash(ffprobe:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(mkdir -p tiktok/:*)",
+      "Bash(cp ~/.claude/channels/telegram/inbox/:*)",
+      "Bash(ls:*)",
+      "Bash(git status:*)",
+      "Bash(git add tiktok/:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
