@@ -1,0 +1,986 @@
+{
+  "scenes": [
+    {
+      "id": "s01",
+      "text": "A brand-new car. Shiny paint. That new-car smell.",
+      "sfx": [
+        {
+          "name": "sparkle",
+          "at": 1.4
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "text": "The stickman signs the papers, grabs the keys, and rolls toward the gate.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 1.92
+        },
+        {
+          "name": "whoosh",
+          "at": 3.35
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "text": "Above the car floats a big price tag. The front wheels cross the gate.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 1.79
+        },
+        {
+          "name": "whoosh-short",
+          "at": 3.15
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "text": "And the number on the tag drops. By thousands.",
+      "sfx": [
+        {
+          "name": "record-scratch",
+          "at": 1.79
+        },
+        {
+          "name": "boing",
+          "at": 2.68
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "text": "Same car. Same paint. Same smell. Nothing changed in the last ten seconds.",
+      "sfx": [
+        {
+          "name": "click",
+          "at": 0.31
+        },
+        {
+          "name": "ping",
+          "at": 2.73
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "text": "So where did the money go?",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0.4
+        },
+        {
+          "name": "pop",
+          "at": 1.53
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "text": "Let's treat this like a crime scene. Yellow tape. A magnifying glass. One very confused stickman.",
+      "sfx": [
+        {
+          "name": "camera",
+          "at": 2.23
+        },
+        {
+          "name": "pop",
+          "at": 3.58
+        }
+      ]
+    },
+    {
+      "id": "s08",
+      "text": "Here's what we know. In October 2026, the average new vehicle in America sold for a record $51,109. That's a lot of money to watch melt. So who took it?",
+      "sfx": [
+        {
+          "name": "cash-register",
+          "at": 7.92
+        },
+        {
+          "name": "pop",
+          "at": 13.18
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "text": "First suspect: the dealer. Maybe the money stayed behind at the gate.",
+      "sfx": [
+        {
+          "name": "camera",
+          "at": 1.4
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "text": "Nope. The dealer got paid once. The sale is done. Nobody at the dealership is collecting a bonus every time your wheels turn.",
+      "sfx": [
+        {
+          "name": "wrong-buzzer",
+          "at": 0.05
+        },
+        {
+          "name": "cash-register",
+          "at": 1.65
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "text": "Suspect cleared. He goes back to his coffee.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 0.5
+        },
+        {
+          "name": "rimshot",
+          "at": 2.62,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "text": "Second suspect: the car itself. Maybe ten seconds of driving wore something out.",
+      "sfx": [
+        {
+          "name": "camera",
+          "at": 1.59
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "text": "Let's check. Tires? Fine. Engine? Fine. Cup holders? Still holding cups.",
+      "sfx": [
+        {
+          "name": "ping",
+          "at": 1.78
+        },
+        {
+          "name": "pop",
+          "at": 5.23
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "text": "Physically, it's the same machine it was a minute ago. The car didn't change. But something did.",
+      "sfx": [
+        {
+          "name": "impact-bass-2",
+          "at": 6.03
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "text": "Let's dust for fingerprints. Every year, AAA adds up what it really costs to own and drive a new car.",
+      "sfx": [
+        {
+          "name": "sparkle",
+          "at": 0.31
+        },
+        {
+          "name": "pop",
+          "at": 3.21
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "text": "In 2026, the average came to $12,863 a year. That's about $1,072 a month.",
+      "sfx": [
+        {
+          "name": "money-count",
+          "at": 2.66,
+          "volume": 0.3
+        },
+        {
+          "name": "pop",
+          "at": 6.76
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "text": "Now picture that as a pie. Most people guess the biggest slice is gas. It isn't.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 1.53
+        },
+        {
+          "name": "wrong-buzzer",
+          "at": 5.06,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s18",
+      "text": "The biggest slice is depreciation. About $4,422 a year. That's more than a third of the whole pie.",
+      "sfx": [
+        {
+          "name": "impact-bass-1",
+          "at": 1.27,
+          "volume": 0.3
+        },
+        {
+          "name": "pop",
+          "at": 7.06
+        }
+      ]
+    },
+    {
+      "id": "s19",
+      "text": "Insurance is a slice. About $2,098.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 0.2
+        }
+      ]
+    },
+    {
+      "id": "s20",
+      "text": "Loan interest is a slice. About $1,184. But depreciation is the big one.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 0.2
+        },
+        {
+          "name": "sparkle",
+          "at": 6.74
+        }
+      ]
+    },
+    {
+      "id": "s21",
+      "text": "Depreciation is just a fancy word for \"the value quietly leaving.\" No receipt. No bill in the mail.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 2.79
+        },
+        {
+          "name": "pop",
+          "at": 4.68
+        }
+      ]
+    },
+    {
+      "id": "s22",
+      "text": "It's like a wallet with a hole in the bottom. About $368 drips out every month, whether you drive to work or just stare at the car from the window.",
+      "sfx": [
+        {
+          "name": "coin",
+          "at": 5.46
+        },
+        {
+          "name": "coin",
+          "at": 7.11,
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s23",
+      "text": "So we know the money leaks. But we still don't know why it leaks so fast at the very start.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 5.5
+        }
+      ]
+    },
+    {
+      "id": "s24",
+      "text": "Here's the key question. The moment you drive home, you're not a buyer anymore. You're a future seller.",
+      "sfx": [
+        {
+          "name": "ping",
+          "at": 0.76
+        },
+        {
+          "name": "pop",
+          "at": 6.1
+        }
+      ]
+    },
+    {
+      "id": "s25",
+      "text": "And the next person to buy your car has a problem. They can't see inside it.",
+      "sfx": [
+        {
+          "name": "boing",
+          "at": 4.06
+        },
+        {
+          "name": "click",
+          "at": 4.56
+        }
+      ]
+    },
+    {
+      "id": "s26",
+      "text": "Was it babied? Was it rained on, slammed into curbs, driven like a rental? You know. They don't.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 0.41
+        },
+        {
+          "name": "boing",
+          "at": 2.82
+        }
+      ]
+    },
+    {
+      "id": "s27",
+      "text": "That gap, between what the seller knows and what the buyer knows, is our real suspect.",
+      "sfx": [
+        {
+          "name": "camera",
+          "at": 4.7
+        }
+      ]
+    },
+    {
+      "id": "s28",
+      "text": "In 1970, an economist named George Akerlof wrote a paper called \"The Market for Lemons\".",
+      "sfx": [
+        {
+          "name": "drumroll",
+          "at": 4.82,
+          "volume": 0.3
+        },
+        {
+          "name": "impact-bass-1",
+          "at": 6.57,
+          "volume": 0.35
+        }
+      ]
+    },
+    {
+      "id": "s29",
+      "text": "In car talk, a lemon is a car with hidden problems. Looks great. Runs terrible. A sour surprise.",
+      "sfx": [
+        {
+          "name": "sparkle",
+          "at": 4.0,
+          "volume": 0.3
+        },
+        {
+          "name": "boing",
+          "at": 6.28
+        }
+      ]
+    },
+    {
+      "id": "s30",
+      "text": "Akerlof's idea was simple. In the used-car market, sellers know more about quality than buyers do.",
+      "sfx": [
+        {
+          "name": "ping",
+          "at": 0.1
+        }
+      ]
+    },
+    {
+      "id": "s31",
+      "text": "Let's draw it. A parking lot full of used cars.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0.4
+        },
+        {
+          "name": "pop",
+          "at": 1.46
+        }
+      ]
+    },
+    {
+      "id": "s32",
+      "text": "Most are fine. A few are lemons. From the outside, they all look the same.",
+      "sfx": [
+        {
+          "name": "boing",
+          "at": 1.57
+        },
+        {
+          "name": "whoosh-short",
+          "at": 3.12
+        }
+      ]
+    },
+    {
+      "id": "s33",
+      "text": "You're the buyer. You can't tell which is which. So what do you offer?",
+      "sfx": [
+        {
+          "name": "click-soft",
+          "at": 1.72
+        },
+        {
+          "name": "pop",
+          "at": 3.95
+        }
+      ]
+    },
+    {
+      "id": "s34",
+      "text": "You offer a price that's somewhere in between. Not a \"great car\" price. Not a \"lemon\" price. A \"maybe it's a lemon\" price.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 3.58
+        },
+        {
+          "name": "ping",
+          "at": 6.79
+        }
+      ]
+    },
+    {
+      "id": "s35",
+      "text": "Now look at the owners of the great cars. They think, \"My car is worth more than that.\" Some of them walk away. They keep their cars.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 3.2
+        },
+        {
+          "name": "whoosh",
+          "at": 6.91
+        }
+      ]
+    },
+    {
+      "id": "s36",
+      "text": "Who's left in the lot? More lemons.",
+      "sfx": [
+        {
+          "name": "boing",
+          "at": 1.67
+        }
+      ]
+    },
+    {
+      "id": "s37",
+      "text": "So buyers get even more careful. They offer even less. And more good cars leave.",
+      "sfx": [
+        {
+          "name": "boing",
+          "at": 3.31
+        },
+        {
+          "name": "whoosh",
+          "at": 5.08
+        }
+      ]
+    },
+    {
+      "id": "s38",
+      "text": "It's a slow slide. The bad cars push the price down for everyone.",
+      "sfx": [
+        {
+          "name": "whoosh-cinematic",
+          "at": 0.52,
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s39",
+      "text": "Akerlof shared the 2001 Nobel Prize in economics for this kind of work on markets where one side knows more than the other.",
+      "sfx": [
+        {
+          "name": "chime",
+          "at": 2.44,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s40",
+      "text": "Yes. A Nobel Prize. For lemons. Somewhere, a lemonade stand feels very validated.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 1.99
+        },
+        {
+          "name": "rimshot",
+          "at": 6.03,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s41",
+      "text": "So let's solve the case.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0.1
+        }
+      ]
+    },
+    {
+      "id": "s42",
+      "text": "Inside the dealership, your car is \"new.\" Everybody knows it has zero history.",
+      "sfx": [
+        {
+          "name": "sparkle",
+          "at": 2.38,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s43",
+      "text": "No secrets. No hidden dents. No mystery.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 0.21
+        },
+        {
+          "name": "ping",
+          "at": 2.64
+        }
+      ]
+    },
+    {
+      "id": "s44",
+      "text": "The second you drive it home, it becomes \"used.\" Not because it's worse. Because now it has a history that only you know.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 1.02
+        },
+        {
+          "name": "impact-bass-2",
+          "at": 2.89,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s45",
+      "text": "From that moment, every future buyer looks at it and thinks, \"Hmm. Could be a lemon.\"",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 5.16
+        }
+      ]
+    },
+    {
+      "id": "s46",
+      "text": "Your shiny car didn't turn into a lemon. It just joined the club of cars that might be.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 4.38
+        }
+      ]
+    },
+    {
+      "id": "s47",
+      "text": "That price drop at the gate? It's the price of missing information.",
+      "sfx": [
+        {
+          "name": "record-scratch",
+          "at": 0.56,
+          "volume": 0.3
+        },
+        {
+          "name": "impact-bass-1",
+          "at": 3.45,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s48",
+      "text": "One honest footnote. Lemons aren't the whole story. Miles, wear, and newer models all pull values down too.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 3.74
+        },
+        {
+          "name": "boing",
+          "at": 6.36
+        }
+      ]
+    },
+    {
+      "id": "s49",
+      "text": "And economists still test how big the lemon effect really is. But it explains the weird part: why value falls before the car has done anything at all.",
+      "sfx": [
+        {
+          "name": "ping",
+          "at": 1.4
+        },
+        {
+          "name": "boing",
+          "at": 7.05
+        }
+      ]
+    },
+    {
+      "id": "s50",
+      "text": "While we're at the crime scene, there's a second leak worth checking. The loan.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 2.75
+        },
+        {
+          "name": "impact-bass-2",
+          "at": 4.56,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s51",
+      "text": "In the third quarter of 2026, the average new-car loan was a record $44,664 at about 7% interest. The average payment was $787 a month.",
+      "sfx": [
+        {
+          "name": "money-count",
+          "at": 4.12,
+          "volume": 0.25
+        },
+        {
+          "name": "cash-register",
+          "at": 12.11
+        }
+      ]
+    },
+    {
+      "id": "s52",
+      "text": "And more than one in five new-car buyers signed up for $1,000 a month or more.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 1.34
+        },
+        {
+          "name": "cash-register",
+          "at": 3.27
+        }
+      ]
+    },
+    {
+      "id": "s53",
+      "text": "To shrink that payment, a lot of people stretch the loan. A quarter of new-car loans now run 84 months or longer.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 2.5
+        },
+        {
+          "name": "pop",
+          "at": 5.84
+        }
+      ]
+    },
+    {
+      "id": "s54",
+      "text": "That's seven years. Picture a wall calendar that just keeps unrolling down the hallway.",
+      "sfx": [
+        {
+          "name": "clock-tick",
+          "at": 1.4,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s55",
+      "text": "Here's the trick. Take that $44,664 at 7%.",
+      "sfx": [
+        {
+          "name": "sparkle",
+          "at": 0.4,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s56",
+      "text": "Over 60 months, the payment is about $884. Over 84 months, it drops to about $674.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 2.83
+        },
+        {
+          "name": "whoosh-short",
+          "at": 6.63
+        }
+      ]
+    },
+    {
+      "id": "s57",
+      "text": "Smaller payment. Feels like a win.",
+      "sfx": [
+        {
+          "name": "chime",
+          "at": 1.9,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s58",
+      "text": "But total interest goes from about $8,400 to about $11,960. The payment shrinks. The pile grows.",
+      "sfx": [
+        {
+          "name": "record-scratch",
+          "at": 0.05,
+          "volume": 0.25
+        },
+        {
+          "name": "coins-pour",
+          "at": 8.92,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s59",
+      "text": "It's like ordering the \"small\" coffee that somehow costs more by the end of the week.",
+      "sfx": [
+        {
+          "name": "cash-register",
+          "at": 4.68
+        }
+      ]
+    },
+    {
+      "id": "s60",
+      "text": "And there's a timing problem. Depreciation is fastest early. A long loan is paid down slowly early.",
+      "sfx": [
+        {
+          "name": "clock-tick",
+          "at": 1.02,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s61",
+      "text": "So for a while, you can owe more than the car is worth. Two leaks. Same wallet.",
+      "sfx": [
+        {
+          "name": "gasp",
+          "at": 1.79,
+          "volume": 0.3
+        },
+        {
+          "name": "coin",
+          "at": 4.47
+        }
+      ]
+    },
+    {
+      "id": "s62",
+      "text": "Let's zoom all the way in. AAA's $12,863 a year works out to about $35.24 a day.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0.31
+        },
+        {
+          "name": "coin",
+          "at": 6.16
+        }
+      ]
+    },
+    {
+      "id": "s63",
+      "text": "Every day. Weekends too. Even on days the car never leaves the driveway.",
+      "sfx": [
+        {
+          "name": "clock-tick",
+          "at": 0.05,
+          "volume": 0.3
+        },
+        {
+          "name": "coin",
+          "at": 5.06
+        }
+      ]
+    },
+    {
+      "id": "s64",
+      "text": "Picture a $35 cup of coffee. Every morning. Whether you drink it or not.",
+      "sfx": [
+        {
+          "name": "cash-register",
+          "at": 0.76
+        },
+        {
+          "name": "chime",
+          "at": 3.29,
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s65",
+      "text": "That's not a car. That's a very expensive roommate who doesn't pay rent.",
+      "sfx": [
+        {
+          "name": "rimshot",
+          "at": 4.49,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s66",
+      "text": "So what can you do with this? Here are three ideas worth keeping. These are concepts, not personal financial advice. Your situation is your own.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 2.74
+        },
+        {
+          "name": "click-soft",
+          "at": 5.06
+        }
+      ]
+    },
+    {
+      "id": "s67",
+      "text": "One. Look at total cost, not the sticker or the monthly payment.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 0.05
+        },
+        {
+          "name": "ping",
+          "at": 1.2
+        }
+      ]
+    },
+    {
+      "id": "s68",
+      "text": "A car's real price is the purchase plus depreciation, insurance, interest, gas, and repairs. The monthly payment is just the part that sends you a bill.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 1.39
+        },
+        {
+          "name": "notification",
+          "at": 9.49,
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s69",
+      "text": "Two. Loan length has a price. A longer loan makes each month lighter and the whole trip heavier. Before you compare payments, compare total interest.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 0.05
+        },
+        {
+          "name": "impact-bass-2",
+          "at": 5.76,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s70",
+      "text": "Three. Information has a price. The lemon discount exists because buyers can't see inside the car.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 0.05
+        },
+        {
+          "name": "boing",
+          "at": 5.15
+        }
+      ]
+    },
+    {
+      "id": "s71",
+      "text": "Anything that lets them see more, like maintenance records or an independent inspection, can shrink that doubt. That works whether you're buying or selling.",
+      "sfx": [
+        {
+          "name": "ping",
+          "at": 4.59
+        },
+        {
+          "name": "sparkle",
+          "at": 5.99,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s72",
+      "text": "So, case closed. The money didn't vanish at the gate. It was never really \"in\" the car. It was in the certainty that the car was new.",
+      "sfx": [
+        {
+          "name": "impact-bass-2",
+          "at": 0.56,
+          "volume": 0.3
+        },
+        {
+          "name": "sparkle",
+          "at": 7.76,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s73",
+      "text": "And certainty, it turns out, is one of the most expensive features on the lot.",
+      "sfx": [
+        {
+          "name": "cash-register",
+          "at": 3.41
+        }
+      ]
+    },
+    {
+      "id": "s74",
+      "text": "Next time you see a shiny car roll out of a dealership, picture the little price tag above it. And maybe, just maybe, a lemon in the passenger seat.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 3.92
+        },
+        {
+          "name": "rimshot",
+          "at": 9.88,
+          "volume": 0.3
+        }
+      ]
+    }
+  ],
+  "music": "assets/music/good-vibe.mp3"
+}

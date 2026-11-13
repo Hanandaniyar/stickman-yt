@@ -1,0 +1,56 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s60-gr { position: absolute; left: 0px; top: 0px; width: 1920px; height: 1080px; }
+    #s60-lv { position: absolute; left: 1340px; top: 560px; width: 400px; text-align: left; font-size: 50px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s60-lb { position: absolute; left: 1340px; top: 250px; width: 500px; text-align: left; font-size: 50px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s60-al { position: absolute; left: 1545px; top: 45px; width: 150px; height: 150px;  }
+    #s60-t { position: absolute; left: 96px; top: 60px; width: 1200px; text-align: left; font-size: 80px; line-height: 1.1; font-weight: 900; color: #111111;  }
+  </style>
+  <div id="root" data-composition-id="s60" data-width="1920" data-height="1080">
+    <div id="s60-gr" class="clip" data-start="0" data-duration="30"><svg width="1920" height="1080" viewBox="0 0 1920 1080" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M300 210 L300 770 L1330 770" fill="none" stroke-width="8"/><text x="1300" y="826" font-size="40" text-anchor="end" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">Time →</text><polyline id="s60-gr-val" points="300.0,273.2 325.0,292.2 350.0,310.9 375.0,329.2 400.0,347.3 425.0,365.1 450.0,382.6 475.0,399.7 500.0,416.6 525.0,433.1 550.0,449.3 575.0,465.2 600.0,480.7 625.0,496.0 650.0,510.9 675.0,525.4 700.0,539.6 725.0,553.5 750.0,567.0 775.0,580.2 800.0,593.0 825.0,605.5 850.0,617.6 875.0,629.3 900.0,640.6 925.0,651.5 950.0,662.1 975.0,672.2 1000.0,681.9 1025.0,691.2 1050.0,700.1 1075.0,708.5 1100.0,716.4 1125.0,723.9 1150.0,730.9 1175.0,737.3 1200.0,743.2 1225.0,748.5 1250.0,753.2 1275.0,757.1 1300.0,760.1" fill="none" stroke="#D64545" stroke-width="12" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/><polyline id="s60-gr-bal" points="300.0,240.8 325.0,243.3 350.0,247.7 375.0,253.2 400.0,259.6 425.0,266.8 450.0,274.6 475.0,283.1 500.0,292.1 525.0,301.7 550.0,311.7 575.0,322.2 600.0,333.2 625.0,344.5 650.0,356.3 675.0,368.4 700.0,381.0 725.0,393.8 750.0,407.1 775.0,420.6 800.0,434.5 825.0,448.7 850.0,463.2 875.0,478.0 900.0,493.1 925.0,508.5 950.0,524.2 975.0,540.1 1000.0,556.3 1025.0,572.8 1050.0,589.5 1075.0,606.5 1100.0,623.7 1125.0,641.2 1150.0,658.9 1175.0,676.8 1200.0,695.0 1225.0,713.4 1250.0,732.1 1275.0,750.9 1300.0,770.0" fill="none" stroke="#3B6FD9" stroke-width="12" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg></div>
+    <div id="s60-lv" class="clip sm-title" data-start="0" data-duration="30"><span class="sm-negative">Car value</span></div>
+    <div id="s60-lb" class="clip sm-title" data-start="0" data-duration="30"><span style="color:#3B6FD9">Loan balance</span></div>
+    <div id="s60-al" class="clip" data-start="0" data-duration="30"><div id="s60-al-m" style="width: 100%; height: 100%; "><img src="assets/emoji/alarm-clock.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s60-t" class="clip sm-title" data-start="0" data-duration="30">Timing <span class="sm-negative">problem</span></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s60-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const ir = { immediateRender: false };
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.55, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.3, ease: "back.in(2)", immediateRender: false }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.45, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 8) }, { x: px || 8, duration: 0.06, ease: "none", yoyo: true, repeat: (n || 6) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const drop = (el, at, h, first) => tl.fromTo(el, { y: -(h || 400), opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out", immediateRender: first !== false }, at);
+    const fall = (el, at, h, d, rot) => tl.fromTo(el, { y: 0, rotation: 0, opacity: 1 }, { y: h, rotation: rot || 0, opacity: 0, duration: d || 0.9, ease: "power2.in", immediateRender: false }, at);
+    const spin = (el, at, deg, d) => tl.fromTo(el, { rotation: 0 }, { rotation: deg, duration: d || 1, ease: "power2.inOut", immediateRender: false }, at);
+    const col = (el, at, c, c0) => tl.fromTo(el, { color: c0 || "#111111" }, { color: c, duration: 0.25, immediateRender: false }, at);
+    const walkTo = (fig, el, at, d, x0, x1, run, end, first) => { mv(el, at, [x0, 0], [x1, 0], d, "none", first); return gait(fig, at, d, run, end); };
+    const money = (v) => "$" + comma(v);
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    fade($("gr"), 0, 0.3);
+    rise($("t"), 0.1);
+    popin($("al"), 1.02);
+    wob($("al-m"), 1.42, 4, 12, 0.12);
+    draw(document.getElementById("s60-gr-val"), 2.3, 1.4);
+    fade($("lv"), 3.3);
+    draw(document.getElementById("s60-gr-bal"), 4.93, 1.8);
+    fade($("lb"), 5.43);
+    window.__timelines["s60"] = tl;
+  })();
+  </script>
+</template>

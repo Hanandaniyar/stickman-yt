@@ -1,0 +1,66 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s12-wall { position: absolute; left: 0px; top: 0px; width: 1920px; height: 1080px; }
+    #s12-car { position: absolute; left: 430px; top: 410px; width: 420px; height: 420px;  }
+    #s12-sign { position: absolute; left: 410px; top: 300px; width: 460px; box-sizing: border-box; padding: 12px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s12-watch { position: absolute; left: 1165px; top: 255px; width: 150px; height: 150px;  }
+    #s12-ten { position: absolute; left: 1320px; top: 290px; width: 360px; text-align: center; font-size: 64px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s12-wrn { position: absolute; left: 1240px; top: 500px; width: 120px; height: 120px;  }
+    #s12-det { position: absolute; left: 1480px; top: 388px; }
+    #s12-flash { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: #FFFFFF; opacity: 0; z-index: 50; }
+  </style>
+  <div id="root" data-composition-id="s12" data-width="1920" data-height="1080">
+    <div id="s12-wall" class="clip" data-start="0" data-duration="30"><svg width="1920" height="1080" viewBox="0 0 1920 1080" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="0" y="0" width="1920" height="900" fill="#E9E4D8" stroke="none"/><line x1="0" y1="840" x2="1920" y2="840" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="828" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">4ft</text><line x1="0" y1="730" x2="1920" y2="730" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="718" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">5ft</text><line x1="0" y1="620" x2="1920" y2="620" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="608" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">6ft</text><line x1="0" y1="510" x2="1920" y2="510" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="498" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">7ft</text><line x1="0" y1="400" x2="1920" y2="400" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="388" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">8ft</text><line x1="0" y1="290" x2="1920" y2="290" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="278" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">9ft</text><line x1="0" y1="180" x2="1920" y2="180" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="168" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">10ft</text></svg></div>
+    <div id="s12-car" class="clip" data-start="0" data-duration="30"><div id="s12-car-m" style="width: 100%; height: 100%; "><img src="assets/emoji/automobile.svg" alt="" style="display: block; width: 100%; height: 100%; transform: scaleX(-1);"></div></div>
+    <div id="s12-sign" class="clip sm-title" data-start="0" data-duration="30">Suspect #2<br><span class="sm-negative">The car</span></div>
+    <div id="s12-watch" class="clip" data-start="0" data-duration="30"><div id="s12-watch-m" style="width: 100%; height: 100%; "><img src="assets/emoji/stopwatch.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s12-ten" class="clip sm-title" data-start="0" data-duration="30">10 sec?</div>
+    <div id="s12-wrn" class="clip" data-start="0" data-duration="30"><div id="s12-wrn-m" style="width: 100%; height: 100%; "><img src="assets/emoji/warning.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s12-det" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s12-flash" class="clip" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s12-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const ir = { immediateRender: false };
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.55, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.3, ease: "back.in(2)", immediateRender: false }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.45, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 8) }, { x: px || 8, duration: 0.06, ease: "none", yoyo: true, repeat: (n || 6) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const drop = (el, at, h, first) => tl.fromTo(el, { y: -(h || 400), opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out", immediateRender: first !== false }, at);
+    const fall = (el, at, h, d, rot) => tl.fromTo(el, { y: 0, rotation: 0, opacity: 1 }, { y: h, rotation: rot || 0, opacity: 0, duration: d || 0.9, ease: "power2.in", immediateRender: false }, at);
+    const spin = (el, at, deg, d) => tl.fromTo(el, { rotation: 0 }, { rotation: deg, duration: d || 1, ease: "power2.inOut", immediateRender: false }, at);
+    const col = (el, at, c, c0) => tl.fromTo(el, { color: c0 || "#111111" }, { color: c, duration: 0.25, immediateRender: false }, at);
+    const walkTo = (fig, el, at, d, x0, x1, run, end, first) => { mv(el, at, [x0, 0], [x1, 0], d, "none", first); return gait(fig, at, d, run, end); };
+    const money = (v) => "$" + comma(v);
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const det = Stickman.mount($("det"), { pose: "think", scale: 1.2 });
+    Stickman.breathe(tl, det, 0, 30);
+    fade($("wall"), 0, 0.3);
+    popin($("car"), 0.2, 0);
+    popin($("sign"), 1.59, 0);
+    popin($("watch"), 2.94);
+    fade($("ten"), 2.94);
+    wob($("watch-m"), 3.34, 2, 10);
+    popin($("wrn"), 4.35);
+    shake($("car-m"), 4.35, 5, 5);
+    Stickman.pose(tl, det, "point", 2.68, 0.3, { mirror: true });
+    tl.fromTo($("flash"), { opacity: 0.85 }, { opacity: 0, duration: 0.45, ease: "power2.out", immediateRender: false }, 1.59);
+    window.__timelines["s12"] = tl;
+  })();
+  </script>
+</template>

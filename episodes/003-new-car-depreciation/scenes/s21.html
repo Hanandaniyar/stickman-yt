@@ -1,0 +1,82 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s21-def { position: absolute; left: 160px; top: 110px; width: 900px; box-sizing: border-box; padding: 20px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 72px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s21-b0 { position: absolute; left: 230px; top: 490px; width: 140px; height: 140px;  }
+    #s21-b1 { position: absolute; left: 380px; top: 490px; width: 140px; height: 140px;  }
+    #s21-b2 { position: absolute; left: 530px; top: 490px; width: 140px; height: 140px;  }
+    #s21-ft { position: absolute; left: 845px; top: 635px; width: 110px; height: 110px;  }
+    #s21-rc { position: absolute; left: 1215px; top: 245px; width: 170px; height: 170px;  }
+    #s21-x1 { position: absolute; left: 1210px; top: 240px; width: 180px; height: 180px;  }
+    #s21-env { position: absolute; left: 1535px; top: 245px; width: 170px; height: 170px;  }
+    #s21-x2 { position: absolute; left: 1530px; top: 240px; width: 180px; height: 180px;  }
+    #s21-l1 { position: absolute; left: 1170px; top: 450px; width: 260px; text-align: center; font-size: 40px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s21-l2 { position: absolute; left: 1490px; top: 450px; width: 260px; text-align: center; font-size: 40px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s21-guy { position: absolute; left: 1360px; top: 463px; }
+  </style>
+  <div id="root" data-composition-id="s21" data-width="1920" data-height="1080">
+    <div id="s21-def" class="clip sm-title" data-start="0" data-duration="30">Depreciation =<div style="font-size:56px">the value <span class="sm-negative">quietly leaving</span></div></div>
+    <div id="s21-b0" class="clip" data-start="0" data-duration="30"><div id="s21-b0-m" style="width: 100%; height: 100%; "><img src="assets/emoji/dollar-banknote.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s21-b1" class="clip" data-start="0" data-duration="30"><div id="s21-b1-m" style="width: 100%; height: 100%; "><img src="assets/emoji/dollar-banknote.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s21-b2" class="clip" data-start="0" data-duration="30"><div id="s21-b2-m" style="width: 100%; height: 100%; "><img src="assets/emoji/dollar-banknote.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s21-ft" class="clip" data-start="0" data-duration="30"><div id="s21-ft-m" style="width: 100%; height: 100%; "><img src="assets/emoji/footprints.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s21-rc" class="clip" data-start="0" data-duration="30"><div id="s21-rc-m" style="width: 100%; height: 100%; "><img src="assets/emoji/receipt.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s21-x1" class="clip" data-start="0" data-duration="30"><div id="s21-x1-m" style="width: 100%; height: 100%; "><img src="assets/emoji/cross-mark.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s21-env" class="clip" data-start="0" data-duration="30"><div id="s21-env-m" style="width: 100%; height: 100%; "><img src="assets/emoji/envelope.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s21-x2" class="clip" data-start="0" data-duration="30"><div id="s21-x2-m" style="width: 100%; height: 100%; "><img src="assets/emoji/cross-mark.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s21-l1" class="clip sm-title" data-start="0" data-duration="30">No receipt</div>
+    <div id="s21-l2" class="clip sm-title" data-start="0" data-duration="30">No bill</div>
+    <div id="s21-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s21-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const ir = { immediateRender: false };
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.55, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.3, ease: "back.in(2)", immediateRender: false }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.45, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 8) }, { x: px || 8, duration: 0.06, ease: "none", yoyo: true, repeat: (n || 6) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const drop = (el, at, h, first) => tl.fromTo(el, { y: -(h || 400), opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out", immediateRender: first !== false }, at);
+    const fall = (el, at, h, d, rot) => tl.fromTo(el, { y: 0, rotation: 0, opacity: 1 }, { y: h, rotation: rot || 0, opacity: 0, duration: d || 0.9, ease: "power2.in", immediateRender: false }, at);
+    const spin = (el, at, deg, d) => tl.fromTo(el, { rotation: 0 }, { rotation: deg, duration: d || 1, ease: "power2.inOut", immediateRender: false }, at);
+    const col = (el, at, c, c0) => tl.fromTo(el, { color: c0 || "#111111" }, { color: c, duration: 0.25, immediateRender: false }, at);
+    const walkTo = (fig, el, at, d, x0, x1, run, end, first) => { mv(el, at, [x0, 0], [x1, 0], d, "none", first); return gait(fig, at, d, run, end); };
+    const money = (v) => "$" + comma(v);
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const guy = Stickman.mount($("guy"), { pose: "think", scale: 1.0 });
+    Stickman.breathe(tl, guy, 0, 30);
+    popin($("def"), 0.1, 0);
+    popin($("b0"), 0.6);
+    popin($("b1"), 0.75);
+    popin($("b2"), 0.8999999999999999);
+    mv($("b0"), 2.59, [0, 0], [1500, 0], 2.6, "power1.in");
+    mv($("b1"), 2.79, [0, 0], [1350, 0], 2.6, "power1.in");
+    mv($("b2"), 2.99, [0, 0], [1200, 0], 2.6, "power1.in");
+    bob($("b0-m"), 2.59, 4, 16, 0.3);
+    bob($("b1-m"), 2.79, 4, 16, 0.3);
+    bob($("b2-m"), 2.99, 4, 16, 0.3);
+    popin($("ft"), 2.9899999999999998);
+    popin($("rc"), 4.38);
+    popin($("x1"), 4.779999999999999);
+    fade($("l1"), 4.68);
+    popin($("env"), 5.47);
+    popin($("x2"), 6.54);
+    fade($("l2"), 5.77);
+    Stickman.pose(tl, guy, "shrug", 5.77);
+    window.__timelines["s21"] = tl;
+  })();
+  </script>
+</template>

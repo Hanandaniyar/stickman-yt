@@ -1,0 +1,85 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s08-board { position: absolute; left: 120px; top: 90px; width: 1100px; box-sizing: border-box; padding: 24px; background: #F3E6C8; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 48px; line-height: 1.1; font-weight: 900; color: #111111; border-radius: 12px; height: 680px; }
+    #s08-h { position: absolute; left: 160px; top: 120px; width: 600px; text-align: left; font-size: 56px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s08-cal { position: absolute; left: 195px; top: 245px; width: 170px; height: 170px;  }
+    #s08-oct { position: absolute; left: 180px; top: 430px; width: 200px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s08-car { position: absolute; left: 510px; top: 200px; width: 260px; height: 260px;  }
+    #s08-tag { position: absolute; left: 430px; top: 520px; width: 560px; box-sizing: border-box; padding: 14px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 88px; line-height: 1.1; font-weight: 900; color: #111111; transform: rotate(-4deg); border-radius: 18px 40px 40px 18px; position: absolute; }
+    #s08-rec { position: absolute; left: 400px; top: 660px; width: 620px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s08-dr0 { position: absolute; left: 530px; top: 610px; width: 60px; height: 60px;  }
+    #s08-dr1 { position: absolute; left: 650px; top: 610px; width: 60px; height: 60px;  }
+    #s08-dr2 { position: absolute; left: 770px; top: 610px; width: 60px; height: 60px;  }
+    #s08-guy { position: absolute; left: 1370px; top: 350px; }
+    #s08-mag { position: absolute; left: 1265px; top: 405px; width: 130px; height: 130px;  }
+    #s08-q { position: absolute; left: 1525px; top: 135px; width: 150px; height: 150px;  }
+  </style>
+  <div id="root" data-composition-id="s08" data-width="1920" data-height="1080">
+    <div id="s08-board" class="clip sm-title" data-start="0" data-duration="30"></div>
+    <div id="s08-h" class="clip sm-title" data-start="0" data-duration="30">Evidence #1</div>
+    <div id="s08-cal" class="clip" data-start="0" data-duration="30"><div id="s08-cal-m" style="width: 100%; height: 100%; "><img src="assets/emoji/spiral-calendar.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s08-oct" class="clip sm-title" data-start="0" data-duration="30">Oct 2026</div>
+    <div id="s08-car" class="clip" data-start="0" data-duration="30"><div id="s08-car-m" style="width: 100%; height: 100%; "><img src="assets/emoji/automobile.svg" alt="" style="display: block; width: 100%; height: 100%; transform: scaleX(-1);"></div></div>
+    <div id="s08-tag" class="clip sm-title" data-start="0" data-duration="30"><span style="position:absolute; left:18px; top:50%; width:22px; height:22px; margin-top:-11px; border-radius:50%; background:#FAF7F0; border:5px solid #111111; box-sizing:border-box;"></span><span style="padding-left:26px; color:#111111;"><span id="s08-v" class="sm-accent">$0</span></span></div>
+    <div id="s08-rec" class="clip sm-title" data-start="0" data-duration="30">Avg new car · <span class="sm-accent">record</span></div>
+    <div id="s08-dr0" class="clip" data-start="0" data-duration="30"><div id="s08-dr0-m" style="width: 100%; height: 100%; "><img src="assets/emoji/droplet.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s08-dr1" class="clip" data-start="0" data-duration="30"><div id="s08-dr1-m" style="width: 100%; height: 100%; "><img src="assets/emoji/droplet.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s08-dr2" class="clip" data-start="0" data-duration="30"><div id="s08-dr2-m" style="width: 100%; height: 100%; "><img src="assets/emoji/droplet.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s08-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s08-mag" class="clip" data-start="0" data-duration="30"><div id="s08-mag-m" style="width: 100%; height: 100%; "><img src="assets/emoji/magnifying-glass-tilted-left.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s08-q" class="clip" data-start="0" data-duration="30"><div id="s08-q-m" style="width: 100%; height: 100%; "><img src="assets/emoji/red-question-mark.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s08-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const ir = { immediateRender: false };
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.55, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.3, ease: "back.in(2)", immediateRender: false }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.45, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 8) }, { x: px || 8, duration: 0.06, ease: "none", yoyo: true, repeat: (n || 6) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const drop = (el, at, h, first) => tl.fromTo(el, { y: -(h || 400), opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out", immediateRender: first !== false }, at);
+    const fall = (el, at, h, d, rot) => tl.fromTo(el, { y: 0, rotation: 0, opacity: 1 }, { y: h, rotation: rot || 0, opacity: 0, duration: d || 0.9, ease: "power2.in", immediateRender: false }, at);
+    const spin = (el, at, deg, d) => tl.fromTo(el, { rotation: 0 }, { rotation: deg, duration: d || 1, ease: "power2.inOut", immediateRender: false }, at);
+    const col = (el, at, c, c0) => tl.fromTo(el, { color: c0 || "#111111" }, { color: c, duration: 0.25, immediateRender: false }, at);
+    const walkTo = (fig, el, at, d, x0, x1, run, end, first) => { mv(el, at, [x0, 0], [x1, 0], d, "none", first); return gait(fig, at, d, run, end); };
+    const money = (v) => "$" + comma(v);
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const guy = Stickman.mount($("guy"), { pose: "stand", scale: 1.3 });
+    Stickman.breathe(tl, guy, 0, 30);
+    popin($("board"), 0, 0);
+    rise($("h"), 0.2);
+    popin($("cal"), 1.91);
+    fade($("oct"), 1.91);
+    popin($("car"), 4.95);
+    popin($("tag"), 6.5, 6);
+    count($("v"), 0, 51109, 6.5, 1.82, money);
+    fade($("rec"), 7.27);
+    pulse($("tag"), 8.52);
+    tl.fromTo($("tag"), { scaleY: 1, transformOrigin: "50% 100%" }, { scaleY: 0.7, duration: 1.0, ease: "power1.in", immediateRender: false }, 11.889999999999999);
+    popin($("dr0"), 11.99); fall($("dr0"), 12.39, 140, 0.6);
+    popin($("dr1"), 12.19); fall($("dr1"), 12.59, 140, 0.6);
+    popin($("dr2"), 12.39); fall($("dr2"), 12.79, 140, 0.6);
+    Stickman.pose(tl, guy, "explain", 0.3, 0.3, { mirror: true });
+    Stickman.pose(tl, guy, "shocked", 7.72);
+    popin($("mag"), 12.879999999999999);
+    popin($("q"), 13.18);
+    wob($("q-m"), 13.68, 3, 12);
+    Stickman.pose(tl, guy, "think", 13.18);
+    window.__timelines["s08"] = tl;
+  })();
+  </script>
+</template>

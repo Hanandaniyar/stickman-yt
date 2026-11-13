@@ -1,0 +1,73 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s49-sci { position: absolute; left: 180px; top: 388px; }
+    #s49-mic { position: absolute; left: 460px; top: 460px; width: 200px; height: 200px;  }
+    #s49-lem { position: absolute; left: 685px; top: 375px; width: 110px; height: 110px;  }
+    #s49-tt { position: absolute; left: 425px; top: 275px; width: 110px; height: 110px;  }
+    #s49-q { position: absolute; left: 620px; top: 180px; width: 320px; box-sizing: border-box; padding: 12px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 56px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s49-car { position: absolute; left: 1250px; top: 500px; width: 300px; height: 300px;  }
+    #s49-odo { position: absolute; left: 1220px; top: 400px; width: 360px; box-sizing: border-box; padding: 10px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 56px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s49-tag { position: absolute; left: 1260px; top: 210px; width: 300px; box-sizing: border-box; padding: 14px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 64px; line-height: 1.1; font-weight: 900; color: #111111; transform: rotate(-4deg); border-radius: 18px 40px 40px 18px; position: absolute; }
+    #s49-dn { position: absolute; left: 1650px; top: 230px; width: 140px; height: 140px;  }
+    #s49-w { position: absolute; left: 1000px; top: 60px; width: 860px; text-align: center; font-size: 70px; line-height: 1.1; font-weight: 900; color: #111111;  }
+  </style>
+  <div id="root" data-composition-id="s49" data-width="1920" data-height="1080">
+    <div id="s49-sci" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s49-mic" class="clip" data-start="0" data-duration="30"><div id="s49-mic-m" style="width: 100%; height: 100%; "><img src="assets/emoji/microscope.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s49-lem" class="clip" data-start="0" data-duration="30"><div id="s49-lem-m" style="width: 100%; height: 100%; "><img src="assets/emoji/lemon.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s49-tt" class="clip" data-start="0" data-duration="30"><div id="s49-tt-m" style="width: 100%; height: 100%; "><img src="assets/emoji/test-tube.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s49-q" class="clip sm-title" data-start="0" data-duration="30">How <span class="sm-accent">big</span>?</div>
+    <div id="s49-car" class="clip" data-start="0" data-duration="30"><div id="s49-car-m" style="width: 100%; height: 100%; "><img src="assets/emoji/automobile.svg" alt="" style="display: block; width: 100%; height: 100%; transform: scaleX(-1);"></div></div>
+    <div id="s49-odo" class="clip sm-title" data-start="0" data-duration="30">Miles: <span class="sm-accent">0</span></div>
+    <div id="s49-tag" class="clip sm-title" data-start="0" data-duration="30"><span style="position:absolute; left:18px; top:50%; width:22px; height:22px; margin-top:-11px; border-radius:50%; background:#FAF7F0; border:5px solid #111111; box-sizing:border-box;"></span><span style="padding-left:26px; color:#111111;"><span class="sm-negative"><span id="s49-v">$$$$$</span></span></span></div>
+    <div id="s49-dn" class="clip" data-start="0" data-duration="30"><div id="s49-dn-m" style="width: 100%; height: 100%; "><img src="assets/emoji/chart-decreasing.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s49-w" class="clip sm-title" data-start="0" data-duration="30">Weird <span class="sm-negative">part</span></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s49-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const ir = { immediateRender: false };
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.55, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.3, ease: "back.in(2)", immediateRender: false }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.45, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 8) }, { x: px || 8, duration: 0.06, ease: "none", yoyo: true, repeat: (n || 6) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const drop = (el, at, h, first) => tl.fromTo(el, { y: -(h || 400), opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out", immediateRender: first !== false }, at);
+    const fall = (el, at, h, d, rot) => tl.fromTo(el, { y: 0, rotation: 0, opacity: 1 }, { y: h, rotation: rot || 0, opacity: 0, duration: d || 0.9, ease: "power2.in", immediateRender: false }, at);
+    const spin = (el, at, deg, d) => tl.fromTo(el, { rotation: 0 }, { rotation: deg, duration: d || 1, ease: "power2.inOut", immediateRender: false }, at);
+    const col = (el, at, c, c0) => tl.fromTo(el, { color: c0 || "#111111" }, { color: c, duration: 0.25, immediateRender: false }, at);
+    const walkTo = (fig, el, at, d, x0, x1, run, end, first) => { mv(el, at, [x0, 0], [x1, 0], d, "none", first); return gait(fig, at, d, run, end); };
+    const money = (v) => "$" + comma(v);
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const sci = Stickman.mount($("sci"), { pose: "think", scale: 1.2 });
+    Stickman.breathe(tl, sci, 0, 30);
+    popin($("mic"), 0.1);
+    popin($("tt"), 0.3);
+    popin($("lem"), 2.43);
+    wob($("lem-m"), 2.73, 3, 10);
+    popin($("q"), 1.92, 0);
+    Stickman.pose(tl, sci, "explain", 1.4);
+    rise($("w"), 5.65);
+    popin($("car"), 4.42, 0);
+    popin($("tag"), 6.8);
+    popin($("dn"), 7.05);
+    tl.fromTo($("tag"), { y: 0, rotation: 0 }, { y: 60, rotation: 12, duration: 0.5, ease: "bounce.out", immediateRender: false }, 7.05);
+    popin($("odo"), 8.53, 0);
+    Stickman.pose(tl, sci, "shrug", 8.79);
+    window.__timelines["s49"] = tl;
+  })();
+  </script>
+</template>

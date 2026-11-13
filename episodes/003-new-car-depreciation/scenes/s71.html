@@ -1,0 +1,70 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s71-clip { position: absolute; left: 230px; top: 270px; width: 220px; height: 220px;  }
+    #s71-cl { position: absolute; left: 190px; top: 510px; width: 300px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s71-mech { position: absolute; left: 590px; top: 270px; width: 220px; height: 220px;  }
+    #s71-ml { position: absolute; left: 550px; top: 510px; width: 300px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 800; color: #111111;  }
+    #s71-cloud { position: absolute; left: 1060px; top: 160px; width: 560px; height: 380px; }
+    #s71-own { position: absolute; left: 1110px; top: 501px; }
+    #s71-buy { position: absolute; left: 1470px; top: 501px; }
+    #s71-hs { position: absolute; left: 1310px; top: 530px; width: 140px; height: 140px;  }
+    #s71-bs { position: absolute; left: 1000px; top: 70px; width: 680px; text-align: center; font-size: 54px; line-height: 1.1; font-weight: 900; color: #111111;  }
+  </style>
+  <div id="root" data-composition-id="s71" data-width="1920" data-height="1080">
+    <div id="s71-clip" class="clip" data-start="0" data-duration="30"><div id="s71-clip-m" style="width: 100%; height: 100%; "><img src="assets/emoji/clipboard.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s71-cl" class="clip sm-title" data-start="0" data-duration="30">Records</div>
+    <div id="s71-mech" class="clip" data-start="0" data-duration="30"><div id="s71-mech-m" style="width: 100%; height: 100%; "><img src="assets/emoji/mechanic.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s71-ml" class="clip sm-title" data-start="0" data-duration="30">Inspection</div>
+    <div id="s71-cloud" class="clip" data-start="0" data-duration="30"><svg width="560" height="380" viewBox="0 0 560 380" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="280" cy="190" rx="260" ry="170" fill="#DDD6C6" stroke-width="7"/><text x="280" y="215" font-size="110" text-anchor="middle" fill="#111111" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">???</text></svg></div>
+    <div id="s71-own" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s71-buy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s71-hs" class="clip" data-start="0" data-duration="30"><div id="s71-hs-m" style="width: 100%; height: 100%; "><img src="assets/emoji/handshake.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s71-bs" class="clip sm-title" data-start="0" data-duration="30">Buying <span class="sm-accent">or</span> selling</div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s71-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const ir = { immediateRender: false };
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.55, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.3, ease: "back.in(2)", immediateRender: false }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.45, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 8) }, { x: px || 8, duration: 0.06, ease: "none", yoyo: true, repeat: (n || 6) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const drop = (el, at, h, first) => tl.fromTo(el, { y: -(h || 400), opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out", immediateRender: first !== false }, at);
+    const fall = (el, at, h, d, rot) => tl.fromTo(el, { y: 0, rotation: 0, opacity: 1 }, { y: h, rotation: rot || 0, opacity: 0, duration: d || 0.9, ease: "power2.in", immediateRender: false }, at);
+    const spin = (el, at, deg, d) => tl.fromTo(el, { rotation: 0 }, { rotation: deg, duration: d || 1, ease: "power2.inOut", immediateRender: false }, at);
+    const col = (el, at, c, c0) => tl.fromTo(el, { color: c0 || "#111111" }, { color: c, duration: 0.25, immediateRender: false }, at);
+    const walkTo = (fig, el, at, d, x0, x1, run, end, first) => { mv(el, at, [x0, 0], [x1, 0], d, "none", first); return gait(fig, at, d, run, end); };
+    const money = (v) => "$" + comma(v);
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const own = Stickman.mount($("own"), { pose: "stand", scale: 0.9, color: "#1F7A4D" });
+    Stickman.breathe(tl, own, 0, 30);
+    const buy = Stickman.mount($("buy"), { pose: "stand", scale: 0.9, color: "#3B5BA9" });
+    Stickman.breathe(tl, buy, 0, 30);
+    popin($("clip"), 2.68);
+    fade($("cl"), 3.08);
+    popin($("mech"), 4.59);
+    fade($("ml"), 4.89);
+    fade($("cloud"), 0.1);
+    tl.fromTo($("cloud"), { scale: 1, transformOrigin: "50% 50%" }, { scale: 0.25, opacity: 0.2, duration: 1.0, ease: "back.in(1.5)", immediateRender: false }, 5.99);
+    popin($("hs"), 7.4);
+    rise($("bs"), 7.4);
+    Stickman.pose(tl, own, "celebrate", 7.6000000000000005, 0.3);
+    Stickman.pose(tl, buy, "celebrate", 7.800000000000001, 0.3);
+    window.__timelines["s71"] = tl;
+  })();
+  </script>
+</template>

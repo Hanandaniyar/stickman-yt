@@ -1,0 +1,61 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s66-guy { position: absolute; left: 170px; top: 350px; }
+    #s66-k0 { position: absolute; left: 540px; top: 280px; width: 200px; height: 200px;  }
+    #s66-k1 { position: absolute; left: 920px; top: 280px; width: 200px; height: 200px;  }
+    #s66-k2 { position: absolute; left: 1300px; top: 280px; width: 200px; height: 200px;  }
+    #s66-bulb { position: absolute; left: 1620px; top: 220px; width: 160px; height: 160px;  }
+    #s66-disc { position: absolute; left: 700px; top: 620px; width: 760px; box-sizing: border-box; padding: 12px; background: #FFFFFF; border: 6px solid #777; border-radius: 22px; text-align: center; font-size: 56px; line-height: 1.1; font-weight: 900; color: #111111;  }
+  </style>
+  <div id="root" data-composition-id="s66" data-width="1920" data-height="1080">
+    <div id="s66-guy" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s66-k0" class="clip" data-start="0" data-duration="30"><div id="s66-k0-m" style="width: 100%; height: 100%; "><img src="assets/emoji/keycap-1.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s66-k1" class="clip" data-start="0" data-duration="30"><div id="s66-k1-m" style="width: 100%; height: 100%; "><img src="assets/emoji/keycap-2.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s66-k2" class="clip" data-start="0" data-duration="30"><div id="s66-k2-m" style="width: 100%; height: 100%; "><img src="assets/emoji/keycap-3.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s66-bulb" class="clip" data-start="0" data-duration="30"><div id="s66-bulb-m" style="width: 100%; height: 100%; "><img src="assets/emoji/light-bulb.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s66-disc" class="clip sm-title" data-start="0" data-duration="30">Concepts, <span class="sm-negative">not advice</span></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s66-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const ir = { immediateRender: false };
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.55, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.3, ease: "back.in(2)", immediateRender: false }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.45, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 8) }, { x: px || 8, duration: 0.06, ease: "none", yoyo: true, repeat: (n || 6) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const drop = (el, at, h, first) => tl.fromTo(el, { y: -(h || 400), opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out", immediateRender: first !== false }, at);
+    const fall = (el, at, h, d, rot) => tl.fromTo(el, { y: 0, rotation: 0, opacity: 1 }, { y: h, rotation: rot || 0, opacity: 0, duration: d || 0.9, ease: "power2.in", immediateRender: false }, at);
+    const spin = (el, at, deg, d) => tl.fromTo(el, { rotation: 0 }, { rotation: deg, duration: d || 1, ease: "power2.inOut", immediateRender: false }, at);
+    const col = (el, at, c, c0) => tl.fromTo(el, { color: c0 || "#111111" }, { color: c, duration: 0.25, immediateRender: false }, at);
+    const walkTo = (fig, el, at, d, x0, x1, run, end, first) => { mv(el, at, [x0, 0], [x1, 0], d, "none", first); return gait(fig, at, d, run, end); };
+    const money = (v) => "$" + comma(v);
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const guy = Stickman.mount($("guy"), { pose: "explain", scale: 1.3 });
+    Stickman.breathe(tl, guy, 0, 30);
+    Stickman.pose(tl, guy, "think", 0.1);
+    Stickman.pose(tl, guy, "explain", 2.23);
+    popin($("k0"), 2.74);
+    popin($("k1"), 2.94);
+    popin($("k2"), 3.14);
+    popin($("bulb"), 3.4400000000000004);
+    popin($("disc"), 5.06, 0);
+    Stickman.pose(tl, guy, "point", 5.06, 0.3);
+    Stickman.pose(tl, guy, "stand", 8.34);
+    window.__timelines["s66"] = tl;
+  })();
+  </script>
+</template>

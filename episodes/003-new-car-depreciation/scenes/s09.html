@@ -1,0 +1,70 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FAF7F0; overflow: hidden; }
+    #s09-wall { position: absolute; left: 0px; top: 0px; width: 1920px; height: 1080px; }
+    #s09-dl { position: absolute; left: 425px; top: 331px; }
+    #s09-tie { position: absolute; left: 528px; top: 543px; width: 64px; height: 64px;  }
+    #s09-sign { position: absolute; left: 330px; top: 690px; width: 460px; box-sizing: border-box; padding: 12px; background: #FFFFFF; border: 6px solid #111111; border-radius: 22px; text-align: center; font-size: 44px; line-height: 1.1; font-weight: 900; color: #111111;  }
+    #s09-gate { position: absolute; left: 1200px; top: 220px; width: 440px; height: 620px; }
+    #s09-bag { position: absolute; left: 1320px; top: 600px; width: 200px; height: 200px;  }
+    #s09-det { position: absolute; left: 940px; top: 425px; }
+    #s09-mag { position: absolute; left: 1090px; top: 460px; width: 120px; height: 120px;  }
+    #s09-flash { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: #FFFFFF; opacity: 0; z-index: 50; }
+  </style>
+  <div id="root" data-composition-id="s09" data-width="1920" data-height="1080">
+    <div id="s09-wall" class="clip" data-start="0" data-duration="30"><svg width="1920" height="1080" viewBox="0 0 1920 1080" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="0" y="0" width="1920" height="900" fill="#E9E4D8" stroke="none"/><line x1="0" y1="840" x2="1920" y2="840" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="828" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">4ft</text><line x1="0" y1="730" x2="1920" y2="730" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="718" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">5ft</text><line x1="0" y1="620" x2="1920" y2="620" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="608" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">6ft</text><line x1="0" y1="510" x2="1920" y2="510" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="498" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">7ft</text><line x1="0" y1="400" x2="1920" y2="400" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="388" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">8ft</text><line x1="0" y1="290" x2="1920" y2="290" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="278" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">9ft</text><line x1="0" y1="180" x2="1920" y2="180" stroke="#B9B2A2" stroke-width="4"/><text x="30" y="168" font-size="34" fill="#9C9483" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">10ft</text></svg></div>
+    <div id="s09-dl" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s09-tie" class="clip" data-start="0" data-duration="30"><div id="s09-tie-m" style="width: 100%; height: 100%; "><img src="assets/emoji/necktie.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s09-sign" class="clip sm-title" data-start="0" data-duration="30">Suspect #1<br><span class="sm-negative">The dealer</span></div>
+    <div id="s09-gate" class="clip" data-start="0" data-duration="30"><svg width="440" height="620" viewBox="0 0 440 620" overflow="visible" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="60" width="44" height="560" fill="#9AA5B1"/><rect x="386" y="60" width="44" height="560" fill="#9AA5B1"/><rect x="0" y="20" width="440" height="90" rx="16" fill="#D64545"/><text x="220" y="82" font-size="50" text-anchor="middle" fill="#FFFFFF" stroke="none" font-family="Montserrat, sans-serif" font-weight="900">NEW CARS</text></svg></div>
+    <div id="s09-bag" class="clip" data-start="0" data-duration="30"><div id="s09-bag-m" style="width: 100%; height: 100%; "><img src="assets/emoji/money-bag.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s09-det" class="clip sm-figure" data-start="0" data-duration="30"></div>
+    <div id="s09-mag" class="clip" data-start="0" data-duration="30"><div id="s09-mag-m" style="width: 100%; height: 100%; "><img src="assets/emoji/magnifying-glass-tilted-left.svg" alt="" style="display: block; width: 100%; height: 100%; "></div></div>
+    <div id="s09-flash" class="clip" data-start="0" data-duration="30"></div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s09-" + n);
+    const pop = (el, at, d) => tl.fromTo(el, { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: d || 0.45, ease: "back.out(2)" }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const draw = (el, at, d) => tl.fromTo(el, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 1, ease: "power1.inOut" }, at);
+    const comma = (v) => Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const ir = { immediateRender: false };
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.55, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.3, ease: "back.in(2)", immediateRender: false }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.45, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 8) }, { x: px || 8, duration: 0.06, ease: "none", yoyo: true, repeat: (n || 6) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const drop = (el, at, h, first) => tl.fromTo(el, { y: -(h || 400), opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out", immediateRender: first !== false }, at);
+    const fall = (el, at, h, d, rot) => tl.fromTo(el, { y: 0, rotation: 0, opacity: 1 }, { y: h, rotation: rot || 0, opacity: 0, duration: d || 0.9, ease: "power2.in", immediateRender: false }, at);
+    const spin = (el, at, deg, d) => tl.fromTo(el, { rotation: 0 }, { rotation: deg, duration: d || 1, ease: "power2.inOut", immediateRender: false }, at);
+    const col = (el, at, c, c0) => tl.fromTo(el, { color: c0 || "#111111" }, { color: c, duration: 0.25, immediateRender: false }, at);
+    const walkTo = (fig, el, at, d, x0, x1, run, end, first) => { mv(el, at, [x0, 0], [x1, 0], d, "none", first); return gait(fig, at, d, run, end); };
+    const money = (v) => "$" + comma(v);
+    const gait = (fig, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, fig, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, fig, end || "stand", at + d, 0.2); };
+    const dl = Stickman.mount($("dl"), { pose: "stand", scale: 1.35, color: "#3B5BA9" });
+    Stickman.breathe(tl, dl, 0, 30);
+    const det = Stickman.mount($("det"), { pose: "think", scale: 1.1 });
+    Stickman.breathe(tl, det, 0, 30);
+    fade($("wall"), 0, 0.3);
+    Stickman.pose(tl, dl, "hold-sign", 0.9999999999999999);
+    popin($("sign"), 1.2, 0);
+    popin($("tie"), 0.9999999999999999, 0);
+    fade($("gate"), 2.3400000000000003);
+    popin($("bag"), 2.74, 20);
+    wob($("bag-m"), 3.24, 3, 10);
+    popin($("mag"), 2.23);
+    Stickman.pose(tl, det, "point", 2.74);
+    tl.fromTo($("flash"), { opacity: 0.85 }, { opacity: 0, duration: 0.45, ease: "power2.out", immediateRender: false }, 1.4);
+    window.__timelines["s09"] = tl;
+  })();
+  </script>
+</template>
