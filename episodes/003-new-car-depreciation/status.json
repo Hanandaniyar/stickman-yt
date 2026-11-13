@@ -1,7 +1,7 @@
 {
   "episode": "003-new-car-depreciation",
   "stage": "scenes",
-  "request": null,
+  "request": "render",
   "approvals": {
     "topic": true,
     "script": true,
@@ -19,10 +19,16 @@
       "round": 1,
       "verdict": "LOLOS",
       "file": "reviews/script-1.md"
+    },
+    {
+      "stage": "scenes",
+      "round": 1,
+      "verdict": "LOLOS",
+      "file": "reviews/scenes-1.md"
     }
   ],
   "release_url": null,
   "youtube_id": null,
   "last_error": null,
-  "updated_at": "2026-11-13T02:00:35+00:00"
+  "updated_at": "2026-11-13T02:32:38+00:00"
 }
