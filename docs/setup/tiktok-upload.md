@@ -8,6 +8,12 @@ Mulai dengan **sandbox**: mode uji coba TikTok tanpa review, untuk maksimal 10 a
 penguji (cukup akunmu sendiri). Belum pasti `video.upload` jalan penuh di sandbox;
 kalau tidak, ajukan review aplikasi (langkah 7).
 
+## Status
+Sandbox aktif, login berhasil, upload draft sudah dites (13 Nov 2026).
+Perintah: `uv run sty tiktok-login` (sekali, atau jika kedaluwarsa),
+`uv run sty tiktok-upload <video>`, `uv run sty tiktok-status <publish_id>`.
+Token tersimpan di `~/.config/handur/tiktok_token.json` (tidak di repo).
+
 ## 1. Akun developer
 Buka https://developers.tiktok.com → **Log in** dengan akun TikTok kamu →
 setujui Developer Terms. (Kamu sendiri yang membuat akun ini.)
