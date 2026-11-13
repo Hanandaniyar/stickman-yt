@@ -65,6 +65,15 @@ Biarkan jendela Terminal ini terbuka.
 2. Di Terminal Claude, ketik `/telegram:access pair <kode>`.
 3. Lalu `/telegram:access policy allowlist` supaya hanya akunmu yang bisa memberi perintah.
 
+## Menyalakan (setiap kali)
+Token bot ada di `~/.config/handur/telegram.env`, bukan di `~/.claude/channels/telegram/.env`,
+supaya sesi Claude lain (misalnya aplikasi desktop) tidak ikut menyalakan bot dan merebutnya.
+Nyalakan Handur Telegram di aplikasi Terminal Mac:
+
+```bash
+~/Desktop/stickman-yt/tools/handur-telegram.sh
+```
+
 ## Cara pakai
 Kirim ke bot, misalnya: `Handur, bikin video TikTok produk ini <link>`, plus
 foto produk (kirim **sebagai File** supaya tidak dikompres) dan contoh video
