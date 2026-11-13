@@ -1,7 +1,7 @@
 {
   "episode": "003-new-car-depreciation",
-  "stage": "approved",
-  "request": "upload",
+  "stage": "done",
+  "request": null,
   "approvals": {
     "topic": true,
     "script": true,
@@ -34,7 +34,7 @@
     }
   ],
   "release_url": "https://github.com/Hanandaniyar/stickman-yt/releases/tag/ep-003",
-  "youtube_id": null,
+  "youtube_id": "BQg-s4hHji8",
   "last_error": null,
-  "updated_at": "2026-11-13T03:15:23+00:00"
+  "updated_at": "2026-11-13T03:16:47+00:00"
 }
