@@ -119,3 +119,50 @@ def test_music_loops_to_cover_video(ep, tmp_path, monkeypatch):
     html = build_composition(ep).read_text()
     clips = re.findall(r'<audio[^>]*id="music-(\d+)"[^>]*data-start="([\d.]+)"[^>]*data-duration="([\d.]+)"', html)
     assert [(int(i), float(s), float(d)) for i, s, d in clips] == [(0, 0.0, 1.5), (1, 1.5, 1.5), (2, 3.0, 1.0)]
+
+
+def _set_scene(ep, idx, **fields):
+    data = json.loads((ep / "narration.json").read_text())
+    data["scenes"][idx].update(fields)
+    (ep / "narration.json").write_text(json.dumps(data))
+
+
+def test_sfx_placed_at_scene_offset(ep, monkeypatch):
+    from sty import build as b
+
+    monkeypatch.setattr(b, "_media_duration", lambda p: 0.5)
+    _set_scene(ep, 1, sfx=[{"name": "coin", "at": 0.4}])
+    html = build_composition(ep).read_text()
+    tag = re.search(r'<audio[^>]*id="sfx-0"[^>]*>', html).group(0)
+    assert 'src="assets/sfx/coin.mp3"' in tag
+    assert 'data-start="1.65"' in tag and 'data-duration="0.5"' in tag
+    assert 'data-volume="0.35"' in tag
+    assert (ep / "build" / "assets" / "sfx" / "coin.mp3").exists()
+    assert not (ep / "build" / "assets" / "sfx" / "pop.mp3").exists()  # only the sounds used are copied
+
+
+def test_sfx_anchored_to_word_in_its_scene(ep, monkeypatch):
+    from sty import build as b
+
+    monkeypatch.setattr(b, "_media_duration", lambda p: 0.5)
+    _set_scene(ep, 1, text="Prices rise.", sfx=[{"name": "pop", "word": "prices", "volume": 0.6}])
+    html = build_composition(ep).read_text()
+    tag = re.search(r'<audio[^>]*id="sfx-0"[^>]*>', html).group(0)
+    assert 'data-start="1.3"' in tag and 'data-volume="0.6"' in tag
+
+
+def test_sfx_clipped_to_video_end(ep, monkeypatch):
+    from sty import build as b
+
+    monkeypatch.setattr(b, "_media_duration", lambda p: 5.0)
+    _set_scene(ep, 1, sfx=[{"name": "riser", "at": 2.0}])  # starts at 3.25, video ends at 4.0
+    html = build_composition(ep).read_text()
+    assert 'data-duration="0.75"' in re.search(r'<audio[^>]*id="sfx-0"[^>]*>', html).group(0)
+
+
+def test_emoji_used_by_scenes_are_copied(ep):
+    scene = (ep / "scenes" / "s01.html").read_text()
+    (ep / "scenes" / "s01.html").write_text(scene.replace("></div>", '><img src="assets/emoji/automobile.svg"></div>', 1))
+    build_composition(ep)
+    assert (ep / "build" / "assets" / "emoji" / "automobile.svg").exists()
+    assert not (ep / "build" / "assets" / "emoji" / "lemon.svg").exists()

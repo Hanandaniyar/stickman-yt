@@ -23,6 +23,8 @@ Putusan **LOLOS** hanya jika semua poin wajib terpenuhi. Tulis setiap cacat seca
 - [ ] `uv run sty check <ep>` → `valid`.
 - [ ] Narasi per adegan = naskah yang disetujui (tanpa tanda `[Sn]`), tidak ada bagian hilang.
 - [ ] Setiap adegan memakai stickman dan visualnya **menjelaskan** narasinya; variasi komposisi antar adegan (tidak template-is).
+- [ ] Kaya gambar: hampir setiap adegan punya ilustrasi `assets/emoji/…` yang relevan dan bergerak, bersanding dengan stickman.
+- [ ] Efek suara: rata-rata 1–2 `sfx` per adegan, sinkron dengan aksi yang terlihat, tidak menumpuk. Musik latar dipilih (bukan `null`).
 - [ ] Teks layar ≤ 6 kata, tidak bertabrakan dengan area subtitle bawah (±200 px dari bawah).
 - [ ] `04-metadata.json`: judul ≤ 100 karakter dan jujur, deskripsi berisi sumber + disclaimer "not financial advice" untuk topik keuangan, 8–15 tag.
 - [ ] `thumbnail.txt`: ≤ 5 kata + pose yang ada.

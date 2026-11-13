@@ -5,7 +5,7 @@ import shutil
 from pathlib import Path
 
 from sty.config import PROJECT_ROOT, load_config
-from sty.episode import validate_narration
+from sty.episode import EMOJI_LIB, EMOJI_RE, SFX_LIB, _words, validate_narration
 
 TAIL_S = 1.0
 GSAP = "https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"
@@ -69,6 +69,42 @@ def _captions_html(words: list[dict], total: float) -> str:
 """
 
 
+SFX_VOLUME = 0.35
+
+
+def _sfx_clips(build: Path, scenes: list[dict], timing: dict, total: float) -> list[str]:
+    """Efek suara per adegan: 'at' = detik sejak adegan mulai, atau 'word' = saat kata itu diucapkan."""
+    clips, lengths = [], {}
+    slots = {s["id"]: s for s in timing["scenes"]}
+    for sc in scenes:
+        slot = slots[sc["id"]]
+        for cue in sc.get("sfx") or []:
+            name = cue["name"]
+            if "word" in cue:
+                hits = [w for w in timing["words"] if slot["start"] - 0.05 <= w["start"] <= slot["end"] + 0.05
+                        and cue["word"].lower() in _words(w["w"])]
+                if not hits:
+                    print(f"peringatan: {sc['id']}: kata '{cue['word']}' tidak ditemukan di timing, efek '{name}' dilewati")
+                    continue
+                start = hits[0]["start"] + float(cue.get("offset", 0))
+            else:
+                start = slot["start"] + float(cue["at"])
+            if start >= total - 0.05:
+                continue
+            dest = build / "assets" / "sfx" / f"{name}.mp3"
+            if name not in lengths:
+                dest.parent.mkdir(exist_ok=True)
+                shutil.copy(SFX_LIB / f"{name}.mp3", dest)
+                lengths[name] = _media_duration(dest)
+            dur = min(lengths[name], total - start)
+            vol = cue.get("volume", SFX_VOLUME)
+            clips.append(
+                f'      <audio id="sfx-{len(clips)}" class="clip" src="assets/sfx/{name}.mp3" data-start="{_num(start)}"'
+                f' data-duration="{_num(dur)}" data-track-index="5" data-volume="{vol}"></audio>'
+            )
+    return clips
+
+
 def build_composition(ep: Path) -> Path:
     ep = Path(ep)
     timing_path = ep / "timing.json"
@@ -91,6 +127,14 @@ def build_composition(ep: Path) -> Path:
     (build / "assets").mkdir()
     shutil.copytree(STICKMAN_LIB, build / "assets" / "stickman", ignore=shutil.ignore_patterns("demo", "README.md"))
     shutil.copy(ep / "audio" / "narration.wav", build / "assets" / "narration.wav")
+
+    used = set()
+    for sc in timing["scenes"]:
+        used |= set(EMOJI_RE.findall((ep / "scenes" / f"{sc['id']}.html").read_text()))
+    if used:
+        (build / "assets" / "emoji").mkdir()
+        for name in sorted(used):
+            shutil.copy(EMOJI_LIB / f"{name}.svg", build / "assets" / "emoji" / f"{name}.svg")
 
     hosts = []
     scenes = timing["scenes"]
@@ -131,6 +175,8 @@ def build_composition(ep: Path) -> Path:
                 f' data-duration="{_num(dur)}" data-track-index="4" data-volume="{cfg["music_volume"]}"{fades}></audio>'
             )
             t, i = round(t + dur, 3), i + 1
+
+    audio.extend(_sfx_clips(build, narration["scenes"], timing, total))
 
     index = f"""<!doctype html>
 <html lang="en">

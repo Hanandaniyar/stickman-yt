@@ -1,3 +1,4 @@
+import json
 import pytest
 
 from sty.episode import (
@@ -133,3 +134,36 @@ def test_request_upload_refuses_when_already_uploaded(ep):
     _update(ep, release_url="https://gh/rel", youtube_id="abc123")
     with pytest.raises(PermissionError, match="sudah diunggah"):
         request(ep, "upload")
+
+
+def _narr_with(ep, **fields):
+    from tests.conftest import write_scenes
+
+    write_scenes(ep, ["s01"])
+    data = json.loads((ep / "narration.json").read_text())
+    data["scenes"][0].update(fields)
+    (ep / "narration.json").write_text(json.dumps(data))
+
+
+def test_validate_sfx_unknown_name(ep):
+    from sty.episode import validate_narration
+
+    _narr_with(ep, sfx=[{"name": "kazoo-solo", "at": 0.1}])
+    assert any("kazoo-solo" in e for e in validate_narration(ep))
+
+
+def test_validate_sfx_needs_at_or_word_in_text(ep):
+    from sty.episode import validate_narration
+
+    _narr_with(ep, sfx=[{"name": "coin"}, {"name": "pop", "word": "banana"}, {"name": "pop", "word": "narration"}])
+    errs = validate_narration(ep)
+    assert len(errs) == 2 and any("banana" in e for e in errs)
+
+
+def test_validate_unknown_emoji(ep):
+    from sty.episode import validate_narration
+
+    _narr_with(ep)
+    (ep / "scenes" / "s01.html").write_text(
+        (ep / "scenes" / "s01.html").read_text().replace("></div>", '><img src="assets/emoji/not-a-thing.svg"></div>', 1))
+    assert any("not-a-thing" in e for e in validate_narration(ep))

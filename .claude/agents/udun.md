@@ -19,9 +19,18 @@ Baca `lib/stickman/README.md`, skill `/hyperframes` (bagian Contract dan `refere
    - Teks di layar singkat (≤ 6 kata), kata penting pakai `sm-accent`/`sm-negative`.
    - Prefix semua id dengan id adegan (`s04-guy`). Pakai `fromTo`. Tanpa `Math.random`, `Date.now`, `repeat: -1`.
    - Panjang animasi mengikuti narasi: target ±0,4 detik per kata.
-3. Pilih musik dari `assets/music/` (jika ada) yang cocok dengan suasana, atau `null`.
-4. Jalankan `uv run sty check <ep>`. Perbaiki sampai `valid`.
-5. Laporkan ke Handur. Jalankan `uv run sty request <ep> render` hanya jika Handur memerintahkannya (biasanya setelah Udon menyiapkan metadata dan thumbnail, supaya thumbnail ikut dirender).
+3. **Ilustrasi berwarna (wajib, agar video kaya gambar)**: `lib/emoji/` berisi 1.590 SVG Fluent Emoji (MIT). Cari nama di `lib/emoji/INDEX.txt` (`grep car lib/emoji/INDEX.txt`), lalu pakai `<img id="s04-car" src="assets/emoji/automobile.svg" style="position:absolute; left:..px; top:..px; width:..px">`. Build hanya menyalin ilustrasi yang dipakai; `sty check` menolak nama yang tidak ada.
+   - Hampir setiap adegan punya minimal 1 ilustrasi yang menjelaskan isi narasi (benda, tempat, uang, grafik), bersanding dengan stickman. Stickman tetap pemeran utama.
+   - Hidupkan ilustrasinya: muncul dengan `scale` 0→1 + sedikit `rotation`, memantul, bergeser, menyusut/membesar saat angka berubah. Boleh banyak salinan (tumpukan koin, deretan mobil).
+   - Ukuran wajar 120–360 px. Jangan menutupi subtitle (200 px bawah).
+4. **Efek suara (wajib, agar lebih asyik)**: tambahkan `"sfx"` ke adegan di `narration.json`:
+   `{"id": "s04", "text": "...", "sfx": [{"name": "coin", "at": 0.6}, {"name": "pop", "word": "dealer"}]}`.
+   - `at` = detik sejak adegan mulai (samakan dengan detik animasi di sNN.html). `word` = berbunyi saat kata itu diucapkan (kata harus ada di teks adegan; `offset` opsional). `volume` opsional (bawaan 0,35).
+   - Pilihan di `lib/sfx/` (lihat `CREDITS.md`): `pop`, `whoosh`, `whoosh-short`, `whoosh-cinematic`, `click`, `click-soft`, `chime`, `sparkle`, `ping`, `notification`, `error`, `wrong-buzzer`, `impact-bass-1`, `impact-bass-2`, `riser` (10 dtk, puncak di akhir), `glitch-1..3`, `typing`, `key-press`, `coin`, `coins-pour`, `cash-register`, `money-count`, `boing`, `record-scratch`, `drumroll`, `rimshot`, `clock-tick`, `gasp`, `camera`.
+   - Sinkronkan ke aksi yang terlihat (benda muncul = pop, uang = coin/cash-register, kejutan = record-scratch/gasp, jawaban terungkap = drumroll lalu impact). Rata-rata 1–2 efek per adegan, jangan di setiap kalimat dan jangan menumpuk.
+5. Musik latar: pilih dari `assets/music/` (`good-vibe.mp3` ceria, `lofi-beat.mp3` santai, `blue-sky.mp3` ringan) sesuai suasana. Jangan `null` kecuali Handur meminta.
+6. Jalankan `uv run sty check <ep>`. Perbaiki sampai `valid`.
+7. Laporkan ke Handur. Jalankan `uv run sty request <ep> render` hanya jika Handur memerintahkannya (biasanya setelah Udon menyiapkan metadata dan thumbnail, supaya thumbnail ikut dirender).
 
 ## Boleh
 Menambah pose/properti baru ke `lib/stickman` (perbarui `poses.json` dan blok `/*POSES*/` di `stickman.js` bersamaan, lalu `uv run pytest tests/test_stickman_lib.py`).

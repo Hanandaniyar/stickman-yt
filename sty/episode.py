@@ -120,6 +120,29 @@ def _check_scene_file(html: str, sid: str) -> list[str]:
     return errs
 
 
+SFX_LIB = PROJECT_ROOT / "lib" / "sfx"
+EMOJI_LIB = PROJECT_ROOT / "lib" / "emoji"
+EMOJI_RE = re.compile(r"assets/emoji/([A-Za-z0-9_-]+)\.svg")
+
+
+def _words(text: str) -> list[str]:
+    return [w for w in re.split(r"[^a-z0-9']+", text.lower()) if w]
+
+
+def _check_sfx(sc: dict) -> list[str]:
+    errs = []
+    for cue in sc.get("sfx") or []:
+        name = str(cue.get("name", ""))
+        if not (SFX_LIB / f"{name}.mp3").exists():
+            errs.append(f"efek suara '{name}' tidak ada di lib/sfx")
+        if "word" in cue:
+            if str(cue["word"]).lower() not in _words(str(sc.get("text", ""))):
+                errs.append(f"efek suara '{name}': kata '{cue['word']}' tidak ada di teks adegan")
+        elif not isinstance(cue.get("at"), (int, float)) or cue["at"] < 0:
+            errs.append(f"efek suara '{name}' butuh 'at' (detik >= 0) atau 'word'")
+    return errs
+
+
 def validate_narration(ep: Path) -> list[str]:
     ep = Path(ep)
     path = ep / "narration.json"
@@ -150,6 +173,10 @@ def validate_narration(ep: Path) -> list[str]:
             errs.append(f"{sid}: scenes/{sid}.html tidak ada")
         else:
             errs.extend(f"{sid}: {e}" for e in _check_scene_file(frag.read_text(), sid))
+            for name in sorted(set(EMOJI_RE.findall(frag.read_text()))):
+                if not (EMOJI_LIB / f"{name}.svg").exists():
+                    errs.append(f"{sid}: ilustrasi '{name}' tidak ada di lib/emoji (lihat INDEX.txt)")
+        errs.extend(f"{sid}: {e}" for e in _check_sfx(sc))
     music = data.get("music")
     if music and not (ep.parent.parent / music).exists():
         errs.append(f"musik '{music}' tidak ditemukan")
