@@ -102,3 +102,16 @@ def test_invalid_narration_blocks(tmp_path):
     with pytest.raises(ValueError):
         synthesize_episode(ep, run=run)
     assert run.calls == []
+
+
+def test_failure_message_includes_stderr_even_when_stdout_has_progress():
+    import subprocess
+    from sty.voice import _run
+
+    def run(cmd, **kw):
+        return subprocess.CompletedProcess(cmd, 1, stdout='{"status":"started"}\n', stderr="whisper: illegal instruction\n")
+
+    with pytest.raises(RuntimeError) as e:
+        _run(run, ["x"], "transkripsi adegan s01")
+    msg = str(e.value)
+    assert "illegal instruction" in msg and "started" in msg and "exit 1" in msg

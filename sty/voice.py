@@ -23,8 +23,9 @@ def hf(*args: str) -> list[str]:
 def _run(run, cmd, what):
     res = run(cmd, capture_output=True, text=True, env={**os.environ, **HF_ENV})
     if res.returncode != 0:
-        tail = "\n".join((res.stderr or res.stdout or "").splitlines()[-20:])
-        raise RuntimeError(f"{what} gagal:\n{tail}")
+        out = "\n".join((res.stdout or "").splitlines()[-8:])
+        err = "\n".join((res.stderr or "").splitlines()[-20:])
+        raise RuntimeError(f"{what} gagal (exit {res.returncode}):\n{err}\n--- stdout ---\n{out}")
     return res
 
 
