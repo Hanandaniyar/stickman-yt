@@ -1,7 +1,7 @@
 {
   "episode": "004-card-tap-journey",
-  "stage": "scenes",
-  "request": "render",
+  "stage": "rendered",
+  "request": null,
   "approvals": {
     "topic": true,
     "script": true,
@@ -27,8 +27,8 @@
       "file": "reviews/scenes-1.md"
     }
   ],
-  "release_url": null,
+  "release_url": "https://github.com/Hanandaniyar/stickman-yt/releases/tag/ep-004",
   "youtube_id": null,
   "last_error": null,
-  "updated_at": "2026-11-14T21:04:52+00:00"
+  "updated_at": "2026-11-14T22:10:54+00:00"
 }
