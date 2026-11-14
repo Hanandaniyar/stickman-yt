@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <radialGradient id="studio-wall" cx="0.5" cy="0.45" r="0.75"><stop offset="0" stop-color="#FBF7EF"/><stop offset="0.6" stop-color="#F2EADC"/><stop offset="1" stop-color="#E6DAC6"/></radialGradient>
+    <linearGradient id="studio-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9DFCE"/><stop offset="1" stop-color="#DDCFB9"/></linearGradient>
+    <radialGradient id="studio-spot" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF00"/></radialGradient>
+  </defs>
+  <g id="base">
+    <rect x="-400" y="-200" width="2720" height="1040" fill="url(#studio-wall)"/>
+    <rect x="-400" y="840" width="2720" height="440" fill="url(#studio-floor)"/>
+    <path d="M-400 810 Q960 870 2320 810 L2320 860 L-400 860 Z" fill="#EDE4D5" opacity="0.7"/>
+  </g>
+  <g id="far">
+    <ellipse cx="960" cy="380" rx="700" ry="420" fill="url(#studio-spot)" opacity="0.7"/>
+    <circle cx="250" cy="260" r="140" fill="#F3E7D2" opacity="0.7"/>
+    <circle cx="1700" cy="300" r="180" fill="#EFE6EE" opacity="0.6"/>
+    <circle cx="1560" cy="760" r="90" fill="#E8EFE6" opacity="0.6"/>
+  </g>
+  <g id="mid">
+    <ellipse cx="960" cy="846" rx="520" ry="30" fill="#00000012"/>
+    <path d="M-100 120 Q200 40 420 140" fill="none" stroke="#EADBC4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <path d="M1500 150 Q1760 60 2040 180" fill="none" stroke="#E3DCE8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  </g>
+  <g id="near">
+    <g opacity="0.55"><circle cx="160" cy="600" r="10" fill="#F1D893"/><circle cx="1780" cy="560" r="12" fill="#EFC0AE"/><circle cx="1680" cy="180" r="8" fill="#B5DCD5"/><circle cx="300" cy="120" r="7" fill="#D6CFEA"/><circle cx="1100" cy="110" r="6" fill="#F1D893"/></g>
+  </g>
+</svg>

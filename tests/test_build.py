@@ -166,3 +166,26 @@ def test_emoji_used_by_scenes_are_copied(ep):
     build_composition(ep)
     assert (ep / "build" / "assets" / "emoji" / "automobile.svg").exists()
     assert not (ep / "build" / "assets" / "emoji" / "lemon.svg").exists()
+
+
+def test_backgrounds_used_by_scenes_are_bundled(ep):
+    scene = (ep / "scenes" / "s01.html").read_text()
+    (ep / "scenes" / "s01.html").write_text(
+        scene.replace("</script>", 'Stickman.background(document.getElementById("s01-bg"), "kitchen");</script>', 1))
+    scene = (ep / "scenes" / "s02.html").read_text()
+    (ep / "scenes" / "s02.html").write_text(scene.replace("></div>", '><img src="assets/backgrounds/park.svg"></div>', 1))
+    html = build_composition(ep).read_text()
+    bg = ep / "build" / "assets" / "backgrounds"
+    assert (bg / "kitchen.svg").exists() and (bg / "park.svg").exists()
+    assert not (bg / "office.svg").exists()  # only the backgrounds used are copied
+    js = (bg / "backgrounds.js").read_text()
+    assert '"kitchen"' in js and '"park"' in js and '"office"' not in js
+    assert "Stickman.registerBackgrounds" in js
+    head = html.split("</head>")[0]
+    assert head.index("assets/stickman/stickman.js") < head.index("assets/backgrounds/backgrounds.js")
+
+
+def test_backgrounds_script_present_even_when_unused(ep):
+    html = build_composition(ep).read_text()
+    assert "assets/backgrounds/backgrounds.js" in html
+    assert (ep / "build" / "assets" / "backgrounds" / "backgrounds.js").exists()

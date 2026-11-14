@@ -123,6 +123,16 @@ def _check_scene_file(html: str, sid: str) -> list[str]:
 SFX_LIB = PROJECT_ROOT / "lib" / "sfx"
 EMOJI_LIB = PROJECT_ROOT / "lib" / "emoji"
 EMOJI_RE = re.compile(r"assets/emoji/([A-Za-z0-9_-]+)\.svg")
+BG_LIB = PROJECT_ROOT / "lib" / "backgrounds"
+BG_RES = (
+    re.compile(r"assets/backgrounds/([A-Za-z0-9_-]+)\.svg"),
+    re.compile(r"""Stickman\.background\([^,()]*(?:\([^()]*\))?[^,()]*,\s*["']([A-Za-z0-9_-]+)["']"""),
+)
+
+
+def background_names(html: str) -> set[str]:
+    """Nama latar yang dipakai adegan: <img src="assets/backgrounds/x.svg"> atau Stickman.background(el, "x")."""
+    return {n for rx in BG_RES for n in rx.findall(html)}
 
 
 def _words(text: str) -> list[str]:
@@ -176,6 +186,9 @@ def validate_narration(ep: Path) -> list[str]:
             for name in sorted(set(EMOJI_RE.findall(frag.read_text()))):
                 if not (EMOJI_LIB / f"{name}.svg").exists():
                     errs.append(f"{sid}: ilustrasi '{name}' tidak ada di lib/emoji (lihat INDEX.txt)")
+            for name in sorted(background_names(frag.read_text())):
+                if not (BG_LIB / f"{name}.svg").exists():
+                    errs.append(f"{sid}: latar '{name}' tidak ada di lib/backgrounds (lihat lib/stickman/README.md)")
         errs.extend(f"{sid}: {e}" for e in _check_sfx(sc))
     music = data.get("music")
     if music and not (ep.parent.parent / music).exists():

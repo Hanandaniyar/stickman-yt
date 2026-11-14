@@ -5,7 +5,7 @@ import shutil
 from pathlib import Path
 
 from sty.config import PROJECT_ROOT, load_config
-from sty.episode import EMOJI_LIB, EMOJI_RE, SFX_LIB, _words, validate_narration
+from sty.episode import BG_LIB, EMOJI_LIB, EMOJI_RE, SFX_LIB, _words, background_names, validate_narration
 
 TAIL_S = 1.0
 GSAP = "https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"
@@ -105,6 +105,23 @@ def _sfx_clips(build: Path, scenes: list[dict], timing: dict, total: float) -> l
     return clips
 
 
+def _bundle_backgrounds(ep: Path, build: Path, sids: list[str]) -> None:
+    """Salin hanya latar yang dipakai, plus backgrounds.js yang mendaftarkannya (dimuat sinkron di <head>)."""
+    used = set()
+    for sid in sids:
+        used |= background_names((ep / "scenes" / f"{sid}.html").read_text())
+    dest = build / "assets" / "backgrounds"
+    dest.mkdir()
+    data = {}
+    for name in sorted(used):
+        shutil.copy(BG_LIB / f"{name}.svg", dest / f"{name}.svg")
+        data[name] = (BG_LIB / f"{name}.svg").read_text()
+    (dest / "backgrounds.js").write_text(
+        "/* dibuat oleh sty build: latar yang dipakai episode ini */\n"
+        f"Stickman.registerBackgrounds({json.dumps(data, ensure_ascii=False)});\n"
+    )
+
+
 def build_composition(ep: Path) -> Path:
     ep = Path(ep)
     timing_path = ep / "timing.json"
@@ -135,6 +152,8 @@ def build_composition(ep: Path) -> Path:
         (build / "assets" / "emoji").mkdir()
         for name in sorted(used):
             shutil.copy(EMOJI_LIB / f"{name}.svg", build / "assets" / "emoji" / f"{name}.svg")
+
+    _bundle_backgrounds(ep, build, [sc["id"] for sc in timing["scenes"]])
 
     hosts = []
     scenes = timing["scenes"]
@@ -186,6 +205,7 @@ def build_composition(ep: Path) -> Path:
     <script src="{GSAP}"></script>
     <link rel="stylesheet" href="assets/stickman/stickman.css" />
     <script src="assets/stickman/stickman.js"></script>
+    <script src="assets/backgrounds/backgrounds.js"></script>
     <style>
       html, body {{ margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #FAF7F0; }}
       #root {{ position: relative; width: 100%; height: 100%; }}

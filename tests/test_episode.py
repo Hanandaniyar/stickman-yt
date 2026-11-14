@@ -167,3 +167,33 @@ def test_validate_unknown_emoji(ep):
     (ep / "scenes" / "s01.html").write_text(
         (ep / "scenes" / "s01.html").read_text().replace("></div>", '><img src="assets/emoji/not-a-thing.svg"></div>', 1))
     assert any("not-a-thing" in e for e in validate_narration(ep))
+
+
+def test_background_names_found_in_scene():
+    from sty.episode import background_names
+
+    html = ('<img src="assets/backgrounds/park.svg">\n'
+            '<script>const bg = Stickman.background(document.getElementById("s01-bg"), "kitchen");\n'
+            "Stickman.background($('bg'), 'bank-hall', { parallax: true });</script>")
+    assert background_names(html) == {"park", "kitchen", "bank-hall"}
+
+
+def test_validate_unknown_background(ep):
+    from sty.episode import validate_narration
+
+    _narr_with(ep)
+    scene = (ep / "scenes" / "s01.html").read_text()
+    (ep / "scenes" / "s01.html").write_text(
+        scene.replace("</script>", 'Stickman.background(document.body, "moon-base");</script>', 1))
+    errs = validate_narration(ep)
+    assert any("moon-base" in e and "lib/backgrounds" in e for e in errs)
+
+
+def test_validate_known_background_ok(ep):
+    from sty.episode import validate_narration
+
+    _narr_with(ep)
+    scene = (ep / "scenes" / "s01.html").read_text()
+    (ep / "scenes" / "s01.html").write_text(
+        scene.replace("</script>", 'Stickman.background(document.body, "kitchen");</script>', 1))
+    assert validate_narration(ep) == []
