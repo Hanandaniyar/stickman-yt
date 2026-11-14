@@ -1,0 +1,1156 @@
+{
+  "scenes": [
+    {
+      "id": "s01",
+      "text": "A cup of coffee. Five dollars.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "coffee"
+        },
+        {
+          "name": "coin",
+          "word": "five"
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "text": "You tap your card on the little screen. Beep. Approved.",
+      "sfx": [
+        {
+          "name": "click",
+          "word": "tap",
+          "volume": 0.3
+        },
+        {
+          "name": "ping",
+          "word": "beep"
+        },
+        {
+          "name": "notification",
+          "word": "approved"
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "text": "That took about two seconds. In those two seconds, your coffee money took a trip across the country and back.",
+      "sfx": [
+        {
+          "name": "clock-tick",
+          "word": "two"
+        },
+        {
+          "name": "whoosh-short",
+          "word": "trip"
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "text": "And somebody took a cut along the way. Let's follow it.",
+      "sfx": [
+        {
+          "name": "coin",
+          "word": "cut"
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "text": "Snap. We freeze time.",
+      "sfx": [
+        {
+          "name": "camera",
+          "word": "snap"
+        },
+        {
+          "name": "impact-bass-1",
+          "word": "freeze",
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "text": "The barista is frozen mid-yawn. The milk foam is frozen mid-air. A guy in line is frozen mid-sigh.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "yawn"
+        },
+        {
+          "name": "pop",
+          "word": "sigh"
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "text": "But one thing is still moving. A tiny glowing message, leaving your card.",
+      "sfx": [
+        {
+          "name": "sparkle",
+          "word": "glowing"
+        }
+      ]
+    },
+    {
+      "id": "s08",
+      "text": "It says: \"Somebody wants a coffee. Can they pay?\"",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "says"
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "text": "That question gets answered in just a few seconds. It just has to visit a lot of places first.",
+      "sfx": [
+        {
+          "name": "ping",
+          "word": "seconds"
+        },
+        {
+          "name": "pop",
+          "word": "places"
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "text": "Let's shrink down and climb inside your card.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "boing",
+          "word": "shrink"
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "text": "Here's the weird part. Your card has no plug. When you hold it near the reader, the reader makes a magnetic field.",
+      "sfx": [
+        {
+          "name": "error",
+          "word": "plug",
+          "volume": 0.22
+        },
+        {
+          "name": "ping",
+          "word": "magnetic"
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "text": "That field powers the chip and wakes it up.",
+      "sfx": [
+        {
+          "name": "sparkle",
+          "word": "powers"
+        },
+        {
+          "name": "chime",
+          "word": "wakes",
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "text": "It only works up close, within about 4 inches.",
+      "sfx": [
+        {
+          "name": "click-soft",
+          "at": 1.44
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "text": "So your card is basically a tiny introvert. It sleeps all day, and only talks when someone gets really close.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "talks"
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "text": "Once awake, the chip does something clever. It doesn't just shout your card number.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "clever"
+        },
+        {
+          "name": "error",
+          "word": "number",
+          "volume": 0.2
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "text": "It makes a brand-new code, just for this one purchase.",
+      "sfx": [
+        {
+          "name": "typing",
+          "word": "code",
+          "volume": 0.22
+        },
+        {
+          "name": "sparkle",
+          "word": "purchase",
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "text": "Your real card number never leaves the card.",
+      "sfx": [
+        {
+          "name": "click",
+          "word": "never"
+        }
+      ]
+    },
+    {
+      "id": "s18",
+      "text": "If a thief copies that code, it's useless. It's like a movie ticket that's already been torn.",
+      "sfx": [
+        {
+          "name": "wrong-buzzer",
+          "word": "useless",
+          "volume": 0.2
+        },
+        {
+          "name": "pop",
+          "word": "torn"
+        }
+      ]
+    },
+    {
+      "id": "s19",
+      "text": "The message zips out of the terminal and lands in a giant data center.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "lands"
+        }
+      ]
+    },
+    {
+      "id": "s20",
+      "text": "Rows of humming servers. Blinking lights. Very cold air.",
+      "sfx": [
+        {
+          "name": "glitch-1",
+          "word": "blinking",
+          "volume": 0.15
+        },
+        {
+          "name": "whoosh-short",
+          "word": "cold",
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s21",
+      "text": "This is the payment processor. Think of it as the café's mail room.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "mail"
+        }
+      ]
+    },
+    {
+      "id": "s22",
+      "text": "The café doesn't know every bank in America.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "bank"
+        }
+      ]
+    },
+    {
+      "id": "s23",
+      "text": "So it hands the message to the processor, which works with the café's own bank, called the acquirer.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "word": "hands",
+          "volume": 0.25
+        },
+        {
+          "name": "pop",
+          "word": "acquirer"
+        }
+      ]
+    },
+    {
+      "id": "s24",
+      "text": "The processor stamps it, checks the address, and sends it on to the card network.",
+      "sfx": [
+        {
+          "name": "click",
+          "word": "stamps"
+        },
+        {
+          "name": "whoosh-short",
+          "word": "sends"
+        }
+      ]
+    },
+    {
+      "id": "s25",
+      "text": "No shoes off. No tiny shampoo bottles. Fastest security line in history.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "shoes"
+        },
+        {
+          "name": "rimshot",
+          "word": "history"
+        }
+      ]
+    },
+    {
+      "id": "s26",
+      "text": "Now our message hits the highway.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        }
+      ]
+    },
+    {
+      "id": "s27",
+      "text": "The card network is a giant road system. Its job is to connect the merchant's bank to your bank.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "connect"
+        }
+      ]
+    },
+    {
+      "id": "s28",
+      "text": "Millions of messages race down the lanes at once. One card network alone reported about 901 million transactions a day.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "word": "race"
+        },
+        {
+          "name": "money-count",
+          "at": 5.29,
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s29",
+      "text": "The network looks at the card number and points the message to the right exit. Your bank.",
+      "sfx": [
+        {
+          "name": "ping",
+          "word": "exit"
+        }
+      ]
+    },
+    {
+      "id": "s30",
+      "text": "Fun fact. Highways have interchanges. And the biggest fee in this whole story is literally called interchange.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "highways"
+        },
+        {
+          "name": "impact-bass-2",
+          "word": "interchange",
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s31",
+      "text": "Keep that word in your pocket. We'll need it later.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "pocket"
+        }
+      ]
+    },
+    {
+      "id": "s32",
+      "text": "The message arrives at a grand bank hall. Marble floors. Tall columns.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "chime",
+          "word": "grand",
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s33",
+      "text": "This is your bank, the one that gave you the card. It's called the issuer.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "issuer"
+        }
+      ]
+    },
+    {
+      "id": "s34",
+      "text": "A very serious clerk opens the message and asks three questions.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "questions"
+        }
+      ]
+    },
+    {
+      "id": "s35",
+      "text": "Is this card real, and still active?",
+      "sfx": [
+        {
+          "name": "ping",
+          "word": "active"
+        }
+      ]
+    },
+    {
+      "id": "s36",
+      "text": "Is there enough money, or enough credit, for five dollars?",
+      "sfx": [
+        {
+          "name": "coin",
+          "word": "money"
+        },
+        {
+          "name": "ping",
+          "word": "dollars"
+        }
+      ]
+    },
+    {
+      "id": "s37",
+      "text": "And does anything here look like fraud?",
+      "sfx": [
+        {
+          "name": "drumroll",
+          "word": "fraud",
+          "volume": 0.2
+        }
+      ]
+    },
+    {
+      "id": "s38",
+      "text": "Hmm. Coffee at 8 a.m. near your home. Seems normal.",
+      "sfx": [
+        {
+          "name": "ping",
+          "word": "normal"
+        }
+      ]
+    },
+    {
+      "id": "s39",
+      "text": "If you'd bought a jet ski in another country three minutes ago, the clerk might raise an eyebrow.",
+      "sfx": [
+        {
+          "name": "boing",
+          "word": "eyebrow"
+        }
+      ]
+    },
+    {
+      "id": "s40",
+      "text": "Today, everything checks out. The clerk stamps it: APPROVED.",
+      "sfx": [
+        {
+          "name": "impact-bass-1",
+          "word": "approved",
+          "offset": -0.05,
+          "volume": 0.3
+        },
+        {
+          "name": "notification",
+          "word": "approved",
+          "offset": 0.1
+        }
+      ]
+    },
+    {
+      "id": "s41",
+      "text": "Then the bank sets five dollars aside, so you can't spend it twice. This is called a hold.",
+      "sfx": [
+        {
+          "name": "coins-pour",
+          "word": "aside",
+          "volume": 0.3
+        },
+        {
+          "name": "click",
+          "word": "hold"
+        }
+      ]
+    },
+    {
+      "id": "s42",
+      "text": "The answer races back. Bank hall. Highway. Data center. Terminal.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "ping",
+          "word": "terminal"
+        }
+      ]
+    },
+    {
+      "id": "s43",
+      "text": "Beep. Time unfreezes. The foam lands in the cup.",
+      "sfx": [
+        {
+          "name": "ping",
+          "word": "beep"
+        },
+        {
+          "name": "sparkle",
+          "word": "unfreezes"
+        }
+      ]
+    },
+    {
+      "id": "s44",
+      "text": "The barista finishes the yawn. The guy in line finishes his sigh.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "word": "sigh",
+          "volume": 0.18
+        }
+      ]
+    },
+    {
+      "id": "s45",
+      "text": "You grab your coffee and leave.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "grab"
+        }
+      ]
+    },
+    {
+      "id": "s46",
+      "text": "The whole trip took less time than it takes to say, \"Can I get oat milk?\"",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "oat"
+        }
+      ]
+    },
+    {
+      "id": "s47",
+      "text": "But here's the twist. The café still doesn't have your money.",
+      "sfx": [
+        {
+          "name": "record-scratch",
+          "at": 0.15,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s48",
+      "text": "\"Approved\" is a promise. It's not a payment. A transaction can be approved and still never settle.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "promise"
+        },
+        {
+          "name": "error",
+          "word": "never",
+          "volume": 0.2
+        }
+      ]
+    },
+    {
+      "id": "s49",
+      "text": "So let's skip ahead. The café closes. The city goes dark.",
+      "sfx": [
+        {
+          "name": "clock-tick",
+          "word": "skip"
+        },
+        {
+          "name": "sparkle",
+          "word": "dark",
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s50",
+      "text": "At the end of the day, the café sends all of its approved sales in one big bundle. That's called a batch.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "bundle"
+        },
+        {
+          "name": "click-soft",
+          "word": "batch"
+        }
+      ]
+    },
+    {
+      "id": "s51",
+      "text": "Every coffee. Every muffin. Every sad little banana.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "coffee"
+        },
+        {
+          "name": "boing",
+          "word": "banana"
+        }
+      ]
+    },
+    {
+      "id": "s52",
+      "text": "Then the money actually starts moving, from your bank to the café's bank. That's settlement.",
+      "sfx": [
+        {
+          "name": "coins-pour",
+          "word": "moving",
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s53",
+      "text": "It usually takes one to three business days.",
+      "sfx": [
+        {
+          "name": "clock-tick",
+          "at": 1.05,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s54",
+      "text": "And when the money finally lands, it's not the full amount. The fees come off first.",
+      "sfx": [
+        {
+          "name": "coin",
+          "word": "lands"
+        },
+        {
+          "name": "whoosh-short",
+          "word": "fees",
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s55",
+      "text": "So how much comes off? Let's put the coffee on the cutting board.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "board"
+        }
+      ]
+    },
+    {
+      "id": "s56",
+      "text": "In 2025, American merchants paid $198.25 billion in card processing fees.",
+      "sfx": [
+        {
+          "name": "money-count",
+          "at": 2.59,
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s57",
+      "text": "That's up from $187.20 billion the year before.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 0.63
+        }
+      ]
+    },
+    {
+      "id": "s58",
+      "text": "On average, that works out to 1.59% of every purchase. On a five-dollar coffee, that's about 8 cents.",
+      "sfx": [
+        {
+          "name": "pop",
+          "at": 1.76
+        },
+        {
+          "name": "coin",
+          "word": "cents"
+        }
+      ]
+    },
+    {
+      "id": "s59",
+      "text": "Eight cents. Doesn't sound like much. But it happens on almost every sale, all day, every day.",
+      "sfx": [
+        {
+          "name": "coins-pour",
+          "word": "every",
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s60",
+      "text": "Now, who gets the 8 cents? Three slices.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "slices"
+        }
+      ]
+    },
+    {
+      "id": "s61",
+      "text": "The biggest slice goes to your bank. That's the interchange fee. Told you we'd need that word.",
+      "sfx": [
+        {
+          "name": "ping",
+          "word": "interchange"
+        },
+        {
+          "name": "pop",
+          "word": "told"
+        }
+      ]
+    },
+    {
+      "id": "s62",
+      "text": "A thin slice goes to the card network. Network fees are usually around 0.1% to 0.2%. On our coffee, that's a penny or less.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "thin"
+        },
+        {
+          "name": "coin",
+          "word": "penny"
+        }
+      ]
+    },
+    {
+      "id": "s63",
+      "text": "And the rest goes to the processor and the café's bank, for running the machines and the mail room.",
+      "sfx": [
+        {
+          "name": "click-soft",
+          "word": "machines"
+        }
+      ]
+    },
+    {
+      "id": "s64",
+      "text": "Real fees vary a lot by card, by shop, and by size of sale. But that's the basic recipe.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "recipe"
+        }
+      ]
+    },
+    {
+      "id": "s65",
+      "text": "Okay. So the café pays the fee. Problem solved, right?",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "right"
+        }
+      ]
+    },
+    {
+      "id": "s66",
+      "text": "Not quite. Walk into any store. Look at the price tags.",
+      "sfx": [
+        {
+          "name": "wrong-buzzer",
+          "word": "not",
+          "volume": 0.15
+        },
+        {
+          "name": "pop",
+          "word": "tags"
+        }
+      ]
+    },
+    {
+      "id": "s67",
+      "text": "There's one price. Not a card price and a cash price. Just one.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "price"
+        },
+        {
+          "name": "ping",
+          "word": "just"
+        }
+      ]
+    },
+    {
+      "id": "s68",
+      "text": "Stores can't make the fee disappear. So it can end up baked into the price, for everyone.",
+      "sfx": [
+        {
+          "name": "coin",
+          "word": "baked"
+        }
+      ]
+    },
+    {
+      "id": "s69",
+      "text": "Rewards come from this too. Cash back, points, miles.",
+      "sfx": [
+        {
+          "name": "sparkle",
+          "word": "rewards"
+        }
+      ]
+    },
+    {
+      "id": "s70",
+      "text": "They're generally paid for with interchange money. Which comes from merchants. Which comes from prices.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "merchants"
+        },
+        {
+          "name": "pop",
+          "word": "prices"
+        }
+      ]
+    },
+    {
+      "id": "s71",
+      "text": "Meet the cash guy. He pays with paper. He's getting rarer.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "paper"
+        }
+      ]
+    },
+    {
+      "id": "s72",
+      "text": "Cash fell from 33% of payments in 2015 to just 14% in 2025. Credit cards went from 18% to 34%.",
+      "sfx": [
+        {
+          "name": "wrong-buzzer",
+          "at": 4.69,
+          "volume": 0.15
+        },
+        {
+          "name": "ping",
+          "at": 10.23
+        }
+      ]
+    },
+    {
+      "id": "s73",
+      "text": "Since most stores charge everyone the same price, cash users help cover card fees and card rewards.",
+      "sfx": [
+        {
+          "name": "coin",
+          "word": "cover"
+        }
+      ]
+    },
+    {
+      "id": "s74",
+      "text": "A Boston Fed study back in 2010 tried to measure this. It found that, on average, each cash-using household paid about $149 a year to card-using households.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "study"
+        },
+        {
+          "name": "coins-pour",
+          "at": 8.05,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s75",
+      "text": "So the cash guy is helping pay for someone else's airline miles.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "word": "airline"
+        }
+      ]
+    },
+    {
+      "id": "s76",
+      "text": "And what does he get? A receipt.",
+      "sfx": [
+        {
+          "name": "rimshot",
+          "word": "receipt"
+        }
+      ]
+    },
+    {
+      "id": "s77",
+      "text": "It's an older study, and the exact numbers have surely changed. But the idea still holds.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "idea"
+        }
+      ]
+    },
+    {
+      "id": "s78",
+      "text": "When the price is the same for everyone, the cost is shared by everyone.",
+      "sfx": [
+        {
+          "name": "coin",
+          "word": "shared"
+        }
+      ]
+    },
+    {
+      "id": "s79",
+      "text": "So what can you take home from this trip? Three ideas. These are concepts, not personal financial advice.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "ideas"
+        }
+      ]
+    },
+    {
+      "id": "s80",
+      "text": "One. Every price already includes the cost of getting paid. Your coffee, your groceries, your phone bill.",
+      "sfx": [
+        {
+          "name": "ping",
+          "word": "one"
+        },
+        {
+          "name": "pop",
+          "word": "phone"
+        }
+      ]
+    },
+    {
+      "id": "s81",
+      "text": "Somewhere in there is a small slice for the payment system. You pay it whether you notice it or not.",
+      "sfx": [
+        {
+          "name": "click-soft",
+          "word": "slice"
+        }
+      ]
+    },
+    {
+      "id": "s82",
+      "text": "Two. Rewards aren't free money. They're funded by fees, and fees are built into prices.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "two"
+        },
+        {
+          "name": "coin",
+          "word": "built"
+        }
+      ]
+    },
+    {
+      "id": "s83",
+      "text": "And they only come out ahead if the card doesn't cost you more than it gives back, like through interest or annual fees.",
+      "sfx": [
+        {
+          "name": "click",
+          "word": "interest"
+        }
+      ]
+    },
+    {
+      "id": "s84",
+      "text": "Three. \"Approved\" is a promise, not a payment.",
+      "sfx": [
+        {
+          "name": "notification",
+          "word": "approved"
+        }
+      ]
+    },
+    {
+      "id": "s85",
+      "text": "A hold can tie up part of your balance or credit for a few days, and sometimes up to 31 days.",
+      "sfx": [
+        {
+          "name": "click",
+          "word": "hold"
+        },
+        {
+          "name": "clock-tick",
+          "at": 5.11,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s86",
+      "text": "That's why a hotel or gas pump hold can make your account look smaller than you expect.",
+      "sfx": [
+        {
+          "name": "pop",
+          "word": "hotel"
+        },
+        {
+          "name": "gasp",
+          "word": "smaller",
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s87",
+      "text": "So that's the trip. A chip that wakes up from a magnetic field. A data center. A highway. A bank hall.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "ping",
+          "word": "chip"
+        },
+        {
+          "name": "pop",
+          "word": "hall"
+        }
+      ]
+    },
+    {
+      "id": "s88",
+      "text": "And back, in about two seconds.",
+      "sfx": [
+        {
+          "name": "ping",
+          "at": 0.98
+        }
+      ]
+    },
+    {
+      "id": "s89",
+      "text": "Then a quiet night of paperwork, and a few cents shaved off along the way.",
+      "sfx": [
+        {
+          "name": "coin",
+          "word": "cents"
+        }
+      ]
+    },
+    {
+      "id": "s90",
+      "text": "Next time you hear that little beep, picture the tiny glowing message racing home.",
+      "sfx": [
+        {
+          "name": "ping",
+          "word": "beep"
+        },
+        {
+          "name": "sparkle",
+          "word": "glowing"
+        }
+      ]
+    },
+    {
+      "id": "s91",
+      "text": "And remember: someone in line just helped pay for the trip. Maybe even the guy with cash.",
+      "sfx": [
+        {
+          "name": "coin",
+          "word": "helped"
+        },
+        {
+          "name": "rimshot",
+          "word": "cash"
+        }
+      ]
+    }
+  ],
+  "music": "assets/music/lofi-beat.mp3"
+}

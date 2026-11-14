@@ -1,0 +1,83 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #FAF7F0; }
+    #s68-stage, #s68-cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .e4-a { position: absolute; }
+    .e4-a > img { display: block; width: 100%; }
+    .e4-t { position: absolute; font-family: "Montserrat"; font-weight: 900; color: #111111; line-height: 1.1; letter-spacing: -0.01em; }
+    .e4-pill { display: inline-block; background: rgba(250,247,240,0.93); border-radius: 26px; padding: 10px 34px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+    .e4-tw { position: absolute; left: 0; width: 1920px; text-align: center; }
+    .e4-halo { position: absolute; left: -45%; top: -45%; width: 190%; height: 190%; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,236,140,0.95) 0%, rgba(255,214,90,0.55) 32%, rgba(255,205,70,0) 68%); }
+    .e4-bub { position: absolute; background: #FFFFFF; border: 6px solid #111111; border-radius: 40px; font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; box-sizing: border-box; }
+    .e4-term { position: absolute; background: #3B4048; border: 6px solid #111111; border-radius: 16px; box-sizing: border-box; }
+    .e4-scr { position: absolute; left: 12%; top: 12%; width: 76%; height: 44%; background: #BFD8E6; border-radius: 6px; }
+    .e4-ring { position: absolute; border: 8px solid #2D6CDF; border-radius: 50%; box-sizing: border-box; }
+    .e4-bar { position: absolute; border: 6px solid #111111; border-bottom: none; border-radius: 10px 10px 0 0; box-sizing: border-box; }
+    .e4-stamp { position: absolute; font-family: "Montserrat"; font-weight: 900; color: #1F9D55; border: 12px solid #1F9D55; border-radius: 18px; text-align: center; background: rgba(250,247,240,0.85); }
+    .e4-ice { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: rgba(176,218,255,0.22); box-shadow: inset 0 0 220px 40px rgba(150,205,255,0.85); }
+    .e4-night { position: absolute; left: -200px; top: -200px; width: 2320px; height: 1480px; mix-blend-mode: multiply;
+      background: linear-gradient(180deg, rgba(40,52,120,0.85) 0%, rgba(70,70,140,0.6) 60%, rgba(110,105,160,0.35) 70%, rgba(200,195,225,0.12) 76%, rgba(250,247,240,0) 100%); }
+    .e4-sign { position: absolute; background: #2E8B57; border: 6px solid #F4F4F4; border-radius: 14px; color: #FFFFFF; font-family: "Montserrat"; font-weight: 900; text-align: center; box-shadow: 0 0 0 6px #2E8B57; }
+  </style>
+  <div id="root" data-composition-id="s68" data-width="1920" data-height="1080">
+    <div id="s68-stage">
+      <div id="s68-cam">
+        <div id="s68-bg"></div>
+        <div id="s68-tag" class="e4-a" style="left: 820px; top: 230px; width: 280px; height: 280px;"><img src="assets/emoji/label.svg" alt=""></div>
+        <div id="s68-pr" class="e4-t" style="left: 870px; top: 310px; width: 180px; font-size: 80px; text-align: center;">$5</div>
+        <div id="s68-coin" class="e4-a" style="left: 500px; top: 260px; width: 110px; height: 110px;"><img src="assets/emoji/coin.svg" alt=""></div>
+        <div id="s68-p0" class="sm-figure" style="left: 500px;"></div>
+        <div id="s68-p1" class="sm-figure" style="left: 860px;"></div>
+        <div id="s68-p2" class="sm-figure" style="left: 1220px;"></div>
+        <div id="s68-fe" class="e4-t" style="left: 470px; top: 380px; width: 170px; font-size: 40px; text-align: center; color: #D64545;">fee</div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s68-" + n);
+    const ir = { immediateRender: false };
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.5, ease: "back.out(2.4)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.3, ease: "back.in(2)", immediateRender: false }, at);
+    const rise = (el, at) => tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.5, ease: "power1.out" }, at);
+    const out = (el, at, to, d) => tl.fromTo(el, { opacity: 1 }, { opacity: to || 0, duration: d || 0.4, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const growY = (el, at, d) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: d || 0.8, ease: "power2.out" }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.45, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 8) }, { x: px || 8, duration: 0.06, ease: "none", yoyo: true, repeat: (n || 6) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const scl = (el, at, a, b, d, ease) => tl.fromTo(el, { scale: a }, { scale: b, duration: d || 0.5, ease: ease || "power2.inOut", immediateRender: false, transformOrigin: "50% 50%" }, at);
+    const rot = (el, at, a, b, d, ease) => tl.fromTo(el, { rotation: a }, { rotation: b, duration: d || 0.5, ease: ease || "power2.inOut", immediateRender: false }, at);
+    const drop = (el, at, h) => tl.fromTo(el, { y: -(h || 400), opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out" }, at);
+    const glow = (el, at, n) => tl.fromTo(el, { scale: 0.8, opacity: 0.7 }, { scale: 1.2, opacity: 1, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: (n || 4) * 2 - 1, transformOrigin: "50% 50%" }, at);
+    const blink = (el, at, n, p) => tl.fromTo(el, { opacity: 0.15 }, { opacity: 1, duration: p || 0.18, ease: "none", yoyo: true, repeat: (n || 4) * 2 - 1, immediateRender: false }, at);
+    const col = (el, at, c, c0) => tl.fromTo(el, { color: c0 || "#111111" }, { color: c, duration: 0.25, immediateRender: false }, at);
+    const bgc = (el, at, c, c0) => tl.fromTo(el, { backgroundColor: c0 }, { backgroundColor: c, duration: 0.25, immediateRender: false }, at);
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const P = (f, n, at, d, o) => Stickman.pose(tl, f, n, at, d, o);
+    const gait = (f, at, d, run, end) => { const n = Math.max(2, Math.round(d * 3)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, f, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, f, end || "stand", at + d, 0.2); };
+    const Wk = (f, x0, x1, at, d, end, first, run) => { mv(f.el, at, [x0, 0], [x1, 0], d, "none", first); return gait(f, at, d, run, end); };
+
+    const bg = Stickman.background($("bg"), "supermarket", {});
+    Stickman.enter(tl, $("stage"), "fade", { at: 0, duration: 0.2 });
+    const p0 = Stickman.mount($("p0"), { pose: "stand", scale: 0.85, ground: true });
+    Stickman.breathe(tl, p0, 0, 7);
+    const p1 = Stickman.mount($("p1"), { pose: "stand", scale: 0.85, ground: true });
+    Stickman.breathe(tl, p1, 0, 7);
+    const p2 = Stickman.mount($("p2"), { pose: "stand", scale: 0.85, ground: true });
+    Stickman.breathe(tl, p2, 0, 7);
+    Stickman.camera(tl, $("cam"), {"at": 0, "duration": 6.89, "preset": "push-in"});
+    popin($("tag"), 0.1, 0); popin($("pr"), 0.15, 0); popin($("coin"), 0.3, 0); fade($("fe"), 0.4);
+    tl.fromTo($("coin"), { opacity: 1 }, { opacity: 0.25, duration: 0.25, yoyo: true, repeat: 3, immediateRender: false }, 1.36);
+    mv($("coin"), 3.51, [0, 0], [430, 20], 0.6, "power2.in"); popout($("coin"), 4.06, 0.2); out($("fe"), 3.51); scl($("tag"), 4.109999999999999, 1, 1.15, 0.4, "back.out(2)");
+    P(p0, "shrug", 5.11); P(p1, "shrug", 5.21); P(p2, "shrug", 5.3100000000000005);
+    window.__timelines["s68"] = tl;
+  })();
+  </script>
+</template>
