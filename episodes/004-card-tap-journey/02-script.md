@@ -123,7 +123,7 @@ Now, who gets the 8 cents? Three slices [S4].
 
 The biggest slice goes to your bank. That's the interchange fee. Told you we'd need that word [S4].
 
-A thin slice goes to the card network. Network fees are usually around 0.1% to 0.2% [S4]. On our coffee, that's well under a penny [D2].
+A thin slice goes to the card network. Network fees are usually around 0.1% to 0.2% [S4]. On our coffee, that's a penny or less [D2].
 
 And the rest goes to the processor and the café's bank, for running the machines and the mail room [S4].
 
@@ -173,7 +173,7 @@ Next time you hear that little beep, picture the tiny glowing message racing hom
 
 ## Fact notes (not narrated)
 - [D1] Derived (our arithmetic): $5.00 × 1.59% = 7.95¢ ≈ 8¢. Cross-check: $198.25B ÷ $12.498T purchase volume ≈ 1.586% [S5]. This is a national average across all cards and sales; real fees on a single small purchase can be higher because many pricing plans include a fixed per-transaction charge (CRS lists examples like "+$0.10") [S4]. Narration says "on average".
-- [D2] Derived: 0.1%–0.2% of $5 = 0.5¢–1¢, so "well under a penny" holds at the low end; at the top end it is exactly 1¢. Narration says "well under a penny"; Udun may soften to "about a penny" if preferred.
+- [D2] Derived: 0.1%–0.2% of $5 = 0.5¢–1¢, so the narration says "a penny or less" (Handur fix).
 - "A few seconds": Stripe says authorization "usually lasts just a few seconds" [S1]. "About two seconds" in the hook and wrap-up follows the owner-approved title; it is presented as a typical feel, not a measured statistic.
 - "Within about 4 inches": ISO/IEC 14443 contactless cards work at less than 10 cm (4 inches) per the Secure Technology Alliance FAQ [S3]. "The field powers the chip" is from the same source. We do not state "no battery" as a fact; "no plug" is the visual line.
 - "Your real card number never leaves the card" and "unique code for every purchase": Stripe EMV explainer [S2]. Tap and insert both use the chip.
