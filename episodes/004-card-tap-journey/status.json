@@ -1,9 +1,9 @@
 {
-  "episode": "004-ep004-tbd",
-  "stage": "topics",
+  "episode": "004-card-tap-journey",
+  "stage": "script",
   "request": null,
   "approvals": {
-    "topic": false,
+    "topic": true,
     "script": false,
     "final": false
   },
@@ -18,5 +18,5 @@
   "release_url": null,
   "youtube_id": null,
   "last_error": null,
-  "updated_at": "2026-11-14T15:02:16+00:00"
+  "updated_at": "2026-11-14T15:22:41+00:00"
 }
