@@ -7,9 +7,16 @@
     "script": false,
     "final": false
   },
-  "reviews": [],
+  "reviews": [
+    {
+      "stage": "topics",
+      "round": 1,
+      "verdict": "LOLOS",
+      "file": "reviews/topics-1.md"
+    }
+  ],
   "release_url": null,
   "youtube_id": null,
   "last_error": null,
-  "updated_at": "2026-11-14T14:56:16+00:00"
+  "updated_at": "2026-11-14T15:02:16+00:00"
 }
