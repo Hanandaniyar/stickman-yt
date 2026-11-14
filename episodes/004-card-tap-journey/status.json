@@ -1,7 +1,7 @@
 {
   "episode": "004-card-tap-journey",
   "stage": "scenes",
-  "request": "render",
+  "request": null,
   "approvals": {
     "topic": true,
     "script": true,
@@ -29,6 +29,6 @@
   ],
   "release_url": null,
   "youtube_id": null,
-  "last_error": null,
-  "updated_at": "2026-11-14T21:01:12+00:00"
+  "last_error": "RuntimeError: transkripsi adegan s01 gagal:\n{\"type\":\"progress\",\"phase\":\"transcription\",\"model\":\"small.en\",\"status\":\"started\",\"durationSeconds\":2.1784375}",
+  "updated_at": "2026-11-14T21:02:21+00:00"
 }
