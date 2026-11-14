@@ -1,0 +1,21 @@
+{
+  "title": "What Happens in the 2 Seconds After You Tap Your Card",
+  "description": "You tap your card, it beeps, and two seconds later your coffee is approved. But in those two seconds, a tiny message travels from the chip in your card to a payment processor, across a card network, to your bank and back. This video follows that trip, explains why \"approved\" is not the same as \"paid,\" and slices a $5 coffee to show who takes a cut: U.S. merchants paid $198.25 billion in card processing fees in 2025, about 1.59% of every purchase on average.\n\nIn this video:\n- Hook: a $5 coffee and a two-second beep\n- Time freezes: following the glowing message\n- Stop 1: inside the chip (how a card with no plug wakes up and makes a one-time code)\n- Stop 2: the payment processor and the acquiring bank\n- Stop 3: the card network highway (and the fee called interchange)\n- Stop 4: the issuing bank's three questions and the hold\n- Back at the counter: approved, but not paid yet\n- That night: batching and settlement (1 to 3 business days)\n- Slicing the $5 coffee: about 8 cents in fees, and who gets each slice\n- Who really pays: one price tag for everyone\n- The cash customer: cash fell from 33% to 14% of payments (2015 to 2025)\n- What this means for you: three ideas worth keeping\n- Wrap-up\n\nSources:\n[S1] Stripe, Card authorization explained: https://stripe.com/resources/more/card-authorization-explained\n[S2] Stripe, What are EMV chip cards?: https://stripe.com/resources/more/what-are-emv-chip-cards\n[S3] Secure Technology Alliance, Smart Card Technology FAQ: https://www.securetechalliance.org/smart-cards-faq/\n[S4] Congressional Research Service, Merchant Discount, Interchange, and Other Transaction Fees in the Retail Electronic Payment System (IF11893, 2021): https://www.everycrsreport.com/reports/IF11893.html\n[S5] Nilson Report, Merchant processing fees (Issue 1303, March 2026): https://nilsonreport.com/merchant-processing-fees-industry-investment/\n[S5] Nilson Report, Merchant processing fees in the United States 2025: https://nilsonreport.com/articles/merchant-processing-fees-in-the-united-states-2025/\n[S6] Stripe, Payment settlement explained: https://stripe.com/resources/more/payment-settlement-explained-how-it-works-and-how-long-it-takes\n[S7] Card network Fiscal 2025 Annual Report (about 901 million transactions a day): https://s29.q4cdn.com/385744025/files/doc_downloads/2025/Visa-Fiscal-2025-Annual-Report.pdf\n[S8] Pew Research Center, From cash to credit: How Americans' payment methods have changed in the past decade (Sep 30, 2026): https://www.pewresearch.org/short-reads/2026/09/30/from-cash-to-credit-how-americans-payment-methods-have-changed-in-the-past-decade/\n[S9] Schuh, Shy, Stavins, Who Gains and Who Loses from Credit Card Payments? Theory and Calibrations, Federal Reserve Bank of Boston (2010): https://www.bostonfed.org/publications/public-policy-discussion-paper/2010/who-gains-and-who-loses-from-credit-card-payments-theory-and-calibrations.aspx\n\nOur own calculations:\n[D1] $5.00 x 1.59% = 7.95 cents, about 8 cents. This is a national average across all cards and sales; fees on a single small purchase can be higher because many pricing plans add a fixed per-transaction charge.\n[D2] Network fees of 0.1% to 0.2% on $5 = 0.5 to 1 cent, so \"a penny or less.\"\nReal fees vary by card, merchant, and sale size. The Boston Fed figure ($149 per cash-using household per year) is from an older 2010 study.\n\nIllustrations: Microsoft Fluent Emoji (MIT). Music and sound effects: CC0 (Freesound) and Pixabay.\n\nThis video is for educational purposes only and is not financial advice.",
+  "tags": [
+    "how card payments work",
+    "tap to pay",
+    "contactless payment",
+    "credit card processing",
+    "interchange fee",
+    "swipe fees",
+    "card processing fees",
+    "payment settlement",
+    "card authorization",
+    "EMV chip",
+    "who pays credit card fees",
+    "credit card rewards",
+    "personal finance",
+    "economics explained"
+  ],
+  "category_id": "27"
+}
