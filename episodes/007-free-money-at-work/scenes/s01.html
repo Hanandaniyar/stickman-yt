@@ -1,0 +1,153 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #FAF7F0; }
+    #s01-stage, #s01-punch, #s01-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .e5-a { position: absolute; }
+    .e5-a > img { display: block; width: 100%; }
+    .e5-t { position: absolute; left: 0; width: 1080px; text-align: center; font-family: "Montserrat"; font-weight: 900; color: #111111;
+      line-height: 1.05; letter-spacing: -0.01em; -webkit-text-stroke: 14px #FAF7F0; paint-order: stroke fill; }
+    .e5-box { position: absolute; box-sizing: border-box; }
+    .e5-pill { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 34px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-bub { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 44px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-term { position: absolute; box-sizing: border-box; background: #3B4048; border: 7px solid #111111; border-radius: 18px; }
+    .e5-scr { position: absolute; left: 13%; top: 12%; width: 74%; height: 42%; background: #BFD8E6; border-radius: 6px; }
+    .e5-ring { position: absolute; box-sizing: border-box; border: 10px solid #1F9D55; border-radius: 50%; }
+    .e5-stamp { position: absolute; box-sizing: border-box; font-family: "Montserrat"; font-weight: 900; color: #1F9D55; border: 16px solid #1F9D55;
+      border-radius: 26px; text-align: center; background: rgba(250,247,240,0.9); }
+    .e5-counter { position: absolute; box-sizing: border-box; background: #C8935F; border-top: 26px solid #8A5A34; }
+    .e5-slot { position: absolute; top: 500px; width: 130px; height: 130px; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 28px; }
+    .e5-slot > img { position: absolute; left: 14px; top: 14px; width: 88px; }
+    .e5-halo { position: absolute; left: -45%; top: -45%; width: 190%; height: 190%; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,236,140,0.95) 0%, rgba(255,214,90,0.55) 32%, rgba(255,205,70,0) 68%); }
+    .e5-red { color: #D64545; border-color: #D64545; }
+    .e5-ast { position: absolute; font-family: "Montserrat"; font-weight: 900; color: #D64545; line-height: 1; -webkit-text-stroke: 10px #FAF7F0; paint-order: stroke fill; }
+    .e7-desk { position: absolute; box-sizing: border-box; height: 30px; background: #8A5A34; border: 7px solid #111111; border-radius: 10px; }
+    .e7-leg { position: absolute; box-sizing: border-box; width: 26px; background: #8A5A34; border: 7px solid #111111; }
+    .e7-lbl { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 6px solid #111111; border-radius: 14px; font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e7-world { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .e5-link { position: absolute; top: 559px; width: 56px; height: 12px; background: #111111; border-radius: 6px; }
+
+    .e7-barrel { position: absolute; left: 70px; top: 1200px; width: 300px; height: 112px; box-sizing: border-box; background: #4A5562; border: 8px solid #111111; border-radius: 16px 40px 40px 16px; transform-origin: 18% 50%; }
+    .e7-barrel > b { position: absolute; left: 110px; top: 4px; font-family: "Montserrat"; font-weight: 900; font-size: 70px; line-height: 80px; color: #F2C14E; }
+    .e7-mouth { position: absolute; right: -14px; top: -14px; width: 34px; height: 124px; box-sizing: border-box; background: #2E353D; border: 8px solid #111111; border-radius: 12px; }
+    .e7-wheel { position: absolute; left: 70px; top: 1290px; width: 150px; height: 150px; border-radius: 50%; box-sizing: border-box; background: #8A5A34; border: 10px solid #111111; }
+    .e7-wheel > i { position: absolute; left: 55px; top: 55px; width: 20px; height: 20px; border-radius: 50%; background: #111111; }
+    .e7-bust { position: absolute; top: 805px; width: 130px; }
+  </style>
+  <div id="root" data-composition-id="s01" data-width="1080" data-height="1920">
+    <div id="s01-stage">
+      <div id="s01-punch">
+        <div id="s01-cam">
+          <div id="s01-bg"></div>
+
+          <div id="s01-world" class="e7-world">
+            <div id="s01-brl" class="e7-barrel" style="transform: rotate(-30deg);"><b>$</b><div class="e7-mouth"></div></div>
+            <div id="s01-whl" class="e7-wheel"><i></i></div>
+            <div id="s01-boom" class="e5-a" style="left: 300px; top: 960px; width: 170px;"><img src="assets/emoji/collision.svg" alt=""></div>
+            <div id="s01-p0" class="sm-figure" style="left: 310px;"></div>
+            <div id="s01-p1" class="sm-figure" style="left: 480px;"></div>
+            <div id="s01-p2" class="sm-figure" style="left: 650px;"></div>
+            <div id="s01-p3" class="sm-figure" style="left: 820px;"></div>
+            <div id="s01-sl" class="sm-figure" style="left: 1190px;"></div>
+          <div class="e5-box" style="left: 1170px; top: 1236px; width: 400px; height: 234px; background: #B07A4A; border: 7px solid #111111; border-radius: 12px 12px 0 0;"><div class="e5-box" style="left: 24px; top: 40px; width: 338px; height: 70px; border: 5px solid #7A4F2C; border-radius: 8px;"></div></div>
+            <div class="e5-a" style="left: 1420px; top: 1100px; width: 150px;"><img src="assets/emoji/desktop-computer.svg" alt=""></div>
+            <div id="s01-z" class="e5-a" style="left: 1400px; top: 930px; width: 140px;"><img src="assets/emoji/zzz.svg" alt=""></div>
+            <div id="s01-lb" class="e5-a" style="left: 1000px; top: 600px; width: 110px;"><img src="assets/emoji/dollar-banknote.svg" alt=""></div>
+            <div id="s01-b0" class="e5-a" style="left: 300px; top: 1080px; width: 120px;"><img src="assets/emoji/dollar-banknote.svg" alt=""></div>
+            <div id="s01-b1" class="e5-a" style="left: 300px; top: 1080px; width: 120px;"><img src="assets/emoji/dollar-banknote.svg" alt=""></div>
+            <div id="s01-b2" class="e5-a" style="left: 300px; top: 1080px; width: 120px;"><img src="assets/emoji/dollar-banknote.svg" alt=""></div>
+            <div id="s01-b3" class="e5-a" style="left: 300px; top: 1080px; width: 120px;"><img src="assets/emoji/dollar-banknote.svg" alt=""></div>
+            <div id="s01-b4" class="e5-a" style="left: 300px; top: 1080px; width: 120px;"><img src="assets/emoji/dollar-banknote.svg" alt=""></div>
+            <div id="s01-b5" class="e5-a" style="left: 300px; top: 1080px; width: 120px;"><img src="assets/emoji/dollar-banknote.svg" alt=""></div>
+            <div id="s01-b6" class="e5-a" style="left: 300px; top: 1080px; width: 120px;"><img src="assets/emoji/dollar-banknote.svg" alt=""></div>
+            <div id="s01-b7" class="e5-a" style="left: 300px; top: 1080px; width: 120px;"><img src="assets/emoji/dollar-banknote.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="s01-t1" class="e5-t" style="top: 590px; font-size: 150px;">FREE <span class="sm-accent">MONEY</span></div>
+      <div id="s01-t2" class="e5-t" style="top: 575px; font-size: 220px;"><span class="sm-negative">1</span> IN <span class="sm-accent">5</span></div>
+      <div id="s01-u0" class="e5-a e7-bust" style="left: 155px;"><img src="assets/emoji/bust-in-silhouette.svg" alt=""></div>
+      <div id="s01-u1" class="e5-a e7-bust" style="left: 305px;"><img src="assets/emoji/bust-in-silhouette.svg" alt=""></div>
+      <div id="s01-u2" class="e5-a e7-bust" style="left: 455px;"><img src="assets/emoji/bust-in-silhouette.svg" alt=""></div>
+      <div id="s01-u3" class="e5-a e7-bust" style="left: 605px;"><img src="assets/emoji/bust-in-silhouette.svg" alt=""></div>
+      <div id="s01-u4" class="e5-a e7-bust" style="left: 755px;"><img src="assets/emoji/sleeping-face.svg" alt=""></div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s01-" + n);
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.42, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.22, ease: "back.in(2)", immediateRender: false }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.4, ease: "power1.out" }, at);
+    const out = (el, at, d) => tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: d || 0.3, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.35, ease: "power2.out" }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.4, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 10) }, { x: px || 10, duration: 0.05, ease: "none", yoyo: true, repeat: (n || 5) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k, n) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const scl = (el, at, a, b, d, ease) => tl.fromTo(el, { scale: a }, { scale: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false, transformOrigin: "50% 50%" }, at);
+    const rot = (el, at, a, b, d, ease) => tl.fromTo(el, { rotation: a }, { rotation: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false }, at);
+    const drop = (el, at, h, d) => tl.fromTo(el, { y: -(h || 500), opacity: 0 }, { y: 0, opacity: 1, duration: d || 0.6, ease: "bounce.out" }, at);
+    const slam = (el, at, r) => tl.fromTo(el, { scale: 2.8, opacity: 0, rotation: (r || 0) - 10, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, rotation: r || 0, duration: 0.2, ease: "power3.in" }, at);
+    const blink = (el, at, n, p) => tl.fromTo(el, { opacity: 0.2 }, { opacity: 1, duration: p || 0.15, ease: "none", yoyo: true, repeat: (n || 4) * 2 - 1, immediateRender: false }, at);
+    const bgc = (el, at, c, c0) => tl.fromTo(el, { backgroundColor: c0 }, { backgroundColor: c, duration: 0.2, immediateRender: false }, at);
+    const brc = (el, at, c, c0) => tl.fromTo(el, { borderColor: c0 || "#111111" }, { borderColor: c, duration: 0.2, immediateRender: false }, at);
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const arc = (el, at, d, a, b, h, ease) => { const o = { p: 0 }; gsap.set(el, { x: a[0], y: a[1] }); tl.fromTo(o, { p: 0 }, { p: 1, duration: d, ease: ease || "power1.inOut", immediateRender: false, onUpdate: () => { const p = o.p; gsap.set(el, { x: a[0] + (b[0] - a[0]) * p, y: a[1] + (b[1] - a[1]) * p - 4 * h * p * (1 - p) }); } }, at); };
+    const punch = (at, k, d) => tl.fromTo($("punch"), { scale: 1 }, { scale: k || 1.12, duration: (d || 0.36) / 2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false, transformOrigin: "50% 55%" }, at);
+    const jolt = (at, n, px) => shake($("punch"), at, n || 4, px || 14);
+    const whip = (dir) => tl.fromTo($("stage"), { x: dir * 1080, rotation: dir * 2, transformOrigin: "50% 50%" }, { x: 0, rotation: 0, duration: 0.4, ease: "expo.out" }, 0);
+    const wpan = (at, x0, x1, d) => tl.fromTo([$("world"), $("bg")], { x: x0 }, { x: x1, duration: d || 0.35, ease: "expo.inOut", immediateRender: false }, at);
+    const lids = (f) => { const g = document.createElementNS("http://www.w3.org/2000/svg", "g"); g.innerHTML = '<circle cx="-10" cy="-5" r="8" fill="#FAF7F0" stroke="none"/><circle cx="10" cy="-5" r="8" fill="#FAF7F0" stroke="none"/><path d="M -17 -5 Q -10 1 -3 -5 M 3 -5 Q 10 1 17 -5" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round"/>'; f.parts.head.appendChild(g); return g; };
+    const P = (f, n, at, d, o) => Stickman.pose(tl, f, n, at, d, o);
+    const gait = (f, at, d, run, end) => { const n = Math.max(2, Math.round(d * 4)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, f, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, f, end || "stand", at + d, 0.2); };
+    const Wk = (f, x0, x1, at, d, end, run) => { mv(f.el, at, [x0, 0], [x1, 0], d, "power1.out", true); return gait(f, at, d, run, end); };
+    const hop = (f, at, n, h) => tl.fromTo(f.el, { y: 0 }, { y: -(h || 50), duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+
+
+    const E = 5.4;
+    const bg = Stickman.background($("bg"), "office", { focusX: 520 });
+    Stickman.enter(tl, $("stage"), "zoom", { at: 0, duration: 0.35 });
+    Stickman.camera(tl, $("cam"), { at: 0, duration: 2.4, from: { scale: 1.0, focus: 540 }, to: { scale: 1.05, focus: 600 } });
+    Stickman.camera(tl, $("cam"), { at: 2.4, duration: E - 2.4, from: { scale: 1.05, focus: 600 }, to: { scale: 1.12, focus: 700 } });
+    Stickman.parallax(tl, bg, { x: 90, at: 0, duration: E });
+    const ps = [0, 1, 2, 3].map((i) => Stickman.mount($("p" + i), { pose: "stand", scale: 1.6, ground: true }));
+    ps.forEach((f, i) => Stickman.breathe(tl, f, 0, E));
+    const sl = Stickman.mount($("sl"), { pose: "sit", scale: 1.7, ground: 1440 + 67 * 1.7 });
+    lids(sl); Stickman.breathe(tl, sl, 0, E);
+    tl.fromTo(sl.el, { rotation: 6, transformOrigin: "50% 61%" }, { rotation: 10, duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 7, immediateRender: true }, 0);
+    bob($("z"), 0, 7, 22, 0.35);
+    // meriam menembak 3 kali
+    rot($("brl"), 0.5, -30, -22, 0.08, "power3.out"); rot($("brl"), 0.58, -22, -30, 0.3, "back.out(2)"); popin($("boom"), 0.5, 0, 0.1); popout($("boom"), 0.6799999999999999, 0.12); jolt(0.5, 2, 8);
+    rot($("brl"), 1.05, -30, -22, 0.08, "power3.out"); rot($("brl"), 1.1300000000000001, -22, -30, 0.3, "back.out(2)"); popin($("boom"), 1.05, 0, 0.1); popout($("boom"), 1.23, 0.12); jolt(1.05, 2, 8);
+    rot($("brl"), 1.6, -30, -22, 0.08, "power3.out"); rot($("brl"), 1.6800000000000002, -22, -30, 0.3, "back.out(2)"); popin($("boom"), 1.6, 0, 0.1); popout($("boom"), 1.78, 0.12); jolt(1.6, 2, 8);
+    popin($("b0"), 0.50, 0, 0.08); arc($("b0"), 0.50, 0.55, [0, 0], [110, -170], 320, "power1.out"); rot($("b0"), 0.50, 0, 400, 0.55, "none"); popout($("b0"), 1.12, 0.12);
+    popin($("b1"), 0.52, 0, 0.08); arc($("b1"), 0.52, 0.55, [0, 0], [280, -170], 380, "power1.out"); rot($("b1"), 0.50, 0, -400, 0.55, "none"); popout($("b1"), 1.12, 0.12);
+    popin($("b2"), 0.54, 0, 0.08); arc($("b2"), 0.54, 0.55, [0, 0], [450, -170], 440, "power1.out"); rot($("b2"), 0.50, 0, 400, 0.55, "none"); popout($("b2"), 1.12, 0.12);
+    popin($("b3"), 1.05, 0, 0.08); arc($("b3"), 1.05, 0.55, [0, 0], [620, -170], 320, "power1.out"); rot($("b3"), 1.05, 0, -400, 0.55, "none"); popout($("b3"), 1.67, 0.12);
+    popin($("b4"), 1.07, 0, 0.08); arc($("b4"), 1.07, 0.55, [0, 0], [110, -170], 380, "power1.out"); rot($("b4"), 1.05, 0, 400, 0.55, "none"); popout($("b4"), 1.67, 0.12);
+    popin($("b5"), 1.09, 0, 0.08); arc($("b5"), 1.09, 0.55, [0, 0], [280, -170], 440, "power1.out"); rot($("b5"), 1.05, 0, -400, 0.55, "none"); popout($("b5"), 1.67, 0.12);
+    popin($("b6"), 1.60, 0, 0.08); arc($("b6"), 1.60, 0.55, [0, 0], [450, -170], 320, "power1.out"); rot($("b6"), 1.60, 0, 400, 0.55, "none"); popout($("b6"), 2.22, 0.12);
+    popin($("b7"), 1.62, 0, 0.08); arc($("b7"), 1.62, 0.55, [0, 0], [620, -170], 380, "power1.out"); rot($("b7"), 1.60, 0, -400, 0.55, "none"); popout($("b7"), 2.22, 0.12);
+    ps.forEach((f, i) => { const t = 1.0 + (i % 2) * 0.12 + Math.floor(i / 2) * 0.5; P(f, "celebrate", t - 0.1, 0.15); hop(f, t, 2, 40); });
+    slam($("t1"), 1.6, -3); punch(1.62, 1.08);
+    ps.forEach((f, i) => P(f, i % 2 ? "point" : "stand", 2.3 + i * 0.05, 0.2));
+    // whip pan ke karyawan kelima
+    wpan(2.45, 0, -620, 0.35); jolt(2.78, 2, 10);
+    popout($("t1"), 2.5, 0.12); slam($("t2"), 2.72, -2); punch(2.75, 1.1);
+    [0, 1, 2, 3].forEach((i) => popin($("u" + i), 3.0 + i * 0.1, 0, 0.25));
+    popin($("u4"), 3.45, 20, 0.3); wob($("u4"), 3.8, 4, 10, 0.18);
+    tl.fromTo($("u4"), { filter: "grayscale(0)" }, { filter: "grayscale(1)", duration: 0.2, immediateRender: false }, 3.6);
+    // uang nyasar mendarat di kepalanya... tetap tidur
+    popin($("lb"), 3.9, 0, 0.1); arc($("lb"), 3.9, 0.5, [0, 0], [350, 430], 200, "power1.in"); rot($("lb"), 3.9, 0, 380, 0.5, "none");
+    tl.fromTo($("lb"), { y: 430 }, { y: 400, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 4.4);
+    pulse($("z"), 4.5, 1.25, 2); pulse($("u4"), 4.6, 1.15);
+    window.__timelines["s01"] = tl;
+  })();
+  </script>
+</template>

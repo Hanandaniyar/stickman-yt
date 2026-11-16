@@ -1,0 +1,122 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #FAF7F0; }
+    #s02-stage, #s02-punch, #s02-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .e5-a { position: absolute; }
+    .e5-a > img { display: block; width: 100%; }
+    .e5-t { position: absolute; left: 0; width: 1080px; text-align: center; font-family: "Montserrat"; font-weight: 900; color: #111111;
+      line-height: 1.05; letter-spacing: -0.01em; -webkit-text-stroke: 14px #FAF7F0; paint-order: stroke fill; }
+    .e5-box { position: absolute; box-sizing: border-box; }
+    .e5-pill { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 34px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-bub { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 44px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-term { position: absolute; box-sizing: border-box; background: #3B4048; border: 7px solid #111111; border-radius: 18px; }
+    .e5-scr { position: absolute; left: 13%; top: 12%; width: 74%; height: 42%; background: #BFD8E6; border-radius: 6px; }
+    .e5-ring { position: absolute; box-sizing: border-box; border: 10px solid #1F9D55; border-radius: 50%; }
+    .e5-stamp { position: absolute; box-sizing: border-box; font-family: "Montserrat"; font-weight: 900; color: #1F9D55; border: 16px solid #1F9D55;
+      border-radius: 26px; text-align: center; background: rgba(250,247,240,0.9); }
+    .e5-counter { position: absolute; box-sizing: border-box; background: #C8935F; border-top: 26px solid #8A5A34; }
+    .e5-slot { position: absolute; top: 500px; width: 130px; height: 130px; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 28px; }
+    .e5-slot > img { position: absolute; left: 14px; top: 14px; width: 88px; }
+    .e5-halo { position: absolute; left: -45%; top: -45%; width: 190%; height: 190%; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,236,140,0.95) 0%, rgba(255,214,90,0.55) 32%, rgba(255,205,70,0) 68%); }
+    .e5-red { color: #D64545; border-color: #D64545; }
+    .e5-ast { position: absolute; font-family: "Montserrat"; font-weight: 900; color: #D64545; line-height: 1; -webkit-text-stroke: 10px #FAF7F0; paint-order: stroke fill; }
+    .e7-desk { position: absolute; box-sizing: border-box; height: 30px; background: #8A5A34; border: 7px solid #111111; border-radius: 10px; }
+    .e7-leg { position: absolute; box-sizing: border-box; width: 26px; background: #8A5A34; border: 7px solid #111111; }
+    .e7-lbl { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 6px solid #111111; border-radius: 14px; font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e7-world { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .e5-link { position: absolute; top: 559px; width: 56px; height: 12px; background: #111111; border-radius: 6px; }
+
+    .e7-sign { position: absolute; left: 60px; top: 575px; width: 960px; height: 262px; box-sizing: border-box; background: #FFFFFF; border: 12px solid #111111; border-radius: 34px;
+      font-family: "Montserrat"; font-weight: 900; text-align: center; color: #111111; }
+    .e7-chain { position: absolute; top: -600px; width: 14px; height: 600px; background: repeating-linear-gradient(180deg, #111111 0 18px, #8A939C 18px 30px); }
+    .e7-stick { position: absolute; left: 404px; top: 905px; width: 22px; height: 150px; box-sizing: border-box; background: #E8C48A; border: 5px solid #111111; border-radius: 6px; transform-origin: 50% 100%; }
+    .e7-stick > i { position: absolute; left: -12px; top: -30px; width: 36px; height: 40px; border-radius: 50%; background: #D64545; border: 5px solid #111111; }
+  </style>
+  <div id="root" data-composition-id="s02" data-width="1080" data-height="1920">
+    <div id="s02-stage">
+      <div id="s02-punch">
+        <div id="s02-cam">
+          <div id="s02-bg"></div>
+
+          <div id="s02-you" class="sm-figure" style="left: 40px;"></div>
+          <div id="s02-mt" class="e7-stick"><i></i></div>
+          <div id="s02-fire" class="e5-a" style="left: 360px; top: 790px; width: 110px;"><img src="assets/emoji/fire.svg" alt=""></div>
+          <div id="s02-puff" class="e5-a" style="left: 360px; top: 820px; width: 130px;"><img src="assets/emoji/dashing-away.svg" alt=""></div>
+          <div id="s02-sw" class="e5-a" style="left: 330px; top: 860px; width: 90px;"><img src="assets/emoji/sweat-droplets.svg" alt=""></div>
+          <div id="s02-cash" class="e5-a" style="left: 700px; top: 1150px; width: 260px;"><img src="assets/emoji/money-bag.svg" alt=""></div>
+        </div>
+      </div>
+
+      <div id="s02-glow" class="e5-box" style="left: 10px; top: 520px; width: 1060px; height: 370px; border-radius: 60px; background: radial-gradient(ellipse, rgba(255,224,110,0.95) 0%, rgba(255,214,90,0.5) 45%, rgba(255,205,70,0) 72%);"></div>
+      <div id="s02-sign" class="e7-sign"><div class="e7-chain" style="left: 150px;"></div><div class="e7-chain" style="left: 780px;"></div>
+        <div style="position: absolute; left: 0; top: 18px; width: 100%; font-size: 112px; line-height: 112px;">401(k)</div>
+        <div id="s02-mw" style="position: absolute; left: 0; top: 130px; width: 100%; font-size: 112px; line-height: 112px; color: #1F9D55;">MATCH</div></div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s02-" + n);
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.42, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.22, ease: "back.in(2)", immediateRender: false }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.4, ease: "power1.out" }, at);
+    const out = (el, at, d) => tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: d || 0.3, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.35, ease: "power2.out" }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.4, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 10) }, { x: px || 10, duration: 0.05, ease: "none", yoyo: true, repeat: (n || 5) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k, n) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const scl = (el, at, a, b, d, ease) => tl.fromTo(el, { scale: a }, { scale: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false, transformOrigin: "50% 50%" }, at);
+    const rot = (el, at, a, b, d, ease) => tl.fromTo(el, { rotation: a }, { rotation: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false }, at);
+    const drop = (el, at, h, d) => tl.fromTo(el, { y: -(h || 500), opacity: 0 }, { y: 0, opacity: 1, duration: d || 0.6, ease: "bounce.out" }, at);
+    const slam = (el, at, r) => tl.fromTo(el, { scale: 2.8, opacity: 0, rotation: (r || 0) - 10, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, rotation: r || 0, duration: 0.2, ease: "power3.in" }, at);
+    const blink = (el, at, n, p) => tl.fromTo(el, { opacity: 0.2 }, { opacity: 1, duration: p || 0.15, ease: "none", yoyo: true, repeat: (n || 4) * 2 - 1, immediateRender: false }, at);
+    const bgc = (el, at, c, c0) => tl.fromTo(el, { backgroundColor: c0 }, { backgroundColor: c, duration: 0.2, immediateRender: false }, at);
+    const brc = (el, at, c, c0) => tl.fromTo(el, { borderColor: c0 || "#111111" }, { borderColor: c, duration: 0.2, immediateRender: false }, at);
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const arc = (el, at, d, a, b, h, ease) => { const o = { p: 0 }; gsap.set(el, { x: a[0], y: a[1] }); tl.fromTo(o, { p: 0 }, { p: 1, duration: d, ease: ease || "power1.inOut", immediateRender: false, onUpdate: () => { const p = o.p; gsap.set(el, { x: a[0] + (b[0] - a[0]) * p, y: a[1] + (b[1] - a[1]) * p - 4 * h * p * (1 - p) }); } }, at); };
+    const punch = (at, k, d) => tl.fromTo($("punch"), { scale: 1 }, { scale: k || 1.12, duration: (d || 0.36) / 2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false, transformOrigin: "50% 55%" }, at);
+    const jolt = (at, n, px) => shake($("punch"), at, n || 4, px || 14);
+    const whip = (dir) => tl.fromTo($("stage"), { x: dir * 1080, rotation: dir * 2, transformOrigin: "50% 50%" }, { x: 0, rotation: 0, duration: 0.4, ease: "expo.out" }, 0);
+    const wpan = (at, x0, x1, d) => tl.fromTo([$("world"), $("bg")], { x: x0 }, { x: x1, duration: d || 0.35, ease: "expo.inOut", immediateRender: false }, at);
+    const lids = (f) => { const g = document.createElementNS("http://www.w3.org/2000/svg", "g"); g.innerHTML = '<circle cx="-10" cy="-5" r="8" fill="#FAF7F0" stroke="none"/><circle cx="10" cy="-5" r="8" fill="#FAF7F0" stroke="none"/><path d="M -17 -5 Q -10 1 -3 -5 M 3 -5 Q 10 1 17 -5" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round"/>'; f.parts.head.appendChild(g); return g; };
+    const P = (f, n, at, d, o) => Stickman.pose(tl, f, n, at, d, o);
+    const gait = (f, at, d, run, end) => { const n = Math.max(2, Math.round(d * 4)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, f, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, f, end || "stand", at + d, 0.2); };
+    const Wk = (f, x0, x1, at, d, end, run) => { mv(f.el, at, [x0, 0], [x1, 0], d, "power1.out", true); return gait(f, at, d, run, end); };
+    const hop = (f, at, n, h) => tl.fromTo(f.el, { y: 0 }, { y: -(h || 50), duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+
+
+    const E = 2.85;
+    const bg = Stickman.background($("bg"), "office", { focusX: 1450 });
+    whip(1);
+    Stickman.camera(tl, $("cam"), { at: 0, duration: E, from: { scale: 1.12, focus: 500 }, to: { scale: 1.02, focus: 540 } });
+    Stickman.parallax(tl, bg, { x: -110, at: 0, duration: E });
+    const you = Stickman.mount($("you"), { pose: "point", scale: 1.8, ground: true });
+    Stickman.breathe(tl, you, 0, E);
+    // papan turun dari langit-langit
+    tl.fromTo($("sign"), { y: -900 }, { y: 0, duration: 0.5, ease: "bounce.out" }, 0.15);
+    jolt(0.45, 3, 12); P(you, "shocked", 0.4, 0.1); hop(you, 0.45, 1, 30);
+    wob($("sign"), 0.7, 2, 2, 0.12);
+    popin($("cash"), 0.55, 15); bob($("cash"), 0.9, 4, 14, 0.2);
+    // korek api dinyalakan
+    P(you, "point", 0.8, 0.12); popin($("mt"), 0.75, -30, 0.2);
+    rot($("mt"), 0.95, 0, 35, 0.1, "power3.out"); rot($("mt"), 1.05, 35, 0, 0.15);
+    popin($("fire"), 1.05, 0, 0.18); wob($("fire"), 1.25, 6, 10, 0.1);
+    // papan menyala
+    tl.fromTo($("glow"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, 1.4);
+    tl.fromTo($("glow"), { scale: 1 }, { scale: 1.08, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 5, immediateRender: false, transformOrigin: "50% 50%" }, 1.65);
+    bgc($("sign"), 1.4, "#FFF4C2", "#FFFFFF"); pulse($("mw"), 1.5, 1.15); punch(1.45, 1.1);
+    // ...api menyambar jari
+    scl($("fire"), 1.9, 1, 1.7, 0.15, "back.out(3)"); P(you, "shocked", 1.95, 0.08); hop(you, 2.0, 2, 45);
+    shake($("mt"), 1.95, 4, 10);
+    arc($("mt"), 2.15, 0.45, [0, 0], [260, 420], 200, "power1.in"); rot($("mt"), 2.15, 0, 300, 0.45, "none");
+    popout($("fire"), 2.2, 0.1); popin($("puff"), 2.2, 0, 0.15); popout($("puff"), 2.5, 0.15);
+    popin($("sw"), 2.25, 0, 0.15); bob($("sw"), 2.4, 2, 10, 0.1);
+    window.__timelines["s02"] = tl;
+  })();
+  </script>
+</template>
