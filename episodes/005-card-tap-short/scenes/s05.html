@@ -1,0 +1,116 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #FAF7F0; }
+    #s05-stage, #s05-punch, #s05-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .e5-a { position: absolute; }
+    .e5-a > img { display: block; width: 100%; }
+    .e5-t { position: absolute; left: 0; width: 1080px; text-align: center; font-family: "Montserrat"; font-weight: 900; color: #111111;
+      line-height: 1.05; letter-spacing: -0.01em; -webkit-text-stroke: 14px #FAF7F0; paint-order: stroke fill; }
+    .e5-box { position: absolute; box-sizing: border-box; }
+    .e5-pill { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 34px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-bub { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 44px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-term { position: absolute; box-sizing: border-box; background: #3B4048; border: 7px solid #111111; border-radius: 18px; }
+    .e5-scr { position: absolute; left: 13%; top: 12%; width: 74%; height: 42%; background: #BFD8E6; border-radius: 6px; }
+    .e5-ring { position: absolute; box-sizing: border-box; border: 10px solid #1F9D55; border-radius: 50%; }
+    .e5-stamp { position: absolute; box-sizing: border-box; font-family: "Montserrat"; font-weight: 900; color: #1F9D55; border: 16px solid #1F9D55;
+      border-radius: 26px; text-align: center; background: rgba(250,247,240,0.9); }
+    .e5-counter { position: absolute; box-sizing: border-box; background: #C8935F; border-top: 26px solid #8A5A34; }
+    .e5-slot { position: absolute; top: 500px; width: 130px; height: 130px; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 28px; }
+    .e5-slot > img { position: absolute; left: 14px; top: 14px; width: 88px; }
+    .e5-link { position: absolute; top: 559px; width: 56px; height: 12px; background: #111111; border-radius: 6px; }
+
+  </style>
+  <div id="root" data-composition-id="s05" data-width="1080" data-height="1920">
+    <div id="s05-stage">
+      <div id="s05-punch">
+        <div id="s05-cam">
+          <div id="s05-bg"></div>
+
+          <div id="s05-clerk" class="sm-figure" style="left: 120px;"></div>
+          <div id="s05-desk" class="e5-box" style="left: -40px; top: 1300px; width: 1160px; height: 800px; background: #B98B5A; border-top: 26px solid #7A5530;"></div>
+          <div id="s05-card" class="e5-a" style="left: 590px; top: 1110px; width: 230px;"><img src="assets/emoji/credit-card.svg" alt=""></div>
+          <div id="s05-mag" class="e5-a" style="left: 560px; top: 1060px; width: 250px;"><img src="assets/emoji/magnifying-glass-tilted-left.svg" alt=""></div>
+        </div>
+      </div>
+
+      <div id="s05-k0" class="e5-slot" style="left: 196px;"><img src="assets/emoji/hot-beverage.svg" alt=""></div>
+      <div id="s05-lk1" class="e5-link" style="left: 326px;"></div>
+      <div id="s05-k1" class="e5-slot" style="left: 382px;"><img src="assets/emoji/inbox-tray.svg" alt=""></div>
+      <div id="s05-lk2" class="e5-link" style="left: 512px;"></div>
+      <div id="s05-k2" class="e5-slot" style="left: 568px;"><img src="assets/emoji/motorway.svg" alt=""></div>
+      <div id="s05-lk3" class="e5-link" style="left: 698px;"></div>
+      <div id="s05-k3" class="e5-slot" style="left: 754px;"><img src="assets/emoji/bank.svg" alt=""></div>
+      <div id="s05-t0" class="e5-t" style="top: 660px; font-size: 120px;">LAST STOP</div>
+      <div id="s05-row0" class="e5-box" style="left: 150px; top: 645px; width: 800px; height: 90px;">
+        <div id="s05-bx0" class="e5-box" style="left: 0; top: 6px; width: 80px; height: 80px; background: #FFFFFF; border: 7px solid #111111; border-radius: 14px;"></div>
+        <div id="s05-ck0" class="e5-a" style="left: -6px; top: -4px; width: 92px;"><img src="assets/emoji/check-mark-button.svg" alt=""></div>
+        <div class="e5-t" style="left: 116px; top: 0; width: 700px; text-align: left; font-size: 80px;">REAL CARD</div></div>
+      <div id="s05-row1" class="e5-box" style="left: 150px; top: 735px; width: 800px; height: 90px;">
+        <div id="s05-bx1" class="e5-box" style="left: 0; top: 6px; width: 80px; height: 80px; background: #FFFFFF; border: 7px solid #111111; border-radius: 14px;"></div>
+        <div id="s05-ck1" class="e5-a" style="left: -6px; top: -4px; width: 92px;"><img src="assets/emoji/check-mark-button.svg" alt=""></div>
+        <div class="e5-t" style="left: 116px; top: 0; width: 700px; text-align: left; font-size: 80px;">MONEY</div></div>
+      <div id="s05-row2" class="e5-box" style="left: 150px; top: 825px; width: 800px; height: 90px;">
+        <div id="s05-bx2" class="e5-box" style="left: 0; top: 6px; width: 80px; height: 80px; background: #FFFFFF; border: 7px solid #111111; border-radius: 14px;"></div>
+        <div id="s05-ck2" class="e5-a" style="left: -6px; top: -4px; width: 92px;"><img src="assets/emoji/check-mark-button.svg" alt=""></div>
+        <div class="e5-t" style="left: 116px; top: 0; width: 700px; text-align: left; font-size: 80px;">NO FRAUD</div></div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s05-" + n);
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.42, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.22, ease: "back.in(2)", immediateRender: false }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.4, ease: "power1.out" }, at);
+    const out = (el, at, d) => tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: d || 0.3, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.35, ease: "power2.out" }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.4, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 10) }, { x: px || 10, duration: 0.05, ease: "none", yoyo: true, repeat: (n || 5) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k, n) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const scl = (el, at, a, b, d, ease) => tl.fromTo(el, { scale: a }, { scale: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false, transformOrigin: "50% 50%" }, at);
+    const rot = (el, at, a, b, d, ease) => tl.fromTo(el, { rotation: a }, { rotation: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false }, at);
+    const drop = (el, at, h, d) => tl.fromTo(el, { y: -(h || 500), opacity: 0 }, { y: 0, opacity: 1, duration: d || 0.6, ease: "bounce.out" }, at);
+    const slam = (el, at, r) => tl.fromTo(el, { scale: 2.8, opacity: 0, rotation: (r || 0) - 10, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, rotation: r || 0, duration: 0.2, ease: "power3.in" }, at);
+    const blink = (el, at, n, p) => tl.fromTo(el, { opacity: 0.2 }, { opacity: 1, duration: p || 0.15, ease: "none", yoyo: true, repeat: (n || 4) * 2 - 1, immediateRender: false }, at);
+    const bgc = (el, at, c, c0) => tl.fromTo(el, { backgroundColor: c0 }, { backgroundColor: c, duration: 0.2, immediateRender: false }, at);
+    const brc = (el, at, c, c0) => tl.fromTo(el, { borderColor: c0 || "#111111" }, { borderColor: c, duration: 0.2, immediateRender: false }, at);
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const arc = (el, at, d, a, b, h, ease) => { const o = { p: 0 }; gsap.set(el, { x: a[0], y: a[1] }); tl.fromTo(o, { p: 0 }, { p: 1, duration: d, ease: ease || "power1.inOut", immediateRender: false, onUpdate: () => { const p = o.p; gsap.set(el, { x: a[0] + (b[0] - a[0]) * p, y: a[1] + (b[1] - a[1]) * p - 4 * h * p * (1 - p) }); } }, at); };
+    const punch = (at, k, d) => tl.fromTo($("punch"), { scale: 1 }, { scale: k || 1.12, duration: (d || 0.36) / 2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false, transformOrigin: "50% 55%" }, at);
+    const jolt = (at, n, px) => shake($("punch"), at, n || 4, px || 14);
+    const whip = (dir) => tl.fromTo($("stage"), { x: dir * 1080, rotation: dir * 2, transformOrigin: "50% 50%" }, { x: 0, rotation: 0, duration: 0.4, ease: "expo.out" }, 0);
+    const P = (f, n, at, d, o) => Stickman.pose(tl, f, n, at, d, o);
+    const gait = (f, at, d, run, end) => { const n = Math.max(2, Math.round(d * 4)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, f, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, f, end || "stand", at + d, 0.2); };
+    const Wk = (f, x0, x1, at, d, end, run) => { mv(f.el, at, [x0, 0], [x1, 0], d, "power1.out", true); return gait(f, at, d, run, end); };
+    const hop = (f, at, n, h) => tl.fromTo(f.el, { y: 0 }, { y: -(h || 50), duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+
+
+    const E = 5.7;
+    const bg = Stickman.background($("bg"), "bank-hall", { focusX: 1700 });
+    Stickman.enter(tl, $("stage"), "zoom", { at: 0, duration: 0.4 });
+    Stickman.camera(tl, $("cam"), { at: 0, duration: E, from: { scale: 1.0 }, to: { scale: 1.05, focus: 540 } });
+    Stickman.parallax(tl, bg, { x: 70, at: 0, duration: E });
+    const clerk = Stickman.mount($("clerk"), { pose: "stand", scale: 1.5, ground: true });
+    Stickman.breathe(tl, clerk, 0, E);
+    mv(clerk.el, 0.75, [0, 420], [0, 0], 0.4, "back.out(1.6)", true);
+    popin($("t0"), 0.1, -8); bob($("t0"), 0.5, 2, 10, 0.25); popout($("t0"), 1.5, 0.15);
+    growX($("lk3"), 1.0, 0.2); popin($("k3"), 1.1, 20); pulse($("k3"), 1.5, 1.15);
+    P(clerk, "think", 1.15);
+    popin($("card"), 0.9, 25); popin($("mag"), 1.3, -30);
+    tl.fromTo($("mag"), { x: -90 }, { x: 70, duration: 0.42, ease: "sine.inOut", yoyo: true, repeat: 9, immediateRender: false }, 1.6);
+    const rows = [[1.63, 2.45], [2.84, 3.45], [3.9, 4.4]];
+    rows.forEach(([a, b], i) => {
+      popin($("row" + i), a, -4, 0.35);
+      popin($("ck" + i), b, -40, 0.3); pulse($("bx" + i), b, 1.15); punch(b, 1.05, 0.3);
+    });
+    // FRAUD? kaca pembesar mendekat ke kamera
+    scl($("mag"), 3.9, 1, 1.9, 0.25, "back.out(2)"); scl($("mag"), 4.35, 1.9, 1, 0.3, "power2.inOut");
+    P(clerk, "shocked", 3.95, 0.15); P(clerk, "point", 4.45);
+    window.__timelines["s05"] = tl;
+  })();
+  </script>
+</template>

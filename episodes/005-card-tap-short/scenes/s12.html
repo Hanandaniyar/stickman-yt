@@ -1,0 +1,106 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #FAF7F0; }
+    #s12-stage, #s12-punch, #s12-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .e5-a { position: absolute; }
+    .e5-a > img { display: block; width: 100%; }
+    .e5-t { position: absolute; left: 0; width: 1080px; text-align: center; font-family: "Montserrat"; font-weight: 900; color: #111111;
+      line-height: 1.05; letter-spacing: -0.01em; -webkit-text-stroke: 14px #FAF7F0; paint-order: stroke fill; }
+    .e5-box { position: absolute; box-sizing: border-box; }
+    .e5-pill { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 34px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-bub { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 44px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-term { position: absolute; box-sizing: border-box; background: #3B4048; border: 7px solid #111111; border-radius: 18px; }
+    .e5-scr { position: absolute; left: 13%; top: 12%; width: 74%; height: 42%; background: #BFD8E6; border-radius: 6px; }
+    .e5-ring { position: absolute; box-sizing: border-box; border: 10px solid #1F9D55; border-radius: 50%; }
+    .e5-stamp { position: absolute; box-sizing: border-box; font-family: "Montserrat"; font-weight: 900; color: #1F9D55; border: 16px solid #1F9D55;
+      border-radius: 26px; text-align: center; background: rgba(250,247,240,0.9); }
+    .e5-counter { position: absolute; box-sizing: border-box; background: #C8935F; border-top: 26px solid #8A5A34; }
+    .e5-slot { position: absolute; top: 500px; width: 130px; height: 130px; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 28px; }
+    .e5-slot > img { position: absolute; left: 14px; top: 14px; width: 88px; }
+    .e5-link { position: absolute; top: 559px; width: 56px; height: 12px; background: #111111; border-radius: 6px; }
+
+  </style>
+  <div id="root" data-composition-id="s12" data-width="1080" data-height="1920">
+    <div id="s12-stage">
+      <div id="s12-punch">
+        <div id="s12-cam">
+          <div id="s12-bg"></div>
+
+          <div id="s12-pipe" class="e5-box" style="left: 652px; top: 790px; width: 24px; height: 560px; background: #111111; border-radius: 12px;"></div>
+          <div id="s12-pn0" class="e5-box" style="left: 40px; top: 725px; width: 600px; height: 152px; background: #FFFFFF; border: 8px solid #111111; border-radius: 30px;">
+            <div class="e5-a" style="left: 18px; top: 10px; width: 116px;"><img src="assets/emoji/hot-beverage.svg" alt=""></div>
+            <div style="position: absolute; left: 160px; top: 0; width: 420px; font-family: 'Montserrat'; font-weight: 900; font-size: 58px; line-height: 136px; color: #111111;">CAF&Eacute;</div></div>
+          <div id="s12-pn1" class="e5-box" style="left: 40px; top: 897px; width: 600px; height: 152px; background: #FFFFFF; border: 8px solid #111111; border-radius: 30px;">
+            <div class="e5-a" style="left: 18px; top: 10px; width: 116px;"><img src="assets/emoji/inbox-tray.svg" alt=""></div>
+            <div style="position: absolute; left: 160px; top: 0; width: 420px; font-family: 'Montserrat'; font-weight: 900; font-size: 58px; line-height: 136px; color: #111111;">PROCESSOR</div></div>
+          <div id="s12-pn2" class="e5-box" style="left: 40px; top: 1069px; width: 600px; height: 152px; background: #FFFFFF; border: 8px solid #111111; border-radius: 30px;">
+            <div class="e5-a" style="left: 18px; top: 10px; width: 116px;"><img src="assets/emoji/motorway.svg" alt=""></div>
+            <div style="position: absolute; left: 160px; top: 0; width: 420px; font-family: 'Montserrat'; font-weight: 900; font-size: 58px; line-height: 136px; color: #111111;">NETWORK</div></div>
+          <div id="s12-pn3" class="e5-box" style="left: 40px; top: 1241px; width: 600px; height: 152px; background: #FFFFFF; border: 8px solid #111111; border-radius: 30px;">
+            <div class="e5-a" style="left: 18px; top: 10px; width: 116px;"><img src="assets/emoji/bank.svg" alt=""></div>
+            <div style="position: absolute; left: 160px; top: 0; width: 420px; font-family: 'Montserrat'; font-weight: 900; font-size: 58px; line-height: 136px; color: #111111;">BANK</div></div>
+          <div id="s12-env" class="e5-a" style="left: 610px; top: 745px; width: 110px;"><img src="assets/emoji/envelope.svg" alt=""></div>
+          <div id="s12-you" class="sm-figure" style="left: 730px;"></div>
+        </div>
+      </div>
+
+      <div id="s12-t1" class="e5-t" style="top: 462px; font-size: 116px;">FULL <span class="sm-accent">TRIP</span></div>
+      <div id="s12-pill" class="e5-pill" style="left: 90px; top: 600px; width: 900px; height: 96px; font-size: 52px; line-height: 82px;">
+        <img src="assets/emoji/play-button.svg" alt="" style="width: 64px; vertical-align: -12px; margin-right: 12px;">ECONOMIC FOR ADULTS</div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s12-" + n);
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.42, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.22, ease: "back.in(2)", immediateRender: false }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.4, ease: "power1.out" }, at);
+    const out = (el, at, d) => tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: d || 0.3, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.35, ease: "power2.out" }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.4, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 10) }, { x: px || 10, duration: 0.05, ease: "none", yoyo: true, repeat: (n || 5) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k, n) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const scl = (el, at, a, b, d, ease) => tl.fromTo(el, { scale: a }, { scale: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false, transformOrigin: "50% 50%" }, at);
+    const rot = (el, at, a, b, d, ease) => tl.fromTo(el, { rotation: a }, { rotation: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false }, at);
+    const drop = (el, at, h, d) => tl.fromTo(el, { y: -(h || 500), opacity: 0 }, { y: 0, opacity: 1, duration: d || 0.6, ease: "bounce.out" }, at);
+    const slam = (el, at, r) => tl.fromTo(el, { scale: 2.8, opacity: 0, rotation: (r || 0) - 10, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, rotation: r || 0, duration: 0.2, ease: "power3.in" }, at);
+    const blink = (el, at, n, p) => tl.fromTo(el, { opacity: 0.2 }, { opacity: 1, duration: p || 0.15, ease: "none", yoyo: true, repeat: (n || 4) * 2 - 1, immediateRender: false }, at);
+    const bgc = (el, at, c, c0) => tl.fromTo(el, { backgroundColor: c0 }, { backgroundColor: c, duration: 0.2, immediateRender: false }, at);
+    const brc = (el, at, c, c0) => tl.fromTo(el, { borderColor: c0 || "#111111" }, { borderColor: c, duration: 0.2, immediateRender: false }, at);
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const arc = (el, at, d, a, b, h, ease) => { const o = { p: 0 }; gsap.set(el, { x: a[0], y: a[1] }); tl.fromTo(o, { p: 0 }, { p: 1, duration: d, ease: ease || "power1.inOut", immediateRender: false, onUpdate: () => { const p = o.p; gsap.set(el, { x: a[0] + (b[0] - a[0]) * p, y: a[1] + (b[1] - a[1]) * p - 4 * h * p * (1 - p) }); } }, at); };
+    const punch = (at, k, d) => tl.fromTo($("punch"), { scale: 1 }, { scale: k || 1.12, duration: (d || 0.36) / 2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false, transformOrigin: "50% 55%" }, at);
+    const jolt = (at, n, px) => shake($("punch"), at, n || 4, px || 14);
+    const whip = (dir) => tl.fromTo($("stage"), { x: dir * 1080, rotation: dir * 2, transformOrigin: "50% 50%" }, { x: 0, rotation: 0, duration: 0.4, ease: "expo.out" }, 0);
+    const P = (f, n, at, d, o) => Stickman.pose(tl, f, n, at, d, o);
+    const gait = (f, at, d, run, end) => { const n = Math.max(2, Math.round(d * 4)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, f, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, f, end || "stand", at + d, 0.2); };
+    const Wk = (f, x0, x1, at, d, end, run) => { mv(f.el, at, [x0, 0], [x1, 0], d, "power1.out", true); return gait(f, at, d, run, end); };
+    const hop = (f, at, n, h) => tl.fromTo(f.el, { y: 0 }, { y: -(h || 50), duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+
+
+    const E = 4.6;
+    const bg = Stickman.background($("bg"), "studio");
+    Stickman.enter(tl, $("stage"), "iris", { at: 0, duration: 0.45 });
+    tl.fromTo($("cam"), { scale: 2.3, x: 460, y: 454, transformOrigin: "50% 50%" }, { scale: 1, x: 0, y: 0, duration: 1.4, ease: "power3.inOut" }, 0.1);
+    tl.fromTo($("punch"), { scale: 1 }, { scale: 1.04, duration: E - 1.5, ease: "sine.inOut", immediateRender: false, transformOrigin: "50% 60%" }, 1.5);
+    const you = Stickman.mount($("you"), { pose: "stand", scale: 1.6, ground: true });
+    Stickman.breathe(tl, you, 0, E);
+    // amplop berkeliling mesin
+    [0.3, 2.2].forEach((t0) => {
+      mv($("env"), t0, [0, 0], [0, 516], 1.6, "none", t0 === 0.3);
+      [0, 1, 2, 3].forEach((i) => pulse($("pn" + i), t0 + i * 0.53, 1.06));
+    });
+    [0, 1, 2, 3].forEach((i) => brc($("pn" + i), 0.3 + i * 0.53, "#1F9D55"));
+    P(you, "point", 0.9, 0.27, { mirror: true });
+    popin($("t1"), 0.69, -6);
+    popin($("pill"), 1.8, 6); P(you, "celebrate", 1.8); hop(you, 1.85, 2, 45);
+    pulse($("pill"), 2.6, 1.08); pulse($("t1"), 3.2, 1.08); P(you, "point", 3.0, 0.27, { mirror: true });
+    window.__timelines["s12"] = tl;
+  })();
+  </script>
+</template>

@@ -1,0 +1,292 @@
+{
+  "format": "short",
+  "scenes": [
+    {
+      "id": "s01",
+      "text": "You want coffee. No cash. Easy. Just tap your card.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "coffee"
+        },
+        {
+          "name": "boing",
+          "word": "cash"
+        },
+        {
+          "name": "sparkle",
+          "word": "tap"
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "text": "Beep. Done? Nope. The café has no idea who you are.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "ping",
+          "word": "beep"
+        },
+        {
+          "name": "record-scratch",
+          "word": "nope"
+        },
+        {
+          "name": "pop",
+          "word": "who"
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "text": "So it calls a processor. The café's mail room.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "mail"
+        },
+        {
+          "name": "impact-bass-1",
+          "at": 2.45,
+          "volume": 0.3
+        },
+        {
+          "name": "click",
+          "at": 2.9
+        },
+        {
+          "name": "click",
+          "at": 3.35
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "text": "The processor sends it down the card network, a giant highway between banks.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "sends"
+        },
+        {
+          "name": "whoosh-short",
+          "at": 1.7,
+          "volume": 0.25
+        },
+        {
+          "name": "pop",
+          "word": "highway"
+        },
+        {
+          "name": "whoosh-short",
+          "at": 3.7,
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "text": "Last stop: your bank. Is the card real? Is there money? Fraud?",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "bank"
+        },
+        {
+          "name": "click",
+          "word": "real",
+          "offset": 0.15
+        },
+        {
+          "name": "click",
+          "word": "money",
+          "offset": 0.1
+        },
+        {
+          "name": "chime",
+          "word": "fraud",
+          "offset": 0.4
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "text": "All good. Approved! In about two seconds.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "impact-bass-1",
+          "word": "approved"
+        },
+        {
+          "name": "sparkle",
+          "at": 1.0
+        },
+        {
+          "name": "clock-tick",
+          "word": "two"
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "text": "Paid now? Still nope. Approved is just a promise.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "paid"
+        },
+        {
+          "name": "wrong-buzzer",
+          "word": "nope"
+        },
+        {
+          "name": "pop",
+          "word": "promise"
+        }
+      ]
+    },
+    {
+      "id": "s08",
+      "text": "The real money moves that night, and lands one to three days later.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "night"
+        },
+        {
+          "name": "clock-tick",
+          "word": "one"
+        },
+        {
+          "name": "clock-tick",
+          "word": "three"
+        },
+        {
+          "name": "cash-register",
+          "word": "later"
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "text": "Minus fees. On a five-dollar coffee, about eight cents.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "click",
+          "word": "fees"
+        },
+        {
+          "name": "coin",
+          "word": "eight"
+        },
+        {
+          "name": "boing",
+          "word": "cents"
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "text": "Tiny? Across America, that's 198 billion dollars a year.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "tiny"
+        },
+        {
+          "name": "coins-pour",
+          "word": "198"
+        },
+        {
+          "name": "cash-register",
+          "word": "year"
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "text": "And who pays it? Everyone. Even cash buyers. It's baked into the price.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "everyone"
+        },
+        {
+          "name": "gasp",
+          "word": "buyers"
+        },
+        {
+          "name": "boing",
+          "word": "baked"
+        },
+        {
+          "name": "cash-register",
+          "word": "price"
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "text": "The full trip is on our channel.",
+      "sfx": [
+        {
+          "name": "whoosh-cinematic",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "trip"
+        },
+        {
+          "name": "chime",
+          "word": "channel"
+        }
+      ]
+    }
+  ],
+  "music": "assets/music/good-vibe.mp3"
+}

@@ -1,0 +1,125 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #FAF7F0; }
+    #s06-stage, #s06-punch, #s06-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .e5-a { position: absolute; }
+    .e5-a > img { display: block; width: 100%; }
+    .e5-t { position: absolute; left: 0; width: 1080px; text-align: center; font-family: "Montserrat"; font-weight: 900; color: #111111;
+      line-height: 1.05; letter-spacing: -0.01em; -webkit-text-stroke: 14px #FAF7F0; paint-order: stroke fill; }
+    .e5-box { position: absolute; box-sizing: border-box; }
+    .e5-pill { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 34px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-bub { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 44px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-term { position: absolute; box-sizing: border-box; background: #3B4048; border: 7px solid #111111; border-radius: 18px; }
+    .e5-scr { position: absolute; left: 13%; top: 12%; width: 74%; height: 42%; background: #BFD8E6; border-radius: 6px; }
+    .e5-ring { position: absolute; box-sizing: border-box; border: 10px solid #1F9D55; border-radius: 50%; }
+    .e5-stamp { position: absolute; box-sizing: border-box; font-family: "Montserrat"; font-weight: 900; color: #1F9D55; border: 16px solid #1F9D55;
+      border-radius: 26px; text-align: center; background: rgba(250,247,240,0.9); }
+    .e5-counter { position: absolute; box-sizing: border-box; background: #C8935F; border-top: 26px solid #8A5A34; }
+    .e5-slot { position: absolute; top: 500px; width: 130px; height: 130px; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 28px; }
+    .e5-slot > img { position: absolute; left: 14px; top: 14px; width: 88px; }
+    .e5-link { position: absolute; top: 559px; width: 56px; height: 12px; background: #111111; border-radius: 6px; }
+
+  </style>
+  <div id="root" data-composition-id="s06" data-width="1080" data-height="1920">
+    <div id="s06-stage">
+      <div id="s06-punch">
+        <div id="s06-cam">
+          <div id="s06-bg"></div>
+
+          <div id="s06-you" class="sm-figure" style="left: 40px;"></div>
+          <div id="s06-ok" class="e5-a" style="left: 330px; top: 860px; width: 180px;"><img src="assets/emoji/ok-hand.svg" alt=""></div>
+          <div id="s06-sw" class="e5-a" style="left: 560px; top: 950px; width: 250px;"><img src="assets/emoji/stopwatch.svg" alt=""></div>
+          <div id="s06-sec" class="e5-t" style="left: 400px; top: 1205px; width: 430px; font-size: 100px;"><span id="s06-secn" class="sm-accent">0.0</span> SEC</div>
+          <div id="s06-pop" class="e5-a" style="left: 850px; top: 1130px; width: 210px;"><img src="assets/emoji/party-popper.svg" alt=""></div>
+          <div id="s06-c0" class="e5-box" style="left: 900px; top: 1170px; width: 22px; height: 34px; background: #D64545; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c1" class="e5-box" style="left: 900px; top: 1170px; width: 28px; height: 44px; background: #2D6CDF; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c2" class="e5-box" style="left: 900px; top: 1170px; width: 34px; height: 34px; background: #F2C94C; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c3" class="e5-box" style="left: 900px; top: 1170px; width: 22px; height: 44px; background: #1F9D55; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c4" class="e5-box" style="left: 900px; top: 1170px; width: 28px; height: 34px; background: #D64545; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c5" class="e5-box" style="left: 900px; top: 1170px; width: 34px; height: 44px; background: #F2C94C; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c6" class="e5-box" style="left: 900px; top: 1170px; width: 22px; height: 34px; background: #2D6CDF; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c7" class="e5-box" style="left: 900px; top: 1170px; width: 28px; height: 44px; background: #1F9D55; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c8" class="e5-box" style="left: 900px; top: 1170px; width: 34px; height: 34px; background: #D64545; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c9" class="e5-box" style="left: 900px; top: 1170px; width: 22px; height: 44px; background: #F2C94C; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c10" class="e5-box" style="left: 900px; top: 1170px; width: 28px; height: 34px; background: #2D6CDF; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c11" class="e5-box" style="left: 900px; top: 1170px; width: 34px; height: 44px; background: #1F9D55; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c12" class="e5-box" style="left: 900px; top: 1170px; width: 22px; height: 34px; background: #F2C94C; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c13" class="e5-box" style="left: 900px; top: 1170px; width: 28px; height: 44px; background: #D64545; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c14" class="e5-box" style="left: 900px; top: 1170px; width: 34px; height: 34px; background: #1F9D55; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c15" class="e5-box" style="left: 900px; top: 1170px; width: 22px; height: 44px; background: #F2C94C; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c16" class="e5-box" style="left: 900px; top: 1170px; width: 28px; height: 34px; background: #2D6CDF; border-radius: 4px; opacity: 0;"></div>
+          <div id="s06-c17" class="e5-box" style="left: 900px; top: 1170px; width: 34px; height: 44px; background: #F2C94C; border-radius: 4px; opacity: 0;"></div>
+        </div>
+      </div>
+
+      <div id="s06-k0" class="e5-slot" style="left: 196px;"><img src="assets/emoji/hot-beverage.svg" alt=""></div>
+      <div id="s06-lk1" class="e5-link" style="left: 326px;"></div>
+      <div id="s06-k1" class="e5-slot" style="left: 382px;"><img src="assets/emoji/inbox-tray.svg" alt=""></div>
+      <div id="s06-lk2" class="e5-link" style="left: 512px;"></div>
+      <div id="s06-k2" class="e5-slot" style="left: 568px;"><img src="assets/emoji/motorway.svg" alt=""></div>
+      <div id="s06-lk3" class="e5-link" style="left: 698px;"></div>
+      <div id="s06-k3" class="e5-slot" style="left: 754px;"><img src="assets/emoji/bank.svg" alt=""></div>
+      <div id="s06-stamp" class="e5-stamp" style="left: 110px; top: 690px; width: 860px; height: 190px; font-size: 130px; line-height: 158px;">APPROVED</div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s06-" + n);
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.42, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.22, ease: "back.in(2)", immediateRender: false }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.4, ease: "power1.out" }, at);
+    const out = (el, at, d) => tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: d || 0.3, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.35, ease: "power2.out" }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.4, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 10) }, { x: px || 10, duration: 0.05, ease: "none", yoyo: true, repeat: (n || 5) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k, n) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const scl = (el, at, a, b, d, ease) => tl.fromTo(el, { scale: a }, { scale: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false, transformOrigin: "50% 50%" }, at);
+    const rot = (el, at, a, b, d, ease) => tl.fromTo(el, { rotation: a }, { rotation: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false }, at);
+    const drop = (el, at, h, d) => tl.fromTo(el, { y: -(h || 500), opacity: 0 }, { y: 0, opacity: 1, duration: d || 0.6, ease: "bounce.out" }, at);
+    const slam = (el, at, r) => tl.fromTo(el, { scale: 2.8, opacity: 0, rotation: (r || 0) - 10, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, rotation: r || 0, duration: 0.2, ease: "power3.in" }, at);
+    const blink = (el, at, n, p) => tl.fromTo(el, { opacity: 0.2 }, { opacity: 1, duration: p || 0.15, ease: "none", yoyo: true, repeat: (n || 4) * 2 - 1, immediateRender: false }, at);
+    const bgc = (el, at, c, c0) => tl.fromTo(el, { backgroundColor: c0 }, { backgroundColor: c, duration: 0.2, immediateRender: false }, at);
+    const brc = (el, at, c, c0) => tl.fromTo(el, { borderColor: c0 || "#111111" }, { borderColor: c, duration: 0.2, immediateRender: false }, at);
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const arc = (el, at, d, a, b, h, ease) => { const o = { p: 0 }; gsap.set(el, { x: a[0], y: a[1] }); tl.fromTo(o, { p: 0 }, { p: 1, duration: d, ease: ease || "power1.inOut", immediateRender: false, onUpdate: () => { const p = o.p; gsap.set(el, { x: a[0] + (b[0] - a[0]) * p, y: a[1] + (b[1] - a[1]) * p - 4 * h * p * (1 - p) }); } }, at); };
+    const punch = (at, k, d) => tl.fromTo($("punch"), { scale: 1 }, { scale: k || 1.12, duration: (d || 0.36) / 2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false, transformOrigin: "50% 55%" }, at);
+    const jolt = (at, n, px) => shake($("punch"), at, n || 4, px || 14);
+    const whip = (dir) => tl.fromTo($("stage"), { x: dir * 1080, rotation: dir * 2, transformOrigin: "50% 50%" }, { x: 0, rotation: 0, duration: 0.4, ease: "expo.out" }, 0);
+    const P = (f, n, at, d, o) => Stickman.pose(tl, f, n, at, d, o);
+    const gait = (f, at, d, run, end) => { const n = Math.max(2, Math.round(d * 4)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, f, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, f, end || "stand", at + d, 0.2); };
+    const Wk = (f, x0, x1, at, d, end, run) => { mv(f.el, at, [x0, 0], [x1, 0], d, "power1.out", true); return gait(f, at, d, run, end); };
+    const hop = (f, at, n, h) => tl.fromTo(f.el, { y: 0 }, { y: -(h || 50), duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+
+
+    const E = 3.9;
+    const bg = Stickman.background($("bg"), "bank-hall", { focusX: 1120 });
+    Stickman.enter(tl, $("stage"), "slide-up", { at: 0, duration: 0.3 });
+    Stickman.camera(tl, $("cam"), { at: 0, duration: E, from: { scale: 1.0 }, to: { scale: 1.06, focus: 580 } });
+    Stickman.parallax(tl, bg, { x: 60, at: 0, duration: E });
+    const you = Stickman.mount($("you"), { pose: "stand", scale: 1.6, ground: true });
+    Stickman.breathe(tl, you, 0, E);
+    P(you, "explain", 0.05); popin($("ok"), 0.12, -25); wob($("ok"), 0.4, 2, 10, 0.12); popout($("ok"), 0.72, 0.15);
+    [0, 1, 2, 3].forEach((i) => { brc($("k" + i), 0.15 + i * 0.1, "#1F9D55"); pulse($("k" + i), 0.15 + i * 0.1, 1.15); if (i) bgc($("lk" + i), 0.1 + i * 0.1, "#1F9D55", "#111111"); });
+    slam($("stamp"), 0.74, -6); jolt(0.94, 5, 18); punch(0.94, 1.1, 0.4);
+    P(you, "celebrate", 0.95, 0.15); hop(you, 1.0, 3, 60);
+    popin($("pop"), 0.85, 30); wob($("pop"), 1.2, 4, 8, 0.2);
+    const CONF = [[-820, -220], [-700, -60], [-600, -320], [-520, -140], [-430, -380], [-360, -40], [-300, -260], [-230, -420], [-160, -120], [-90, -340], [-40, -200], [20, -460], [60, -80], [110, -300], [-640, -460], [-260, -520], [-480, -500], [-880, -380]];
+    CONF.forEach(([dx, dy], i) => {
+      const el = $("c" + i), t0 = 0.95 + (i % 4) * 0.04;
+      tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.05, immediateRender: false }, t0);
+      arc(el, t0, 2.4, [0, 0], [dx, 700], -dy + 260, "power1.out");
+      tl.fromTo(el, { rotation: 0 }, { rotation: (i % 2 ? 1 : -1) * (360 + i * 40), duration: 2.4, ease: "none", immediateRender: false }, t0);
+    });
+    popin($("sw"), 1.37, -20); wob($("sw"), 1.7, 4, 6, 0.2);
+    popin($("sec"), 1.6, 8);
+    count($("secn"), 0, 2, 1.75, 0.45, (v) => (v >= 1.995 ? "2" : v.toFixed(1)));
+    pulse($("sec"), 2.25, 1.15); pulse($("stamp"), 2.6, 1.06);
+    window.__timelines["s06"] = tl;
+  })();
+  </script>
+</template>
