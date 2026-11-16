@@ -1,0 +1,123 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #FAF7F0; }
+    #s03-stage, #s03-punch, #s03-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .e5-a { position: absolute; }
+    .e5-a > img { display: block; width: 100%; }
+    .e5-t { position: absolute; left: 0; width: 1080px; text-align: center; font-family: "Montserrat"; font-weight: 900; color: #111111;
+      line-height: 1.05; letter-spacing: -0.01em; -webkit-text-stroke: 14px #FAF7F0; paint-order: stroke fill; }
+    .e5-box { position: absolute; box-sizing: border-box; }
+    .e5-pill { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 34px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-bub { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 44px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-term { position: absolute; box-sizing: border-box; background: #3B4048; border: 7px solid #111111; border-radius: 18px; }
+    .e5-scr { position: absolute; left: 13%; top: 12%; width: 74%; height: 42%; background: #BFD8E6; border-radius: 6px; }
+    .e5-ring { position: absolute; box-sizing: border-box; border: 10px solid #1F9D55; border-radius: 50%; }
+    .e5-stamp { position: absolute; box-sizing: border-box; font-family: "Montserrat"; font-weight: 900; color: #1F9D55; border: 16px solid #1F9D55;
+      border-radius: 26px; text-align: center; background: rgba(250,247,240,0.9); }
+    .e5-counter { position: absolute; box-sizing: border-box; background: #C8935F; border-top: 26px solid #8A5A34; }
+    .e5-slot { position: absolute; top: 500px; width: 130px; height: 130px; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 28px; }
+    .e5-slot > img { position: absolute; left: 14px; top: 14px; width: 88px; }
+    .e5-halo { position: absolute; left: -45%; top: -45%; width: 190%; height: 190%; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,236,140,0.95) 0%, rgba(255,214,90,0.55) 32%, rgba(255,205,70,0) 68%); }
+    .e5-red { color: #D64545; border-color: #D64545; }
+    .e5-ast { position: absolute; font-family: "Montserrat"; font-weight: 900; color: #D64545; line-height: 1; -webkit-text-stroke: 10px #FAF7F0; paint-order: stroke fill; }
+    .e5-link { position: absolute; top: 559px; width: 56px; height: 12px; background: #111111; border-radius: 6px; }
+
+    .e6-pie { position: absolute; left: 460px; top: 820px; width: 470px; height: 470px; border-radius: 50%; }
+    .e6-pie-main { background: conic-gradient(from 0deg, rgba(0,0,0,0) 0deg 14.4deg, #1F9D55 14.4deg 360deg); }
+    .e6-pie-cut { background: conic-gradient(from 0deg, #F2C14E 0deg 14.4deg, rgba(0,0,0,0) 14.4deg 360deg); }
+    .e6-pielbl { position: absolute; left: 0; top: 170px; width: 470px; text-align: center; font-family: "Montserrat"; font-weight: 900; font-size: 104px; color: #FFFFFF; }
+    .e6-table { position: absolute; left: 400px; top: 1290px; width: 600px; height: 30px; background: #8A5A34; border: 7px solid #111111; border-radius: 10px; }
+    .e6-leg { position: absolute; top: 1320px; width: 26px; height: 120px; background: #8A5A34; border: 7px solid #111111; }
+  </style>
+  <div id="root" data-composition-id="s03" data-width="1080" data-height="1920">
+    <div id="s03-stage">
+      <div id="s03-punch">
+        <div id="s03-cam">
+          <div id="s03-bg"></div>
+
+          <div id="s03-tbl" class="e6-table"></div>
+          <div class="e6-leg" style="left: 440px;"></div><div class="e6-leg" style="left: 930px;"></div>
+          <div id="s03-pie" class="e6-pie e6-pie-main"><div class="e6-pielbl">$1.2M</div></div>
+          <div id="s03-cut" class="e6-pie e6-pie-cut"></div>
+          <div id="s03-chart" class="e5-a" style="left: 820px; top: 680px; width: 170px;"><img src="assets/emoji/chart-increasing.svg" alt=""></div>
+          <div id="s03-you" class="sm-figure" style="left: 10px;"></div>
+          <div id="s03-knife" class="e5-a" style="left: 330px; top: 760px; width: 170px;"><img src="assets/emoji/kitchen-knife.svg" alt=""></div>
+        </div>
+      </div>
+
+      <div id="s03-t1" class="e5-t" style="top: 500px; font-size: 130px;">THE <span class="sm-accent">TRICK</span></div>
+      <div id="s03-t2" class="e5-t" style="top: 500px; font-size: 130px;"><span class="sm-accent">INVEST</span> IT</div>
+      <div id="s03-t3" class="e5-t" style="top: 505px; font-size: 140px;">TAKE <span class="sm-accent">4%</span></div>
+      <div id="s03-t4" class="e5-t" style="top: 650px; font-size: 92px;">A YEAR</div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s03-" + n);
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.42, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.22, ease: "back.in(2)", immediateRender: false }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.4, ease: "power1.out" }, at);
+    const out = (el, at, d) => tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: d || 0.3, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.35, ease: "power2.out" }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.4, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 10) }, { x: px || 10, duration: 0.05, ease: "none", yoyo: true, repeat: (n || 5) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k, n) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const scl = (el, at, a, b, d, ease) => tl.fromTo(el, { scale: a }, { scale: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false, transformOrigin: "50% 50%" }, at);
+    const rot = (el, at, a, b, d, ease) => tl.fromTo(el, { rotation: a }, { rotation: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false }, at);
+    const drop = (el, at, h, d) => tl.fromTo(el, { y: -(h || 500), opacity: 0 }, { y: 0, opacity: 1, duration: d || 0.6, ease: "bounce.out" }, at);
+    const slam = (el, at, r) => tl.fromTo(el, { scale: 2.8, opacity: 0, rotation: (r || 0) - 10, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, rotation: r || 0, duration: 0.2, ease: "power3.in" }, at);
+    const blink = (el, at, n, p) => tl.fromTo(el, { opacity: 0.2 }, { opacity: 1, duration: p || 0.15, ease: "none", yoyo: true, repeat: (n || 4) * 2 - 1, immediateRender: false }, at);
+    const bgc = (el, at, c, c0) => tl.fromTo(el, { backgroundColor: c0 }, { backgroundColor: c, duration: 0.2, immediateRender: false }, at);
+    const brc = (el, at, c, c0) => tl.fromTo(el, { borderColor: c0 || "#111111" }, { borderColor: c, duration: 0.2, immediateRender: false }, at);
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const arc = (el, at, d, a, b, h, ease) => { const o = { p: 0 }; gsap.set(el, { x: a[0], y: a[1] }); tl.fromTo(o, { p: 0 }, { p: 1, duration: d, ease: ease || "power1.inOut", immediateRender: false, onUpdate: () => { const p = o.p; gsap.set(el, { x: a[0] + (b[0] - a[0]) * p, y: a[1] + (b[1] - a[1]) * p - 4 * h * p * (1 - p) }); } }, at); };
+    const punch = (at, k, d) => tl.fromTo($("punch"), { scale: 1 }, { scale: k || 1.12, duration: (d || 0.36) / 2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false, transformOrigin: "50% 55%" }, at);
+    const jolt = (at, n, px) => shake($("punch"), at, n || 4, px || 14);
+    const whip = (dir) => tl.fromTo($("stage"), { x: dir * 1080, rotation: dir * 2, transformOrigin: "50% 50%" }, { x: 0, rotation: 0, duration: 0.4, ease: "expo.out" }, 0);
+    const P = (f, n, at, d, o) => Stickman.pose(tl, f, n, at, d, o);
+    const gait = (f, at, d, run, end) => { const n = Math.max(2, Math.round(d * 4)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, f, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, f, end || "stand", at + d, 0.2); };
+    const Wk = (f, x0, x1, at, d, end, run) => { mv(f.el, at, [x0, 0], [x1, 0], d, "power1.out", true); return gait(f, at, d, run, end); };
+    const hop = (f, at, n, h) => tl.fromTo(f.el, { y: 0 }, { y: -(h || 50), duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+
+
+    const E = 5.0;
+    const bg = Stickman.background($("bg"), "kitchen", { focusX: 1000 });
+    Stickman.enter(tl, $("stage"), "slide-left", { at: 0, duration: 0.35 });
+    Stickman.camera(tl, $("cam"), { at: 0, duration: 2.3, from: { scale: 1.0, focus: 540 }, to: { scale: 1.06, focus: 560 } });
+    Stickman.camera(tl, $("cam"), { at: 2.3, duration: 0.5, from: { scale: 1.06, focus: 560 }, to: { scale: 1.16, focus: 640 }, ease: "power3.out" });
+    Stickman.camera(tl, $("cam"), { at: 2.8, duration: E - 2.8, from: { scale: 1.16, focus: 640 }, to: { scale: 1.1, focus: 600 } });
+    Stickman.parallax(tl, bg, { x: 120, at: 0, duration: E });
+    const you = Stickman.mount($("you"), { pose: "stand", scale: 1.8, ground: true });
+    Stickman.breathe(tl, you, 0, E);
+    // trik: kue uang muncul
+    popin($("t1"), 0.2, -8); P(you, "explain", 0.2);
+    tl.fromTo([$("pie"), $("cut")], { scale: 0, rotation: -90, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.8)" }, 0.3);
+    // investasikan
+    popout($("t1"), 1.2, 0.12); popin($("t2"), 1.27, 6);
+    popin($("chart"), 1.35, -20); bob($("chart"), 1.7, 2, 16, 0.2);
+    tl.fromTo([$("pie"), $("cut")], { scale: 1 }, { scale: 1.08, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 3, immediateRender: false, transformOrigin: "50% 50%" }, 1.35);
+    popout($("chart"), 2.25, 0.15);
+    // ambil pisau, potong tipis
+    popin($("knife"), 2.0, -60, 0.3); P(you, "point", 2.0, 0.2);
+    popout($("t2"), 2.35, 0.12); popin($("t3"), 2.4, -6);
+    [2.5, 2.85].forEach((t, i) => {
+      mv($("knife"), t, [0, 0], [i ? 180 : 120, 60], 0.12, "power3.in", i === 0); rot($("knife"), t, 0, 70, 0.12, "power3.in");
+      jolt(t + 0.12, 2, 8);
+      mv($("knife"), t + 0.18, [i ? 180 : 120, 60], [0, 0], 0.15, "power2.out"); rot($("knife"), t + 0.18, 70, 0, 0.15);
+      P(you, i ? "explain" : "point", t, 0.12);
+    });
+    // irisan 4% keluar
+    mv($("cut"), 3.25, [0, 0], [40, -120], 0.35, "back.out(2)");
+    tl.fromTo($("cut"), { rotation: 0 }, { rotation: 12, duration: 0.35, ease: "back.out(2)", immediateRender: false, transformOrigin: "50% 50%" }, 3.25);
+    popin($("t4"), 3.45, 6); P(you, "celebrate", 3.35, 0.2); hop(you, 3.4, 2, 40);
+    bob($("cut"), 3.7, 3, 12, 0.22); pulse($("t3"), 4.0, 1.1);
+    window.__timelines["s03"] = tl;
+  })();
+  </script>
+</template>

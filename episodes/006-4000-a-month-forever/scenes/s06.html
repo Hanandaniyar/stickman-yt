@@ -1,0 +1,115 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #FAF7F0; }
+    #s06-stage, #s06-punch, #s06-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .e5-a { position: absolute; }
+    .e5-a > img { display: block; width: 100%; }
+    .e5-t { position: absolute; left: 0; width: 1080px; text-align: center; font-family: "Montserrat"; font-weight: 900; color: #111111;
+      line-height: 1.05; letter-spacing: -0.01em; -webkit-text-stroke: 14px #FAF7F0; paint-order: stroke fill; }
+    .e5-box { position: absolute; box-sizing: border-box; }
+    .e5-pill { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 34px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-bub { position: absolute; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 44px;
+      font-family: "Montserrat"; font-weight: 900; color: #111111; text-align: center; }
+    .e5-term { position: absolute; box-sizing: border-box; background: #3B4048; border: 7px solid #111111; border-radius: 18px; }
+    .e5-scr { position: absolute; left: 13%; top: 12%; width: 74%; height: 42%; background: #BFD8E6; border-radius: 6px; }
+    .e5-ring { position: absolute; box-sizing: border-box; border: 10px solid #1F9D55; border-radius: 50%; }
+    .e5-stamp { position: absolute; box-sizing: border-box; font-family: "Montserrat"; font-weight: 900; color: #1F9D55; border: 16px solid #1F9D55;
+      border-radius: 26px; text-align: center; background: rgba(250,247,240,0.9); }
+    .e5-counter { position: absolute; box-sizing: border-box; background: #C8935F; border-top: 26px solid #8A5A34; }
+    .e5-slot { position: absolute; top: 500px; width: 130px; height: 130px; box-sizing: border-box; background: #FFFFFF; border: 7px solid #111111; border-radius: 28px; }
+    .e5-slot > img { position: absolute; left: 14px; top: 14px; width: 88px; }
+    .e5-halo { position: absolute; left: -45%; top: -45%; width: 190%; height: 190%; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,236,140,0.95) 0%, rgba(255,214,90,0.55) 32%, rgba(255,205,70,0) 68%); }
+    .e5-red { color: #D64545; border-color: #D64545; }
+    .e5-ast { position: absolute; font-family: "Montserrat"; font-weight: 900; color: #D64545; line-height: 1; -webkit-text-stroke: 10px #FAF7F0; paint-order: stroke fill; }
+    .e5-link { position: absolute; top: 559px; width: 56px; height: 12px; background: #111111; border-radius: 6px; }
+
+    .e6-half { position: absolute; left: 0; top: 600px; width: 1080px; text-align: center; font-family: "Montserrat"; font-weight: 900; font-size: 170px; line-height: 1.05; color: #111111;
+      -webkit-text-stroke: 14px #FAF7F0; paint-order: stroke fill; }
+    .e6-L { clip-path: polygon(0 0, 51% 0, 48.5% 30%, 51.5% 55%, 48% 80%, 50.5% 100%, 0 100%); }
+    .e6-R { clip-path: polygon(51% 0, 100% 0, 100% 100%, 50.5% 100%, 48% 80%, 51.5% 55%, 48.5% 30%); }
+  </style>
+  <div id="root" data-composition-id="s06" data-width="1080" data-height="1920">
+    <div id="s06-stage">
+      <div id="s06-punch">
+        <div id="s06-cam">
+          <div id="s06-bg"></div>
+
+          <div id="s06-you" class="sm-figure" style="left: 380px;"></div>
+          <div id="s06-q" class="e5-a" style="left: 640px; top: 900px; width: 120px;"><img src="assets/emoji/red-question-mark.svg" alt=""></div>
+        </div>
+      </div>
+
+      <div id="s06-frz" class="e5-box" style="left: 0; top: 0; width: 1080px; height: 1920px; background: #9CC9F2; opacity: 0;"></div>
+      <div id="s06-sp1" class="e5-a" style="left: 90px; top: 560px; width: 110px;"><img src="assets/emoji/sparkles.svg" alt=""></div>
+      <div id="s06-sp2" class="e5-a" style="left: 880px; top: 760px; width: 100px;"><img src="assets/emoji/sparkles.svg" alt=""></div>
+      <div id="s06-fl" class="e6-half e6-L">FOREVER</div>
+      <div id="s06-fr" class="e6-half e6-R">FOREVER</div>
+      <svg id="s06-crack" style="position: absolute; left: 0; top: 600px; width: 1080px; height: 180px; overflow: visible;" viewBox="0 0 1080 180">
+        <polyline points="551,-10 524,54 556,99 518,144 545,190" fill="none" stroke="#111111" stroke-width="10" stroke-linejoin="round" stroke-dasharray="260" stroke-dashoffset="260"/></svg>
+      <div id="s06-ast" class="e5-ast" style="left: 935px; top: 585px; font-size: 90px;">*</div>
+      <div id="s06-ab" class="e5-t" style="left: 330px; width: 700px; text-align: left; top: 590px; font-size: 130px;">about</div>
+      <div id="s06-yrs" class="e5-t" style="top: 760px; font-size: 160px;"><span class="sm-accent">30</span> YEARS</div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    const tl = gsap.timeline({ paused: true });
+    const $ = (n) => document.getElementById("s06-" + n);
+    const popin = (el, at, rot, d) => tl.fromTo(el, { scale: 0, rotation: rot == null ? -14 : rot, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, opacity: 1, duration: d || 0.42, ease: "back.out(2.6)" }, at);
+    const popout = (el, at, d) => tl.fromTo(el, { scale: 1, opacity: 1 }, { scale: 0, opacity: 0, duration: d || 0.22, ease: "back.in(2)", immediateRender: false }, at);
+    const fade = (el, at, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d || 0.4, ease: "power1.out" }, at);
+    const out = (el, at, d) => tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: d || 0.3, ease: "power1.in", immediateRender: false }, at);
+    const growX = (el, at, d) => tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: d || 0.35, ease: "power2.out" }, at);
+    const bob = (el, at, n, h, p) => tl.fromTo(el, { y: 0 }, { y: -(h || 14), duration: p || 0.4, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const wob = (el, at, n, deg, p) => tl.fromTo(el, { rotation: -(deg || 8) }, { rotation: deg || 8, duration: p || 0.3, ease: "sine.inOut", yoyo: true, repeat: (n || 3) * 2 - 1, immediateRender: false }, at);
+    const shake = (el, at, n, px) => tl.fromTo(el, { x: -(px || 10) }, { x: px || 10, duration: 0.05, ease: "none", yoyo: true, repeat: (n || 5) * 2 - 1, immediateRender: false }, at);
+    const pulse = (el, at, k, n) => tl.fromTo(el, { scale: 1 }, { scale: k || 1.15, duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+    const mv = (el, at, a, b, d, ease, first) => tl.fromTo(el, { x: a[0], y: a[1] }, { x: b[0], y: b[1], duration: d, ease: ease || "power2.inOut", immediateRender: !!first }, at);
+    const scl = (el, at, a, b, d, ease) => tl.fromTo(el, { scale: a }, { scale: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false, transformOrigin: "50% 50%" }, at);
+    const rot = (el, at, a, b, d, ease) => tl.fromTo(el, { rotation: a }, { rotation: b, duration: d || 0.4, ease: ease || "power2.inOut", immediateRender: false }, at);
+    const drop = (el, at, h, d) => tl.fromTo(el, { y: -(h || 500), opacity: 0 }, { y: 0, opacity: 1, duration: d || 0.6, ease: "bounce.out" }, at);
+    const slam = (el, at, r) => tl.fromTo(el, { scale: 2.8, opacity: 0, rotation: (r || 0) - 10, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, rotation: r || 0, duration: 0.2, ease: "power3.in" }, at);
+    const blink = (el, at, n, p) => tl.fromTo(el, { opacity: 0.2 }, { opacity: 1, duration: p || 0.15, ease: "none", yoyo: true, repeat: (n || 4) * 2 - 1, immediateRender: false }, at);
+    const bgc = (el, at, c, c0) => tl.fromTo(el, { backgroundColor: c0 }, { backgroundColor: c, duration: 0.2, immediateRender: false }, at);
+    const brc = (el, at, c, c0) => tl.fromTo(el, { borderColor: c0 || "#111111" }, { borderColor: c, duration: 0.2, immediateRender: false }, at);
+    const count = (el, a, b, at, d, fmt) => { const o = { v: a }; el.textContent = fmt(a); tl.fromTo(o, { v: a }, { v: b, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, at); };
+    const arc = (el, at, d, a, b, h, ease) => { const o = { p: 0 }; gsap.set(el, { x: a[0], y: a[1] }); tl.fromTo(o, { p: 0 }, { p: 1, duration: d, ease: ease || "power1.inOut", immediateRender: false, onUpdate: () => { const p = o.p; gsap.set(el, { x: a[0] + (b[0] - a[0]) * p, y: a[1] + (b[1] - a[1]) * p - 4 * h * p * (1 - p) }); } }, at); };
+    const punch = (at, k, d) => tl.fromTo($("punch"), { scale: 1 }, { scale: k || 1.12, duration: (d || 0.36) / 2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false, transformOrigin: "50% 55%" }, at);
+    const jolt = (at, n, px) => shake($("punch"), at, n || 4, px || 14);
+    const whip = (dir) => tl.fromTo($("stage"), { x: dir * 1080, rotation: dir * 2, transformOrigin: "50% 50%" }, { x: 0, rotation: 0, duration: 0.4, ease: "expo.out" }, 0);
+    const P = (f, n, at, d, o) => Stickman.pose(tl, f, n, at, d, o);
+    const gait = (f, at, d, run, end) => { const n = Math.max(2, Math.round(d * 4)), s = d / n; for (let i = 0; i < n; i++) Stickman.pose(tl, f, run ? "run" : "walk", at + i * s, s, { mirror: i % 2 === 1, ease: "sine.inOut" }); return Stickman.pose(tl, f, end || "stand", at + d, 0.2); };
+    const Wk = (f, x0, x1, at, d, end, run) => { mv(f.el, at, [x0, 0], [x1, 0], d, "power1.out", true); return gait(f, at, d, run, end); };
+    const hop = (f, at, n, h) => tl.fromTo(f.el, { y: 0 }, { y: -(h || 50), duration: 0.18, ease: "power2.out", yoyo: true, repeat: (n || 1) * 2 - 1, immediateRender: false }, at);
+
+
+    const E = 4.7;
+    const bg = Stickman.background($("bg"), "studio");
+    Stickman.enter(tl, $("stage"), "fade", { at: 0, duration: 0.12 });
+    Stickman.camera(tl, $("cam"), { at: 0, duration: E, preset: "push-in" });
+    const you = Stickman.mount($("you"), { pose: "celebrate", scale: 1.6, ground: true });
+    Stickman.breathe(tl, you, 0, E);
+    // rekaman tergores: beku sebentar
+    tl.fromTo($("frz"), { opacity: 0.45 }, { opacity: 0, duration: 0.3, immediateRender: true }, 0);
+    jolt(0.02, 3, 16); P(you, "think", 0.25, 0.2);
+    wob([$("fl"), $("fr")], 0.3, 2, 3, 0.12); popin($("q"), 0.35, 20); bob($("q"), 0.6, 2, 12, 0.15);
+    // retak!
+    tl.fromTo($("crack").querySelector("polyline"), { attr: { "stroke-dashoffset": 260 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.15, ease: "power2.in" }, 0.95);
+    punch(1.1, 1.14, 0.4); jolt(1.1, 4, 14); P(you, "shocked", 1.1, 0.1); popout($("q"), 1.1, 0.12);
+    popout($("sp1"), 1.1, 0.15); popout($("sp2"), 1.1, 0.15);
+    tl.fromTo($("fl"), { x: 0, y: 0, rotation: 0, transformOrigin: "50% 100%" }, { x: -50, y: 30, rotation: -8, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 1.2);
+    tl.fromTo($("fr"), { x: 0, y: 0, rotation: 0, transformOrigin: "50% 100%" }, { x: 50, y: 30, rotation: 8, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 1.2);
+    out($("crack"), 1.25, 0.15);
+    // bintang membesar
+    tl.fromTo($("ast"), { x: 0, y: 0, scale: 1, rotation: 0, transformOrigin: "0% 0%" }, { x: -840, y: -60, scale: 3.4, rotation: 360, duration: 0.5, ease: "back.out(1.3)", immediateRender: false }, 1.85);
+    tl.fromTo($("fl"), { y: 30, opacity: 1 }, { y: 900, opacity: 0, duration: 0.45, ease: "power2.in", immediateRender: false }, 1.9);
+    tl.fromTo($("fr"), { y: 30, opacity: 1 }, { y: 900, opacity: 0, duration: 0.45, ease: "power2.in", immediateRender: false }, 1.98);
+    P(you, "point", 2.0, 0.2, { mirror: true });
+    popin($("ab"), 3.0, -6); slam($("yrs"), 3.4, -2); punch(3.45, 1.08);
+    P(you, "shrug", 3.5, 0.2); wob($("ast"), 3.7, 3, 10, 0.12);
+    window.__timelines["s06"] = tl;
+  })();
+  </script>
+</template>

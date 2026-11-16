@@ -1,0 +1,259 @@
+{
+  "format": "short",
+  "scenes": [
+    {
+      "id": "s01",
+      "text": "This number pays you four thousand dollars a month. Forever.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "impact-bass-1",
+          "word": "four"
+        },
+        {
+          "name": "sparkle",
+          "word": "forever"
+        },
+        {
+          "name": "click-soft",
+          "at": 3.35,
+          "volume": 0.25
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "text": "The number? One point two million dollars.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "impact-bass-1",
+          "word": "one"
+        },
+        {
+          "name": "boing",
+          "word": "dollars"
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "text": "Here's the trick. Invest it, and take out just four percent a year.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "coin",
+          "word": "invest"
+        },
+        {
+          "name": "click",
+          "word": "take"
+        },
+        {
+          "name": "sparkle",
+          "word": "percent"
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "text": "That's forty-eight thousand a year. Four thousand a month.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "cash-register",
+          "word": "forty"
+        },
+        {
+          "name": "money-count",
+          "word": "four"
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "text": "In past U.S. markets, the pile usually kept going for thirty years or more.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "coin",
+          "word": "pile"
+        },
+        {
+          "name": "clock-tick",
+          "word": "going"
+        },
+        {
+          "name": "chime",
+          "word": "thirty"
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "text": "But forever? Not quite. It was built to last about thirty years.",
+      "sfx": [
+        {
+          "name": "record-scratch",
+          "at": 0
+        },
+        {
+          "name": "impact-bass-2",
+          "word": "not"
+        },
+        {
+          "name": "boing",
+          "word": "built"
+        },
+        {
+          "name": "ping",
+          "word": "thirty"
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "text": "And crashes, taxes, and inflation can bite.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "impact-bass-1",
+          "word": "crashes"
+        },
+        {
+          "name": "pop",
+          "word": "taxes"
+        },
+        {
+          "name": "wrong-buzzer",
+          "word": "bite"
+        }
+      ]
+    },
+    {
+      "id": "s08",
+      "text": "So how do you get one point two million? Not by luck.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "how"
+        },
+        {
+          "name": "boing",
+          "word": "not"
+        },
+        {
+          "name": "impact-bass-2",
+          "word": "luck"
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "text": "About four hundred sixty dollars a month, invested for forty years.",
+      "sfx": [
+        {
+          "name": "whoosh",
+          "at": 0
+        },
+        {
+          "name": "coin",
+          "word": "sixty"
+        },
+        {
+          "name": "clock-tick",
+          "word": "invested"
+        },
+        {
+          "name": "chime",
+          "word": "years"
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "text": "At seven percent a year after inflation. Not guaranteed.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "pop",
+          "word": "seven"
+        },
+        {
+          "name": "ping",
+          "word": "inflation"
+        },
+        {
+          "name": "impact-bass-1",
+          "word": "guaranteed"
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "text": "You put in two hundred twenty thousand. Compounding adds almost a million.",
+      "sfx": [
+        {
+          "name": "whoosh-short",
+          "at": 0
+        },
+        {
+          "name": "coin",
+          "word": "two"
+        },
+        {
+          "name": "coins-pour",
+          "word": "compounding"
+        },
+        {
+          "name": "impact-bass-1",
+          "word": "million"
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "text": "Time does the heavy lifting.",
+      "sfx": [
+        {
+          "name": "whoosh-cinematic",
+          "at": 0
+        },
+        {
+          "name": "impact-bass-2",
+          "word": "heavy"
+        },
+        {
+          "name": "chime",
+          "word": "lifting"
+        }
+      ]
+    }
+  ],
+  "music": "assets/music/blue-sky.mp3"
+}
