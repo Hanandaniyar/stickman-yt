@@ -1,15 +1,15 @@
 {
   "episode": "005-card-tap-short",
-  "stage": "script",
+  "stage": "scenes",
   "request": null,
   "approvals": {
     "topic": true,
-    "script": false,
+    "script": true,
     "final": false
   },
   "reviews": [],
   "release_url": null,
   "youtube_id": null,
   "last_error": null,
-  "updated_at": "2026-11-16T17:44:29+00:00"
+  "updated_at": "2026-11-16T17:45:06+00:00"
 }
