@@ -1,7 +1,7 @@
 {
   "episode": "007-free-money-at-work",
-  "stage": "scenes",
-  "request": "render",
+  "stage": "rendered",
+  "request": null,
   "approvals": {
     "topic": true,
     "script": true,
@@ -15,8 +15,8 @@
       "file": "reviews/scenes-1.md"
     }
   ],
-  "release_url": null,
+  "release_url": "https://github.com/Hanandaniyar/stickman-yt/releases/tag/ep-007",
   "youtube_id": null,
   "last_error": null,
-  "updated_at": "2026-11-16T19:21:25+00:00"
+  "updated_at": "2026-11-16T19:30:54+00:00"
 }
