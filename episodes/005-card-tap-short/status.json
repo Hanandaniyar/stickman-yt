@@ -13,10 +13,16 @@
       "round": 1,
       "verdict": "LOLOS",
       "file": "reviews/scenes-1.md"
+    },
+    {
+      "stage": "rendered",
+      "round": 1,
+      "verdict": "LOLOS",
+      "file": "reviews/rendered-1.md"
     }
   ],
   "release_url": "https://github.com/Hanandaniyar/stickman-yt/releases/tag/ep-005",
   "youtube_id": null,
   "last_error": null,
-  "updated_at": "2026-11-16T18:20:47+00:00"
+  "updated_at": "2026-11-16T18:21:33+00:00"
 }
