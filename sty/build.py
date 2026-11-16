@@ -5,7 +5,7 @@ import shutil
 from pathlib import Path
 
 from sty.config import PROJECT_ROOT, load_config
-from sty.episode import BG_LIB, EMOJI_LIB, EMOJI_RE, SFX_LIB, _words, background_names, validate_narration
+from sty.episode import BG_LIB, FORMATS, EMOJI_LIB, EMOJI_RE, SFX_LIB, _words, background_names, validate_narration
 
 TAIL_S = 1.0
 GSAP = "https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"
@@ -35,9 +35,10 @@ def caption_groups(words: list[dict], max_words: int = 5, pause: float = 0.15) -
     return groups
 
 
-def _captions_html(words: list[dict], total: float) -> str:
+def _captions_html(words: list[dict], total: float, fw: int = 1920, fh: int = 1080) -> str:
+    short = fh > fw
     rows, tweens = [], []
-    groups = caption_groups(words)
+    groups = caption_groups(words, max_words=3 if short else 5)
     starts = [max(0.1, grp[0]["start"] - 0.05) for grp in groups]
     for g, group in enumerate(groups):
         start = starts[g]
@@ -51,13 +52,16 @@ def _captions_html(words: list[dict], total: float) -> str:
         for i, w in enumerate(group):
             tweens.append(f'    tl.set("#cap-{g}-{i}", {{ color: "#1F9D55" }}, {_num(w["start"])});')
             tweens.append(f'    tl.set("#cap-{g}-{i}", {{ color: "#111111" }}, {_num(max(w["end"], w["start"] + 0.05))});')
+    pos = "top: 300px;" if short else "bottom: 100px;"
+    fs = 96 if short else 64
+    extra = " -webkit-text-stroke: 16px #FAF7F0; paint-order: stroke fill;" if short else ""
     return f"""<template>
   <style>
     #root {{ position: absolute; inset: 0; }}
-    .cap {{ position: absolute; left: 0; width: 1920px; bottom: 100px; text-align: center; overflow: visible;
-      font-family: "Montserrat"; font-weight: 800; font-size: 64px; line-height: 1.15; color: #111111; }}
+    .cap {{ position: absolute; left: 0; width: {fw}px; {pos} text-align: center; overflow: visible;
+      font-family: "Montserrat"; font-weight: 800; font-size: {fs}px; line-height: 1.15; color: #111111;{extra} }}
   </style>
-  <div id="root" data-composition-id="captions" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="captions" data-width="{fw}" data-height="{fh}">
 {chr(10).join(rows)}
   </div>
   <script>
@@ -135,6 +139,7 @@ def build_composition(ep: Path) -> Path:
     if [s["id"] for s in timing["scenes"]] != [s["id"] for s in narration["scenes"]]:
         raise ValueError("daftar adegan di timing.json tidak cocok dengan narration.json: jalankan sty voice --force")
     cfg = load_config()
+    W, H = FORMATS[narration.get("format", "landscape")]
     total = round(timing["duration"] + TAIL_S, 3)
 
     build = ep / "build"
@@ -164,13 +169,13 @@ def build_composition(ep: Path) -> Path:
         hosts.append(
             f'      <div id="{sid}" data-composition-id="{sid}" data-composition-src="compositions/{sid}.html"'
             f' data-start="{_num(sc["start"])}" data-duration="{_num(end - sc["start"])}" data-track-index="1"'
-            f' data-track-kind="graphics" data-width="1920" data-height="1080"></div>'
+            f' data-track-kind="graphics" data-width="{W}" data-height="{H}"></div>'
         )
-    (build / "compositions" / "captions.html").write_text(_captions_html(timing["words"], total))
+    (build / "compositions" / "captions.html").write_text(_captions_html(timing["words"], total, W, H))
     hosts.append(
         f'      <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html"'
         f' data-start="0" data-duration="{_num(total)}" data-track-index="2" data-track-kind="captions"'
-        f' data-width="1920" data-height="1080" style="z-index: 10"></div>'
+        f' data-width="{W}" data-height="{H}" style="z-index: 10"></div>'
     )
     audio = [
         '      <audio id="narration" class="clip" src="assets/narration.wav" data-start="0"'
@@ -201,19 +206,20 @@ def build_composition(ep: Path) -> Path:
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
+    <meta name="viewport" content="width={W}, height={H}" />
     <script src="{GSAP}"></script>
+    <script>window.STICKMAN_FRAME = {{w: {W}, h: {H}}};</script>
     <link rel="stylesheet" href="assets/stickman/stickman.css" />
     <script src="assets/stickman/stickman.js"></script>
     <script src="assets/backgrounds/backgrounds.js"></script>
     <style>
-      html, body {{ margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #FAF7F0; }}
+      html, body {{ margin: 0; width: {W}px; height: {H}px; overflow: hidden; background: #FAF7F0; }}
       #root {{ position: relative; width: 100%; height: 100%; }}
     </style>
   </head>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="{_num(total)}"
-         data-width="1920" data-height="1080">
+         data-width="{W}" data-height="{H}">
 {chr(10).join(hosts + audio)}
     </div>
     <script>

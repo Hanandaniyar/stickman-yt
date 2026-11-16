@@ -99,3 +99,20 @@ def test_thumbnail_rejects_unknown_pose(ep):
     (ep / "thumbnail.txt").write_text("Hi\npose: dance\n")
     with pytest.raises(ValueError, match="dance"):
         r.make_thumbnail(ep, run=FakeRun())
+
+
+def test_preview_keeps_vertical_shape_for_shorts(ep):
+    n = json.loads((ep / "narration.json").read_text())
+    n["format"] = "short"
+    (ep / "narration.json").write_text(json.dumps(n))
+    (ep / "final.mp4").write_bytes(b"mp4")
+    run = FakeRun()
+    r.make_preview(ep, run=run)
+    assert "scale=480:854" in run.names()[0]
+
+
+def test_preview_landscape_default(ep):
+    (ep / "final.mp4").write_bytes(b"mp4")
+    run = FakeRun()
+    r.make_preview(ep, run=run)
+    assert "scale=854:480" in run.names()[0]

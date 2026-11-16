@@ -117,3 +117,10 @@ Tips: pilih latar sesuai **tempat** narasi (harga mobil → `car-dealership`, ta
 
 ## Thumbnail
 `thumbnail.html` (1280×720) diisi otomatis oleh `sty thumbnail` dari `thumbnail.txt` (teks) dan pose.
+
+## Shorts (video tegak 1080×1920)
+Tulis `"format": "short"` di `narration.json`. `sty build` membuat komposisi 1080×1920 dan mengisi `window.STICKMAN_FRAME`.
+- Adegan: root `data-width="1080" data-height="1920"`, wadah kamera 1080×1920.
+- Latar diperbesar 2× (3840×2160) dan lantai berada di **y=1440** (`Stickman.GROUND`). `Stickman.background(el, name, {focusX})` memilih bagian latar yang dibawa ke tengah (x latar asli 0–1920, bawaan 960).
+- Subtitle tampil di atas (top 300 px, maks 3 kata, 96 px). Jangan taruh teks penting di y 260–460; area bawah y > 1500 tertutup UI Shorts (judul, tombol kanan).
+- Stickman Shorts sebaiknya `scale` 1.6–2.2 supaya terbaca di ponsel.

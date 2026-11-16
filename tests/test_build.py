@@ -189,3 +189,43 @@ def test_backgrounds_script_present_even_when_unused(ep):
     html = build_composition(ep).read_text()
     assert "assets/backgrounds/backgrounds.js" in html
     assert (ep / "build" / "assets" / "backgrounds" / "backgrounds.js").exists()
+
+
+def _make_short(ep):
+    n = json.loads((ep / "narration.json").read_text())
+    n["format"] = "short"
+    (ep / "narration.json").write_text(json.dumps(n))
+
+
+def test_short_format_is_vertical_1080x1920(ep):
+    _make_short(ep)
+    html = build_composition(ep).read_text()
+    assert 'data-width="1080" data-height="1920"' in _host(html, "root")
+    assert 'data-width="1080" data-height="1920"' in _host(html, "s01")
+    assert 'data-width="1080" data-height="1920"' in _host(html, "captions")
+    assert "width: 1080px; height: 1920px" in html
+    assert "window.STICKMAN_FRAME = {w: 1080, h: 1920}" in html
+    assert html.index("STICKMAN_FRAME") < html.index("stickman.js")
+    caps = (ep / "build" / "compositions" / "captions.html").read_text()
+    assert 'data-width="1080" data-height="1920"' in caps and "width: 1080px" in caps
+
+
+def test_short_captions_use_short_groups(ep):
+    _make_short(ep)
+    build_composition(ep)
+    caps = (ep / "build" / "compositions" / "captions.html").read_text()
+    assert 'id="cap-0"' in caps and 'id="cap-0-2"' not in caps  # max 3 words per line, "Money talks." stays 2
+
+
+def test_landscape_is_default(ep):
+    html = build_composition(ep).read_text()
+    assert 'data-width="1920" data-height="1080"' in _host(html, "root")
+    assert "STICKMAN_FRAME = {w: 1920, h: 1080}" in html
+
+
+def test_unknown_format_rejected(ep):
+    n = json.loads((ep / "narration.json").read_text())
+    n["format"] = "square"
+    (ep / "narration.json").write_text(json.dumps(n))
+    with pytest.raises(ValueError, match="format"):
+        build_composition(ep)

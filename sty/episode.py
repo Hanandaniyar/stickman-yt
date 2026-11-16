@@ -124,6 +124,7 @@ SFX_LIB = PROJECT_ROOT / "lib" / "sfx"
 EMOJI_LIB = PROJECT_ROOT / "lib" / "emoji"
 EMOJI_RE = re.compile(r"assets/emoji/([A-Za-z0-9_-]+)\.svg")
 BG_LIB = PROJECT_ROOT / "lib" / "backgrounds"
+FORMATS = {"landscape": (1920, 1080), "short": (1080, 1920)}  # lebar, tinggi
 BG_RES = (
     re.compile(r"assets/backgrounds/([A-Za-z0-9_-]+)\.svg"),
     re.compile(r"""Stickman\.background\([^,()]*(?:\([^()]*\))?[^,()]*,\s*["']([A-Za-z0-9_-]+)["']"""),
@@ -190,6 +191,8 @@ def validate_narration(ep: Path) -> list[str]:
                 if not (BG_LIB / f"{name}.svg").exists():
                     errs.append(f"{sid}: latar '{name}' tidak ada di lib/backgrounds (lihat lib/stickman/README.md)")
         errs.extend(f"{sid}: {e}" for e in _check_sfx(sc))
+    if data.get("format", "landscape") not in FORMATS:
+        errs.append(f"format '{data['format']}' tidak dikenal; pilihan: {', '.join(FORMATS)}")
     music = data.get("music")
     if music and not (ep.parent.parent / music).exists():
         errs.append(f"musik '{music}' tidak ditemukan")

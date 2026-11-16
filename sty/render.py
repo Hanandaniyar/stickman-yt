@@ -47,7 +47,9 @@ def make_stills(ep: Path, run=subprocess.run) -> list[Path]:
 def make_preview(ep: Path, run=subprocess.run) -> Path | None:
     ep = Path(ep)
     out = ep / "preview.mp4"
-    _run(run, ["ffmpeg", "-y", "-loglevel", "error", "-i", str(ep / "final.mp4"), "-vf", "scale=854:480",
+    fmt = json.loads((ep / "narration.json").read_text()).get("format", "landscape")
+    scale = "scale=480:854" if fmt == "short" else "scale=854:480"
+    _run(run, ["ffmpeg", "-y", "-loglevel", "error", "-i", str(ep / "final.mp4"), "-vf", scale,
                "-c:v", "libx264", "-preset", "veryfast", "-crf", "32", "-c:a", "aac", "-b:a", "64k", str(out)], "preview")
     if out.stat().st_size > MAX_VIDEO_BYTES:
         out.unlink()
