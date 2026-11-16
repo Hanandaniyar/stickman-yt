@@ -1,15 +1,22 @@
 {
   "episode": "007-free-money-at-work",
   "stage": "scenes",
-  "request": null,
+  "request": "render",
   "approvals": {
     "topic": true,
     "script": true,
     "final": false
   },
-  "reviews": [],
+  "reviews": [
+    {
+      "stage": "scenes",
+      "round": 1,
+      "verdict": "LOLOS",
+      "file": "reviews/scenes-1.md"
+    }
+  ],
   "release_url": null,
   "youtube_id": null,
   "last_error": null,
-  "updated_at": "2026-11-16T19:06:21+00:00"
+  "updated_at": "2026-11-16T19:21:25+00:00"
 }
