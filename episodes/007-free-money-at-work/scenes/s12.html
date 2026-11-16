@@ -37,10 +37,10 @@
         <div id="s12-cam">
           <div id="s12-bg"></div>
 
-          <div id="s12-sl" class="sm-figure" style="left: 30px;"></div>
-          <div class="e5-box" style="left: 40px; top: 1236px; width: 360px; height: 234px; background: #B07A4A; border: 7px solid #111111; border-radius: 12px 12px 0 0;"><div class="e5-box" style="left: 24px; top: 40px; width: 298px; height: 70px; border: 5px solid #7A4F2C; border-radius: 8px;"></div></div>
-          <div id="s12-z" class="e5-a" style="left: 280px; top: 960px; width: 120px;"><img src="assets/emoji/zzz.svg" alt=""></div>
-          <div id="s12-ex" class="e5-a" style="left: 260px; top: 860px; width: 120px;"><img src="assets/emoji/double-exclamation-mark.svg" alt=""></div>
+          <div id="s12-sl" class="sm-figure" style="left: 80px;"></div>
+          <div class="e5-box" style="left: 90px; top: 1236px; width: 360px; height: 234px; background: #B07A4A; border: 7px solid #111111; border-radius: 12px 12px 0 0;"><div class="e5-box" style="left: 24px; top: 40px; width: 298px; height: 70px; border: 5px solid #7A4F2C; border-radius: 8px;"></div></div>
+          <div id="s12-z" class="e5-a" style="left: 330px; top: 960px; width: 120px;"><img src="assets/emoji/zzz.svg" alt=""></div>
+          <div id="s12-ex" class="e5-a" style="left: 330px; top: 860px; width: 120px;"><img src="assets/emoji/double-exclamation-mark.svg" alt=""></div>
           <div id="s12-pile" class="e7-pile">
             <img src="assets/emoji/money-bag.svg" alt="" style="position: absolute; left: 0; top: 10px; width: 190px;">
             <img src="assets/emoji/money-bag.svg" alt="" style="position: absolute; left: 280px; top: 10px; width: 190px;">
@@ -57,7 +57,7 @@
         </div>
       </div>
 
-      <div id="s12-t1" class="e5-t" style="top: 580px; font-size: 180px; letter-spacing: -0.03em;"><span class="sm-accent">$100,000+</span></div>
+      <div id="s12-t1" class="e5-t" style="top: 600px; font-size: 140px; letter-spacing: -0.03em;"><span class="sm-accent">$100,000+</span></div>
       <div id="s12-pill" class="e5-pill" style="left: 90px; top: 800px; width: 900px; height: 110px; font-size: 58px; line-height: 94px;">
         <img src="assets/emoji/play-button.svg" alt="" style="width: 66px; vertical-align: -12px; margin-right: 12px;">ECONOMIC FOR ADULTS</div>
     </div>
@@ -99,8 +99,8 @@
     const E = 3.8;
     const bg = Stickman.background($("bg"), "office", { focusX: 760 });
     Stickman.enter(tl, $("stage"), "iris", { at: 0, duration: 0.45 });
-    Stickman.camera(tl, $("cam"), { at: 0, duration: 1.5, from: { scale: 1.12, focus: 780 }, to: { scale: 1.06, focus: 700 } });
-    Stickman.camera(tl, $("cam"), { at: 1.5, duration: E - 1.5, from: { scale: 1.06, focus: 700 }, to: { scale: 1.0, focus: 540 }, ease: "power2.inOut" });
+    Stickman.camera(tl, $("cam"), { at: 0, duration: 1.5, from: { scale: 1.08, focus: 640 }, to: { scale: 1.04, focus: 600 } });
+    Stickman.camera(tl, $("cam"), { at: 1.5, duration: E - 1.5, from: { scale: 1.04, focus: 600 }, to: { scale: 1.0, focus: 540 }, ease: "power2.inOut" });
     Stickman.parallax(tl, bg, { x: 100, at: 0, duration: E });
     const sl = Stickman.mount($("sl"), { pose: "sit", scale: 1.6, ground: 1440 + 67 * 1.6 });
     const lid = lids(sl); Stickman.breathe(tl, sl, 0, E);
@@ -115,7 +115,7 @@
     pulse($("doc"), 0.9, 1.12); wob($("doc"), 1.1, 6, 8, 0.2);
     popin($("sp1"), 1.0, 30); popin($("sp2"), 1.1, -30); wob($("sp1"), 1.3, 4, 15, 0.12); wob($("sp2"), 1.3, 4, 15, 0.12);
     // enam digit! si tukang tidur akhirnya bangun
-    slam($("t1"), 1.55, -3); punch(1.58, 1.12, 0.4); jolt(1.58, 4, 14);
+    popin($("t1"), 1.55, -4, 0.3); punch(1.58, 1.12, 0.4); jolt(1.58, 4, 14);
     out($("z"), 1.6, 0.1); tl.fromTo(lid, { opacity: 1 }, { opacity: 0, duration: 0.05, immediateRender: false }, 1.65);
     tl.fromTo(sl.el, { rotation: 10 }, { rotation: 0, duration: 0.15, ease: "power2.out", immediateRender: false }, 1.6);
     P(sl, "shocked", 1.62, 0.1); tl.fromTo(sl.el, { y: 0 }, { y: -107, duration: 0.1, ease: "power2.out", immediateRender: false }, 1.62);
