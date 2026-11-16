@@ -62,3 +62,14 @@ def test_kokoro_python_available_for_tts():
     assert "HYPERFRAMES_PYTHON" in work["env"]
     steps = yaml.safe_dump(work["steps"])
     assert "kokoro-onnx" in steps
+
+
+def test_whisper_built_portable_not_cpu_specific():
+    """whisper-cli dibangun dengan -march=native secara bawaan; dari cache di runner lain → SIGILL."""
+    steps = _pipeline()["jobs"]["work"]["steps"]
+    names = [s.get("name", "") for s in steps]
+    cache = next(i for i, s in enumerate(steps) if s.get("uses", "").startswith("actions/cache"))
+    build = next(i for i, s in enumerate(steps) if "GGML_NATIVE=OFF" in s.get("run", ""))
+    render = names.index("Render")
+    assert cache < build < render
+    assert "portable" in steps[cache]["with"]["key"]

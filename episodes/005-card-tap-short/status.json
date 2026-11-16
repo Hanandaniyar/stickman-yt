@@ -1,7 +1,7 @@
 {
   "episode": "005-card-tap-short",
   "stage": "scenes",
-  "request": null,
+  "request": "render",
   "approvals": {
     "topic": true,
     "script": true,
@@ -17,6 +17,6 @@
   ],
   "release_url": null,
   "youtube_id": null,
-  "last_error": "RuntimeError: transkripsi adegan s01 gagal (exit 1):\n{\"type\":\"progress\",\"phase\":\"transcription\",\"model\":\"small.en\",\"status\":\"started\",\"durationSeconds\":3.4798125}\n--- stdout ---\n{\"ok\":false,\"error\":{\"code\":\"runtime_error\",\"message\":\"whisper-cli crashed (SIGILL).\\nwhisper-cli 1.9.5-dev (build: whisper-cli)\\nmodel small.en: 487614201 bytes, sha256 c6138d6d58ec (matches the pinned file)\\nwhisper-cli printed nothing.\"}}",
-  "updated_at": "2026-11-16T18:06:06+00:00"
+  "last_error": null,
+  "updated_at": "2026-11-16T18:11:25+00:00"
 }

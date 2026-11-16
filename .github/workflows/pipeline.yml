@@ -67,7 +67,16 @@ jobs:
           path: |
             ~/.cache/hyperframes
             ~/.cache/whisper
-          key: hf-models-${{ hashFiles('package-lock.json') }}
+          key: hf-models-portable-${{ hashFiles('package-lock.json') }}
+      - name: Bangun whisper-cli portabel (bukan -march=native, agar cache aman di CPU runner lain)
+        run: |
+          D=~/.cache/hyperframes/whisper/whisper.cpp
+          if [ ! -x "$D/build/bin/whisper-cli" ]; then
+            rm -rf "$D" && mkdir -p ~/.cache/hyperframes/whisper
+            git clone -q --depth 1 https://github.com/ggml-org/whisper.cpp.git "$D"
+            cmake -S "$D" -B "$D/build" -DGGML_NATIVE=OFF -DCMAKE_BUILD_TYPE=Release > /dev/null
+            cmake --build "$D/build" --config Release -j > /dev/null
+          fi
       - name: Identitas git
         run: |
           git config user.name "github-actions[bot]"
