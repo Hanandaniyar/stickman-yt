@@ -1,15 +1,22 @@
 {
   "episode": "005-card-tap-short",
   "stage": "scenes",
-  "request": null,
+  "request": "render",
   "approvals": {
     "topic": true,
     "script": true,
     "final": false
   },
-  "reviews": [],
+  "reviews": [
+    {
+      "stage": "scenes",
+      "round": 1,
+      "verdict": "LOLOS",
+      "file": "reviews/scenes-1.md"
+    }
+  ],
   "release_url": null,
   "youtube_id": null,
   "last_error": null,
-  "updated_at": "2026-11-16T17:45:06+00:00"
+  "updated_at": "2026-11-16T18:04:50+00:00"
 }
