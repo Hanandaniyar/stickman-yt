@@ -1,7 +1,7 @@
 {
   "episode": "006-4000-a-month-forever",
-  "stage": "approved",
-  "request": "upload",
+  "stage": "done",
+  "request": null,
   "approvals": {
     "topic": true,
     "script": true,
@@ -22,7 +22,7 @@
     }
   ],
   "release_url": "https://github.com/Hanandaniyar/stickman-yt/releases/tag/ep-006",
-  "youtube_id": null,
+  "youtube_id": "jlrIszvjb60",
   "last_error": null,
-  "updated_at": "2026-11-17T01:45:45+00:00"
+  "updated_at": "2026-11-17T01:46:56+00:00"
 }
