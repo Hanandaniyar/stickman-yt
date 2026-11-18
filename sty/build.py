@@ -5,7 +5,7 @@ import shutil
 from pathlib import Path
 
 from sty.config import PROJECT_ROOT, load_config
-from sty.episode import BG_LIB, FORMATS, EMOJI_LIB, EMOJI_RE, SFX_LIB, _words, background_names, validate_narration
+from sty.episode import BG_LIB, FORMATS, EMOJI_LIB, EMOJI_RE, _words, sfx_path, background_names, validate_narration
 
 TAIL_S = 1.0
 GSAP = "https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"
@@ -98,7 +98,7 @@ def _sfx_clips(build: Path, scenes: list[dict], timing: dict, total: float) -> l
             dest = build / "assets" / "sfx" / f"{name}.mp3"
             if name not in lengths:
                 dest.parent.mkdir(exist_ok=True)
-                shutil.copy(SFX_LIB / f"{name}.mp3", dest)
+                shutil.copy(sfx_path(name), dest)
                 lengths[name] = _media_duration(dest)
             dur = min(lengths[name], total - start)
             vol = cue.get("volume", SFX_VOLUME)

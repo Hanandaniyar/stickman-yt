@@ -2,12 +2,12 @@
 
 Formulir: https://support.google.com/youtube/contact/yt_api_form
 Pilih: **"I would like to request an audit of my API client"** (atau *Audit and Quota Extension*).
-Isi dan kirim sendiri dengan akun **(email pemilik)**. Jawaban di bawah boleh disalin apa adanya.
+Isi dan kirim sendiri dengan akun Google pemilik channel. Jawaban di bawah boleh disalin apa adanya.
 
 ## Data dasar
 | Kolom | Isi |
 |---|---|
-| Nama / email kontak | (namamu) / (email pemilik) |
+| Nama / email kontak | (namamu) / (email akun Google channel) |
 | Nama organisasi | Economic for adults (individual creator) |
 | Website / homepage | https://hanandaniyar.github.io/handur-yt-legal/ |
 | Privacy policy | https://hanandaniyar.github.io/handur-yt-legal/privacy.html |

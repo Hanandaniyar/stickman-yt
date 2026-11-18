@@ -155,7 +155,7 @@ def test_validate_sfx_unknown_name(ep):
 def test_validate_sfx_needs_at_or_word_in_text(ep):
     from sty.episode import validate_narration
 
-    _narr_with(ep, sfx=[{"name": "coin"}, {"name": "pop", "word": "banana"}, {"name": "pop", "word": "narration"}])
+    _narr_with(ep, sfx=[{"name": "coin"}, {"name": "boing", "word": "banana"}, {"name": "boing", "word": "narration"}])
     errs = validate_narration(ep)
     assert len(errs) == 2 and any("banana" in e for e in errs)
 
@@ -197,3 +197,25 @@ def test_validate_known_background_ok(ep):
     (ep / "scenes" / "s01.html").write_text(
         scene.replace("</script>", 'Stickman.background(document.body, "kitchen");</script>', 1))
     assert validate_narration(ep) == []
+
+
+def test_sfx_path_prefers_lib_then_hyperframes_package(tmp_path, monkeypatch):
+    from sty import episode as e
+    lib, npm = tmp_path / "lib", tmp_path / "npm"
+    lib.mkdir(); npm.mkdir()
+    (lib / "coin.mp3").write_bytes(b"a")
+    (npm / "whoosh.mp3").write_bytes(b"b")
+    (npm / "coin.mp3").write_bytes(b"c")
+    monkeypatch.setattr(e, "SFX_LIB", lib)
+    monkeypatch.setattr(e, "SFX_NPM", npm)
+    assert e.sfx_path("coin") == lib / "coin.mp3"
+    assert e.sfx_path("whoosh") == npm / "whoosh.mp3"  # Pixabay files are not stored in the repo
+    assert e.sfx_path("kazoo") is None
+
+
+def test_pixabay_sfx_not_stored_in_repo():
+    from sty.episode import SFX_LIB
+    credits = (SFX_LIB / "CREDITS.md").read_text()
+    for name in ("whoosh", "pop", "chime", "click", "sparkle", "riser"):
+        assert not (SFX_LIB / f"{name}.mp3").exists(), name
+        assert name in credits

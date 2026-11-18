@@ -10,3 +10,10 @@ episodes/*/build/
 __pycache__/
 tiktok/*/aset/
 tiktok/*/video/
+
+# Privat / pihak ketiga: tidak ikut repo
+tiktok/
+.claude/skills/hyperframes/
+.claude/skills/hyperframes-cli/
+.claude/skills/hyperframes-registry/
+.claude/skills/media-use/

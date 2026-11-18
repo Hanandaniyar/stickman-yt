@@ -121,6 +121,17 @@ def _check_scene_file(html: str, sid: str) -> list[str]:
 
 
 SFX_LIB = PROJECT_ROOT / "lib" / "sfx"
+# Efek suara Pixabay tidak disimpan di repo (lisensinya melarang distribusi file mentah); diambil dari paket npm hyperframes.
+SFX_NPM = PROJECT_ROOT / "node_modules" / "hyperframes" / "dist" / "skills" / "media-use" / "audio" / "assets" / "sfx"
+
+
+def sfx_path(name: str) -> Path | None:
+    for d in (SFX_LIB, SFX_NPM):
+        p = d / f"{name}.mp3"
+        if p.exists():
+            return p
+    return None
+
 EMOJI_LIB = PROJECT_ROOT / "lib" / "emoji"
 EMOJI_RE = re.compile(r"assets/emoji/([A-Za-z0-9_-]+)\.svg")
 BG_LIB = PROJECT_ROOT / "lib" / "backgrounds"
@@ -144,8 +155,8 @@ def _check_sfx(sc: dict) -> list[str]:
     errs = []
     for cue in sc.get("sfx") or []:
         name = str(cue.get("name", ""))
-        if not (SFX_LIB / f"{name}.mp3").exists():
-            errs.append(f"efek suara '{name}' tidak ada di lib/sfx")
+        if sfx_path(name) is None:
+            errs.append(f"efek suara '{name}' tidak ada di lib/sfx atau paket hyperframes (npm ci)")
         if "word" in cue:
             if str(cue["word"]).lower() not in _words(str(sc.get("text", ""))):
                 errs.append(f"efek suara '{name}': kata '{cue['word']}' tidak ada di teks adegan")

@@ -51,7 +51,7 @@ Dipakai jika perintah menyebut **TikTok**, produk, atau affiliate (biasanya data
 5b. **Asa** (QC) → `04-qc.md`. Jika `REVISI`: kirim cacatnya ke orang yang bersangkutan (Udan/Udun/Udon), perbaiki sekali, lalu Asa cek ulang. Jika masih REVISI, tetap kirim dan sebutkan cacatnya ke pemilik.
 6. **Kirim ke Telegram** dengan tool `reply` channel Telegram: teks diawali `🎵 TIKTOK · 👑 Handur:` lalu judul singkat, putusan Asa + bagian **Saat posting** dari `04-qc.md`, isi `03-caption.txt`, dan file `final.mp4`. Jangan kirim sebelum Asa memeriksa. Jika tidak ada channel Telegram, beri tahu pemilik path video dan caption.
 6b. **Upload draft ke TikTok**: `uv run sty tiktok-upload tiktok/<id>/final.mp4`, lalu cek `uv run sty tiktok-status <publish_id>` sampai `SEND_TO_USER_INBOX`. Kirim ke Telegram: `🎵 TIKTOK · 📥 Draft sudah di kotak masuk TikTok: buka TikTok → kotak masuk, pasang keranjang kuning, tempel caption, posting.` Jika gagal (misalnya belum login), sebutkan pesan gagalnya di Telegram; video tetap ada di Telegram.
-7. Commit sekali di akhir: file teks `tiktok/<id>/` saja (video dan aset tidak di-commit), **tanpa** baris `notify:`.
+7. Jangan commit apa pun dari `tiktok/`: folder itu sengaja tidak dilacak git (berisi materi penjual dan contoh kreator lain), semuanya tetap lokal di Mac.
 
 Label Telegram: pesan TikTok selalu diawali `🎵 TIKTOK`; pesan YouTube diawali `📺 YT` (otomatis lewat `sty notify`).
 Hanya upload sebagai **draft** (`sty tiktok-upload`), tidak pernah posting langsung: pemilik yang posting dan memasang keranjang kuning.

@@ -14,7 +14,7 @@ Tulis `episodes/<ep>/02-script.md` dari topik terpilih di `01-topics.md`.
 - **Hook** di ±40 kata pertama: pertanyaan, fakta mengejutkan, atau situasi sehari-hari. Tanpa "Hey guys, welcome back".
 - Alur jelas: masalah → kenapa terjadi → cara kerjanya → apa artinya untuk penonton → kesimpulan singkat.
 - Analogi sehari-hari. Kalimat pendek, mudah diucapkan TTS.
-- Nada: santai, cerdas, sedikit lucu. **Narator netral**: tidak ada cerita pribadi pemilik, tidak ada urusan pribadi pemilik.
+- Nada: santai, cerdas, sedikit lucu. **Narator netral**: tidak ada cerita atau urusan pribadi pemilik.
 - Setiap klaim fakta ditandai `[S1]`, `[S2]`, … dan daftar **Sources** dengan URL di akhir file.
 - Tidak boleh memberi saran investasi personal. Boleh menjelaskan konsep dan risiko.
 - Tulis angka apa adanya (`$1,500`, `7%`); sistem suara menormalisasinya.

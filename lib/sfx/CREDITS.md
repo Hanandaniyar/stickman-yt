@@ -1,6 +1,6 @@
 # Efek suara dan musik
 
-File Pixabay (bawaan skill media-use): chime, click, click-soft, error, glitch-1..3, impact-bass-1..2, key-press, notification, ping, pop, riser, sparkle, typing, whoosh, whoosh-short, whoosh-cinematic. Lisensi Pixabay Content License (bebas komersial, tanpa atribusi).
+File Pixabay (bawaan skill media-use): chime, click, click-soft, error, glitch-1..3, impact-bass-1..2, key-press, notification, ping, pop, riser, sparkle, typing, whoosh, whoosh-short, whoosh-cinematic. Lisensi Pixabay Content License (bebas komersial, tanpa atribusi). **Tidak disimpan di repo** (lisensi melarang distribusi file mentah): `sty` mengambilnya dari `node_modules/hyperframes/dist/skills/media-use/audio/assets/sfx` setelah `npm ci`.
 
 File CC0 dari Freesound (lewat Openverse), bebas dipakai tanpa atribusi:
 

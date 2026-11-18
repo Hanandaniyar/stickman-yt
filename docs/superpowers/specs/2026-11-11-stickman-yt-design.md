@@ -4,9 +4,7 @@ Tanggal: 2026-11-11 · Lokasi proyek: `~/Desktop/stickman-yt`
 
 ## 1. Maksud dan alasan
 
-Pemilik: pemilik channel
-Ia ingin penghasilan dari YouTube.
-
+Pemilik ingin penghasilan dari YouTube.
 
 Yang dibangun: tim agent pribadi di Claude Code yang memproduksi video YouTube
 **animasi stickman** berbahasa Inggris untuk **penonton Amerika**. Topiknya
@@ -14,7 +12,7 @@ ilmu pengetahuan, terutama **keuangan, teknologi, sains, dan fisika**.
 Animasinya **sederhana tapi khas** (gaya yang dikenali sebagai milik channel ini).
 
 **Narator netral (keputusan pemilik).** Stickman menjelaskan sebagai karakter.
-Video **tidak boleh** berisi cerita pribadi pemilik atau urusan pribadinya.
+Video **tidak boleh** berisi cerita atau urusan pribadi pemilik.
 Pembeda channel datang dari kualitas penjelasan dan gaya visual.
 
 **Strategi topik: utamakan CPM tinggi (keputusan pemilik).** Udin meriset

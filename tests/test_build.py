@@ -138,14 +138,14 @@ def test_sfx_placed_at_scene_offset(ep, monkeypatch):
     assert 'data-start="1.65"' in tag and 'data-duration="0.5"' in tag
     assert 'data-volume="0.35"' in tag
     assert (ep / "build" / "assets" / "sfx" / "coin.mp3").exists()
-    assert not (ep / "build" / "assets" / "sfx" / "pop.mp3").exists()  # only the sounds used are copied
+    assert not (ep / "build" / "assets" / "sfx" / "boing.mp3").exists()  # only the sounds used are copied
 
 
 def test_sfx_anchored_to_word_in_its_scene(ep, monkeypatch):
     from sty import build as b
 
     monkeypatch.setattr(b, "_media_duration", lambda p: 0.5)
-    _set_scene(ep, 1, text="Prices rise.", sfx=[{"name": "pop", "word": "prices", "volume": 0.6}])
+    _set_scene(ep, 1, text="Prices rise.", sfx=[{"name": "boing", "word": "prices", "volume": 0.6}])
     html = build_composition(ep).read_text()
     tag = re.search(r'<audio[^>]*id="sfx-0"[^>]*>', html).group(0)
     assert 'data-start="1.3"' in tag and 'data-volume="0.6"' in tag
@@ -155,7 +155,7 @@ def test_sfx_clipped_to_video_end(ep, monkeypatch):
     from sty import build as b
 
     monkeypatch.setattr(b, "_media_duration", lambda p: 5.0)
-    _set_scene(ep, 1, sfx=[{"name": "riser", "at": 2.0}])  # starts at 3.25, video ends at 4.0
+    _set_scene(ep, 1, sfx=[{"name": "drumroll", "at": 2.0}])  # starts at 3.25, video ends at 4.0
     html = build_composition(ep).read_text()
     assert 'data-duration="0.75"' in re.search(r'<audio[^>]*id="sfx-0"[^>]*>', html).group(0)
 
